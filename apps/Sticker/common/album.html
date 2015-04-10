@@ -13,26 +13,33 @@
 <link href="themes/jquery.mobile.icons.min.css" rel="stylesheet">
 <link href="jqueryMobile/jquery.mobile.structure-1.4.5.css"
 	rel="stylesheet">
-<script>window.$ = window.jQuery = WLJQ;</script>
+<script>
+	window.$ = window.jQuery = WLJQ;
+</script>
 <script src="js/jquery-1.11.2.min.js"></script>
 <script src="jqueryMobile/jquery.mobile-1.4.5.js"></script>
 </head>
 <body style="display: none;">
 	<div data-role="page" id="album" data-theme="a">
-		<div data-role="panel" id="myPanel" data-position="right" data-display="overlay">
-			<ul data-role="listview" id="listview"  data-icon="false" >
+		<div data-role="panel" id="myPanel" data-position="right"
+			data-display="overlay">
+			<ul data-role="listview" id="listview" data-icon="false">
 				<li id="listitem0"><a href="settings.html">Settings</a></li>
-				<li id="listitem1"><a data-rel="popup" href="#myPopup">About us</a></li>
+				<li id="listitem1"><a data-rel="popup" href="#myPopup4">About us</a></li>
 			</ul>
-			<div data-role="popup" id="myPopup" data-overlay-theme="b" class="ui-content">
-				<h3>Title</h3>
-				<div>Popup content</div>
-			</div>
 		</div>
-		<div data-role="header">
-			<h3>Sticker</h3>
-			<a href="#myPanel" class="ui-btn  ui-icon-bars ui-btn-right ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a>
+		<div data-role="popup" id="myPopup4" data-overlay-theme="b"
+			data-position-to="window" class="ui-content">
+			<h3>Titles</h3>
+			<div>Popup content</div>
 		</div>
+
+	</div>
+	<div data-role="header">
+		<h3>Sticker</h3>
+		<a href="#myPanel"
+			class="ui-btn  ui-icon-bars ui-btn-right ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a>
+	</div>
 	</div>
 
 	<script src="js/initOptions.js"></script>
