@@ -8,19 +8,23 @@
     			<link rel="shortcut icon" href="images/favicon.png">
     			<link rel="apple-touch-icon" href="images/apple-touch-icon.png"> 
     		-->
-    		<link href="jqueryMobile/jquery.mobile-1.4.5.css" rel="stylesheet">
-    		<link rel="stylesheet" href="css/main.css">
+    		<link href="themes/StickerTheme.min.css" rel="stylesheet">
+    		<link href="themes/jquery.mobile.icons.min.css" rel="stylesheet">    		
+    		<link href="jqueryMobile/jquery.mobile.structure-1.4.5.css" rel="stylesheet">
     		<script>window.$ = window.jQuery = WLJQ;</script>
+    		<script src="js/jquery-1.11.2.min.js"></script>
     		<script src="jqueryMobile/jquery.mobile-1.4.5.js"></script>
     	</head>
     	<body style="display: none;">
-    		<div data-role="page" id="page">
-    			<div data-role="content" style="padding: 15px">
-    				<!--application UI goes here-->
-    				Hello MobileFirst beba 
+    		<div data-role="page" id="page" data-theme="c">
+    			<div data-role="header">
+    			<h1>Page Header</h1>
+  				</div>
+    			<div data-role="main" class="ui-content">
     			</div>
     		</div>
-    		<script src="js/initOptions.js"></script>
+	
+	<script src="js/initOptions.js"></script>
     		<script src="js/main.js"></script>
     		<script src="js/messages.js"></script>
     	</body>
