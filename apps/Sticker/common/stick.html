@@ -21,25 +21,34 @@
 </head>
 <body style="display: none;">
 	<div data-role="page" id="stick" data-theme="a">
-		<div data-role="panel" id="myPanel" data-position="right"
+		<div data-role="panel" id="stickPanel" data-position="right"
 			data-display="overlay">
 			<ul data-role="listview" id="listview" data-icon="false">
-				<li id="listitem0"><a href="settings.html">Settings</a></li>
-				<li id="listitem1"><a data-rel="popup" href="#myPopup7">About
+				<li id="listitem1"><a data-rel="popup" href="#stickPopup1">About
 						us</a></li>
 			</ul>
 		</div>
-		<div data-role="popup" id="myPopup7" data-overlay-theme="b"
+		<div data-role="popup" id="stickPopup1" data-overlay-theme="b"
 			data-position-to="window" class="ui-content">
 			<h3>Titles</h3>
 			<div>Popup content</div>
 		</div>
+		<div data-role="popup" id="stickPopup2" data-overlay-theme="b"
+			data-position-to="window" class="ui-content">
+			<h3>Add a Picture to your Stick</h3>
+			<div data-type="vertical" class="ui-content">
+				<a href="#" class="ui-btn ui-content ui-shadow ui-btn-corner-all">Take a Picture</a>
+				<a href="#" class="ui-btn ui-content ui-shadow ui-btn-corner-all">Choose from Gallery</a>
+			</div>
+		</div>
 		<div data-role="header">
-			<a href="#" class="ui-btn ui-content ui-btn-inline ui-icon-check ui-btn-icon-left ui-btn-left ui-shadow ui-btn-corner-all">Stick</a>
+			<a href="#"
+				class="ui-btn ui-content ui-btn-inline ui-icon-check ui-btn-icon-left ui-btn-left ui-shadow ui-btn-corner-all">Stick</a>
 			<h3>Sticker</h3>
 			<div class="ui-btn-right" data-type="horizontal" class="ui-content">
-				<a href="#" class="ui-btn ui-content ui-icon-camera ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a>
-				<a href="#myPanel" class="ui-btn ui-content  ui-icon-bars ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a>
+				<a href="#stickPopup2" data-rel="popup" class="ui-btn ui-content ui-icon-camera ui-shadow ui-btn-icon-notext ui-btn-corner-all" ></a>
+				<a href="#stickPanel"
+					class="ui-btn ui-content  ui-icon-bars ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a>
 			</div>
 
 		</div>
