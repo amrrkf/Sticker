@@ -14,27 +14,57 @@
 <link href="jqueryMobile/jquery.mobile.structure-1.4.5.css"
 	rel="stylesheet">
 <link href="css/main.css" rel="stylesheet">
-<script>window.$ = window.jQuery = WLJQ;</script>
+<script>
+	window.$ = window.jQuery = WLJQ;
+</script>
 <script src="js/jquery-1.11.2.min.js"></script>
 <script src="jqueryMobile/jquery.mobile-1.4.5.js"></script>
 </head>
 <body style="display: none;">
 	<div data-role="page" id="home" data-theme="a">
-		<div data-role="panel" id="myPanel" data-position="right" data-display="overlay">
-			<ul data-role="listview" id="listview"  data-icon="false" >
-				<li id="listitem" ><a href="#">Select</a></li>
-				<li id="listitem0"><a href="settings.html">Settings</a></li>
-				<li id="listitem1"><a data-rel="popup" href="#myPopup2">About us</a></li>
+		<div data-role="panel" id="homePanel" data-position="right"
+			data-display="overlay">
+			<ul data-role="listview" id="homeListview" data-icon="false">
+				<li id="homeListitem"><a href="#">Select</a></li>
+				<li id="homeListitem0"><a href="album.html">Settings</a></li>
+				<li id="homeListitem1"><a data-rel="popup" href="#homePopup">About
+						us</a></li>
+				<li id="homeListitem2"><h3>Theme Color</h3>
+					<div class="container" data-role="content">
+						<div class="ui-grid-b">
+							<div class="ui-block-a">
+								<div class=" circle a"></div>
+							</div>
+							<div class="ui-block-b">
+								<div class=" circle b"></div>
+							</div>
+							<div class="ui-block-c">
+								<div class=" circle c"></div>
+							</div>
+							<br><br><br>
+							<div class="ui-block-a">
+								<div class=" circle d"></div>
+							</div>
+							<div class="ui-block-b">
+								<div class=" circle e"></div>
+							</div>
+							<div class="ui-block-c">
+								<div class=" circle f"></div>
+							</div>
+						</div>
+					</div></li>
 			</ul>
 		</div>
-		<div data-role="popup" id="myPopup2" data-overlay-theme="b" data-position-to="window" class="ui-content">
-				<h3>Titles</h3>
-				<div>Popup content</div>
+		<div data-role="popup" id="homePopup" data-overlay-theme="b"
+			data-position-to="window" class="ui-content">
+			<h3>Titles</h3>
+			<div>Popup content</div>
 		</div>
-		
+
 		<div data-role="header">
 			<h3>Sticker</h3>
-			<a href="#myPanel" class="ui-btn  ui-icon-bars ui-btn-right ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a>
+			<a href="#homePanel"
+				class="ui-btn  ui-icon-bars ui-content ui-btn-right ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a>
 		</div>
 	</div>
 
