@@ -62,10 +62,16 @@
 			<h3>Titles</h3>
 			<div>Popup content</div>
 		</div>
-
+		<div data-role="popup" id="homePopup1" data-overlay-theme="b"
+			data-position-to="origin" class="ui-content">
+			<div data-type="vertical">
+				<a href="stick.html" class="ui-btn ui-content ui-shadow ui-btn-corner-all">Stick</a> 
+				<a href="album.html" class="ui-btn ui-content ui-shadow ui-btn-corner-all">Album</a>
+			</div>
+		</div>
 		<div data-role="header">
-			<a href="stick.html"
-				class="ui-btn  ui-icon-plus ui-content ui-btn-left ui-btn-icon-left ui-shadow ui-btn-corner-all">Stick</a>
+			<a data-rel="popup" href="#homePopup1"
+				class="ui-btn  ui-icon-plus ui-content ui-btn-left ui-btn-icon-left ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a>
 			<h3>Sticker</h3>
 			<a href="#homePanel"
 				class="ui-btn  ui-icon-bars ui-content ui-btn-right ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a>
