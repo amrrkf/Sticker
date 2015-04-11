@@ -16,6 +16,7 @@
 	overflow:hidden;
 	transition:box-shadow 0.5s ease;
 	font-smoothing:subpixel-antialiased;
+	
 }
 
 .stickTime  p {
@@ -84,4 +85,9 @@
 	margin:2% auto 0 auto;
 	width:85%;
 	height:auto;   
+}
+
+.nav
+{
+	width:30%;
 }

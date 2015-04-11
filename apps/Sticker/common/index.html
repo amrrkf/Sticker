@@ -26,7 +26,6 @@
 			data-display="overlay">
 			<ul data-role="listview" id="homeListview" data-icon="false">
 				<li id="homeListitem"><a href="#">Select</a></li>
-				<li id="homeListitem0"><a href="album.html">Settings</a></li>
 				<li id="homeListitem1"><a data-rel="popup" href="#homePopup">About
 						us</a></li>
 				<li id="homeListitem2"><h3>Theme Color</h3>
@@ -76,7 +75,8 @@
 		</div>
 		<div id="stickList"></div>
 		<br />
-		<div class="stick ui-body ui-corner-all">
+		
+		<div data-role="main" class="stick ui-body ui-corner-all">
 			<div class="stickTitle">temp</div>
 			<div class="ui-grid-a">
 				<div class="ui-black-a stickTime" title="stickTime">time</div>
@@ -87,26 +87,19 @@
 			</div>
 			<p align="center" class="stickDsc">This is a sticky note you can
 				type and edit.</p>
-			<!-- <div class="ui-btn-right" data-type="horizontal" class="ui-content">
-				<a
-					class="  ui-btn ui-content  ui-icon-bars ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a>
-				<a
-					class="  ui-btn ui-content  ui-icon-bars ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a>
-				<a
-					class="  ui-btn ui-content  ui-icon-bars ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a>
-			</div> -->
 			
-			<div data-role="navbar" class="ui-content ui-btn-right" id="navbar">
+			 <div data-role="navbar" class="ui-content nav" id="navbar" >
 				<ul>
 					<li><a
-						class="  ui-btn ui-content  ui-icon-bars ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a></li>
+						class="ui-btn ui-content  ui-icon-action ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a></li>
+					<li><a href="editStick.html"
+						class="ui-btn ui-content  ui-icon-edit ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a></li>
 					<li><a
-						class="  ui-btn ui-content  ui-icon-bars ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a></li>
-					<li><a
-						class="  ui-btn ui-content  ui-icon-bars ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a></li>
+						class=" ui-btn ui-content  ui-icon-delete ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a></li>
 				</ul>
 			</div>
 			
+			 
 	
 		</div>
 	</div>
