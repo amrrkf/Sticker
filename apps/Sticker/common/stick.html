@@ -24,12 +24,36 @@
 	<div data-role="page" id="stick" data-theme="a">
 		<div data-role="panel" id="stickPanel" data-position="right"
 			data-display="overlay">
-			<ul data-role="listview" id="listview" data-icon="false">
-				<li id="listitem1"><a data-rel="popup" href="#stickPopup1">About
+			<ul data-role="listview" id="stickListview" data-icon="false">
+				<li id="stickListitem"><a data-rel="popup" href="#stickPopup">About
 						us</a></li>
+						<li id="stickListitem0"><h3>Theme Color</h3>
+					<div class="container" data-role="content">
+						<div class="ui-grid-b">
+							<div class="ui-block-a">
+								<div class=" circle a"></div>
+							</div>
+							<div class="ui-block-b">
+								<div class=" circle b"></div>
+							</div>
+							<div class="ui-block-c">
+								<div class=" circle c"></div>
+							</div>
+							<br><br><br>
+							<div class="ui-block-a">
+								<div class=" circle d"></div>
+							</div>
+							<div class="ui-block-b">
+								<div class=" circle e"></div>
+							</div>
+							<div class="ui-block-c">
+								<div class=" circle f"></div>
+							</div>
+						</div>
+					</div></li>
 			</ul>
 		</div>
-		<div data-role="popup" id="stickPopup1" data-overlay-theme="b"
+		<div data-role="popup" id="stickPopup" data-overlay-theme="b"
 			data-position-to="window" class="ui-content">
 			<h3>Titles</h3>
 			<div>Popup content</div>
