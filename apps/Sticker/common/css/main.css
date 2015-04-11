@@ -1,10 +1,9 @@
 .stick  { 
 	display: block;
 	padding:25px 25px 40px;
-	margin:0 auto 20px auto;
-	width:250px;
-	height:250px;   
-	font:20px 'Gloria Hallelujah', cursive; 
+	margin:5% auto 5% auto;
+	width: 80%;
+	height: auto;   
 	line-height:1.5;
 	border:0;
 	border-radius:3px;
@@ -17,19 +16,33 @@
 	overflow:hidden;
 	transition:box-shadow 0.5s ease;
 	font-smoothing:subpixel-antialiased;
-	max-width:520px;
-	max-height:250px;
 }
 
-.stick-img {
+.stickTime  p {
+	margin : 0;
+	font: 5px;
+	width: 50%;
+	height: auto;
+}
+
+.stickLoc p {
+	margin : 0;
+	font: 5px;
+	width: 50%;
+	height: auto;
+}
+.stickDsc {
+		font:20px 'Gloria Hallelujah', cursive; 
+}
+.stickImg {
 	margin-left: auto;
     margin-right: auto;
 }
-.stick-title {
-	
-  ALIGN-CONTENT: center;
+.stickTitle {
 	font:30px 'Gloria Hallelujah', cursive;
+	
 }
+
 
 .stick:hover { box-shadow:0 5px 8px rgba(0,0,0,0.15); }
 .stick:focus { box-shadow:0 5px 12px rgba(0,0,0,0.2); outline:none; }
