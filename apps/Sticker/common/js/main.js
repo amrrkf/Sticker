@@ -1,4 +1,6 @@
 function wlCommonInit(){
+	
+	
 	/*
 	 * Use of WL.Client.connect() API before any connectivity to a MobileFirst Server is required. 
 	 * This API should be called only once, before any other WL.Client methods that communicate with the MobileFirst Server.
@@ -14,3 +16,11 @@ function wlCommonInit(){
 	// Common initialization code goes here
 	
 }
+
+$("#stickDone").click(function(){
+	
+	$("#stickForm").submit();
+});
+$("#stickForm").submit(function(){
+	
+});
