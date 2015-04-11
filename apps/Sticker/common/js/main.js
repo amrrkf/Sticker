@@ -16,11 +16,3 @@ function wlCommonInit(){
 	// Common initialization code goes here
 	
 }
-
-$("#stickDone").click(function(){
-	
-	$("#stickForm").submit();
-});
-$("#stickForm").submit(function(){
-	alert("Done!!");
-});
