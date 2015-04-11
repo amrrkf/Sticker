@@ -21,22 +21,45 @@
 </head>
 <body style="display: none;">
 	<div data-role="page" id="editAlbum" data-theme="a">
-		<div data-role="panel" id="myPanel" data-position="right"
+		<div data-role="panel" id="editAlbumPanel" data-position="right"
 			data-display="overlay">
-			<ul data-role="listview" id="listview" data-icon="false">
-				<li id="listitem0"><a href="settings.html">Settings</a></li>
-				<li id="listitem1"><a data-rel="popup" href="#myPopup5">About
-						us</a></li>
+			<ul data-role="listview" id="editAlbumlistview" data-icon="false">
+				<li id="editAlbumlistitem"><a data-rel="popup"
+					href="#editAlbumPopup">About us</a></li>
+				<li id="editAlbumListitem0"><h3>Theme Color</h3>
+					<div class="container" data-role="content">
+						<div class="ui-grid-b">
+							<div class="ui-block-a">
+								<div class=" circle a"></div>
+							</div>
+							<div class="ui-block-b">
+								<div class=" circle b"></div>
+							</div>
+							<div class="ui-block-c">
+								<div class=" circle c"></div>
+							</div>
+							<br> <br> <br>
+							<div class="ui-block-a">
+								<div class=" circle d"></div>
+							</div>
+							<div class="ui-block-b">
+								<div class=" circle e"></div>
+							</div>
+							<div class="ui-block-c">
+								<div class=" circle f"></div>
+							</div>
+						</div>
+					</div></li>
 			</ul>
 		</div>
-		<div data-role="popup" id="myPopup5" data-overlay-theme="b"
+		<div data-role="popup" id="editAlbumPopup" data-overlay-theme="b"
 			data-position-to="window" class="ui-content">
 			<h3>Titles</h3>
 			<div>Popup content</div>
 		</div>
 		<div data-role="header">
 			<h3>Sticker</h3>
-			<a href="#myPanel"
+			<a href="#editAlbumPanel"
 				class="ui-btn ui-content ui-icon-bars ui-btn-right ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a>
 		</div>
 
