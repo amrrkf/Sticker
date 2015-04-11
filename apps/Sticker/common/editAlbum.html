@@ -9,6 +9,7 @@
     			<link rel="shortcut icon" href="images/favicon.png">
     			<link rel="apple-touch-icon" href="images/apple-touch-icon.png"> 
     		-->
+<link href="css/main.css" rel="stylesheet">    		
 <link href="themes/StickerTheme.min.css" rel="stylesheet">
 <link href="themes/jquery.mobile.icons.min.css" rel="stylesheet">
 <link href="jqueryMobile/jquery.mobile.structure-1.4.5.css"
@@ -23,10 +24,10 @@
 	<div data-role="page" id="editAlbum" data-theme="a">
 		<div data-role="panel" id="editAlbumPanel" data-position="right"
 			data-display="overlay">
-			<ul data-role="listview" id="editAlbumlistview" data-icon="false">
-				<li id="editAlbumlistitem"><a data-rel="popup"
-					href="#editAlbumPopup">About us</a></li>
-				<li id="editAlbumListitem0"><h3>Theme Color</h3>
+			<ul data-role="listview" id="editAlbumListview" data-icon="false">
+				<li id="editAlbumListitem"><a data-rel="popup" href="#editAlbumPopup">About
+						us</a></li>
+						<li id="editAlbumListitem0"><h3>Theme Color</h3>
 					<div class="container" data-role="content">
 						<div class="ui-grid-b">
 							<div class="ui-block-a">
@@ -38,7 +39,7 @@
 							<div class="ui-block-c">
 								<div class=" circle c"></div>
 							</div>
-							<br> <br> <br>
+							<br><br><br>
 							<div class="ui-block-a">
 								<div class=" circle d"></div>
 							</div>
@@ -58,13 +59,29 @@
 			<div>Popup content</div>
 		</div>
 		<div data-role="header">
+			<a href="#" id="editAlbumSubmit"
+				class="ui-btn ui-content ui-btn-inline ui-icon-check ui-btn-icon-left ui-btn-left ui-shadow ui-btn-corner-all">Done</a>
 			<h3>Sticker</h3>
-			<a href="#editAlbumPanel"
-				class="ui-btn ui-content ui-icon-bars ui-btn-right ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a>
+			<div class="ui-btn-right" data-type="horizontal" class="ui-content">
+				<a href="#editAlbumPanel"
+					class="ui-btn ui-content  ui-icon-bars ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a>
+			</div>
+		</div>
+		<div data-role="main" class="ui-content ui-body ui-body-a ui-corner-all addStick">
+			<form method="post" action="index.html">
+				<div class="ui-field-contain">
+					<input type="text" name="editAlbumName" id="editAlbumName" placeholder="Album Title"required maxlength="80"> 
+					<br><textarea name="editAlbumNotes" id="editAlbumNotes" placeholder="Notes" required></textarea>
+				</div>
+				<div id="addedStickList">
+				<!-- 
+				add the list of existing sticks
+				 -->
+				</div>
+			</form>
 		</div>
 
 	</div>
-
 
 	<script src="js/initOptions.js"></script>
 	<script src="js/main.js"></script>
