@@ -1,6 +1,5 @@
 $(function(){
 	$("#stickDone").click(function(){
-
 		$("#stickForm").submit();
 	});
 	
