@@ -16,3 +16,44 @@ function wlCommonInit(){
 	// Common initialization code goes here
 	
 }
+
+$(function(){
+	$(".a").click(function(){
+
+		alert("A!!");
+		
+	});
+	
+	$(".b").click(function(){
+
+		alert("B!!");
+		
+	});
+
+	$(".c").click(function(){
+
+		alert("C!!");
+		
+	});
+
+	$(".d").click(function(){
+
+		alert("D!!");
+		
+	});
+
+	$(".e").click(function(){
+
+		alert("E!!");
+		
+	});
+
+	$(".f").click(function(){
+
+		alert("F!!");
+		
+	});
+
+	
+
+	});

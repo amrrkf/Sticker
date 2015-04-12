@@ -1,0 +1,77 @@
+	<div data-role="page" id="stick" data-theme="a">
+		<div data-role="panel" id="stickPanel" data-position="right"
+			data-display="overlay">
+			<ul data-role="listview" id="stickListview" data-icon="false">
+				<li id="stickListitem"><a data-rel="popup" href="#stickPopup">About
+						us</a></li>
+						<li id="stickListitem0"><h3>Theme Color</h3>
+					<div class="container" data-role="content">
+						<div class="ui-grid-b">
+							<div class="ui-block-a">
+								<div class=" circle a"></div>
+							</div>
+							<div class="ui-block-b">
+								<div class=" circle b"></div>
+							</div>
+							<div class="ui-block-c">
+								<div class=" circle c"></div>
+							</div>
+							<br><br><br>
+							<div class="ui-block-a">
+								<div class=" circle d"></div>
+							</div>
+							<div class="ui-block-b">
+								<div class=" circle e"></div>
+							</div>
+							<div class="ui-block-c">
+								<div class=" circle f"></div>
+							</div>
+						</div>
+					</div></li>
+			</ul>
+		</div>
+		<div data-role="popup" id="stickPopup" data-overlay-theme="b"
+			data-position-to="window" class="ui-content">
+			<h3>Titles</h3>
+			<div>Popup content</div>
+		</div>
+		<div data-role="popup" id="stickPopup2" data-overlay-theme="b"
+			data-position-to="window" class="ui-content">
+			<h3>Add a Picture to your Stick</h3>
+			<div data-type="vertical" class="ui-content">
+				<a href="#" class="ui-btn ui-content ui-shadow ui-btn-corner-all">Take
+					a Picture</a> <a href="#"
+					class="ui-btn ui-content ui-shadow ui-btn-corner-all">Choose
+					from Gallery</a>
+			</div>
+		</div>
+		<div data-role="header">
+			<a href="#" id="stickDone" 
+				class="ui-btn ui-content ui-btn-inline ui-icon-check ui-btn-icon-left ui-btn-left ui-shadow ui-btn-corner-all">Stick</a>
+			<h3>Sticker</h3>
+			<div class="ui-btn-right" data-type="horizontal" class="ui-content">
+				<a href="#stickPopup2" data-rel="popup" 
+					class="ui-btn ui-content ui-icon-camera ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a>
+				<a href="#stickPanel"
+					class="ui-btn ui-content  ui-icon-bars ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a>
+			</div>
+		</div>
+
+		<div data-role="main" class="ui-content ui-body ui-body-a ui-corner-all addStick">
+			<form id="stickForm" method="post" action="index.html">
+				<div class="ui-field-contain">
+					<input type="text" name="stickName" id="stickName" placeholder="Stick Name"required maxlength="80"> 
+					<br><div align="center"><img id ="stickImage" src="images/icon.png"></img></div>
+					<br><textarea name="stickStatus" id="stickStatus" placeholder="Status"required></textarea>
+					<br><label id="stickLocation">Location:</label>
+					<label id="stickTime">Time:</label>
+				</div>
+			</form>
+
+		</div>
+		
+		<script src="js/stick.js"></script>
+	<script src="js/initOptions.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/messages.js"></script>
+	</div>

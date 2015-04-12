@@ -1,0 +1,63 @@
+	<div data-role="page" id="editAlbum" data-theme="a">
+		<div data-role="panel" id="editAlbumPanel" data-position="right"
+			data-display="overlay">
+			<ul data-role="listview" id="editAlbumListview" data-icon="false">
+				<li id="editAlbumListitem"><a data-rel="popup" href="#editAlbumPopup">About
+						us</a></li>
+						<li id="editAlbumListitem0"><h3>Theme Color</h3>
+					<div class="container" data-role="content">
+						<div class="ui-grid-b">
+							<div class="ui-block-a">
+								<div class=" circle a"></div>
+							</div>
+							<div class="ui-block-b">
+								<div class=" circle b"></div>
+							</div>
+							<div class="ui-block-c">
+								<div class=" circle c"></div>
+							</div>
+							<br><br><br>
+							<div class="ui-block-a">
+								<div class=" circle d"></div>
+							</div>
+							<div class="ui-block-b">
+								<div class=" circle e"></div>
+							</div>
+							<div class="ui-block-c">
+								<div class=" circle f"></div>
+							</div>
+						</div>
+					</div></li>
+			</ul>
+		</div>
+		<div data-role="popup" id="editAlbumPopup" data-overlay-theme="b"
+			data-position-to="window" class="ui-content">
+			<h3>Titles</h3>
+			<div>Popup content</div>
+		</div>
+		<div data-role="header">
+			<a href="#" id="editAlbumSubmit"
+				class="ui-btn ui-content ui-btn-inline ui-icon-check ui-btn-icon-left ui-btn-left ui-shadow ui-btn-corner-all">Done</a>
+			<h3>Sticker</h3>
+		<a href="#editAlbumPanel"
+				class="ui-btn  ui-icon-bars ui-content ui-btn-right ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a>
+		</div>
+		<div data-role="main" class="ui-content ui-body ui-body-a ui-corner-all addStick">
+			<form method="post" id="editAlbumForm" action="index.html">
+				<div class="ui-field-contain">
+					<input type="text" name="editAlbumName" id="editAlbumName" placeholder="Album Title"required maxlength="80"> 
+					<br><textarea name="editAlbumNotes" id="editAlbumNotes" placeholder="Notes" required></textarea>
+				</div>
+				<div id="addedStickList">
+				<!-- 
+				add the list of existing sticks
+				 -->
+				</div>
+			</form>
+		</div>
+	<script src="js/editAlbum.js"></script>
+	<script src="js/initOptions.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/messages.js"></script>
+		
+	</div>

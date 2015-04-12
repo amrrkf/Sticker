@@ -1,7 +1,11 @@
-$("#saveStick").click(function(){
+$(function(){
+	$("#saveStick").click(function(){
+
+		$("#editStickForm").submit();
+	});
 	
-	$("#editStickForm").submit();
-});
-$("#editStickForm").submit(function(){
-	alert("Done!!");
-});
+	$("#editStickForm").submit(function(){
+		alert("edit Stick!!");
+	});
+
+	});

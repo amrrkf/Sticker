@@ -1,7 +1,11 @@
-$("#stickDone").click(function(){
+$(function(){
+	$("#stickDone").click(function(){
+
+		$("#stickForm").submit();
+	});
 	
-	$("#stickForm").submit();
-});
-$("#stickForm").submit(function(){
-	alert("Done!!");
-});
+	$("#stickForm").submit(function(){
+		alert("Stick!!");
+	});
+
+	});

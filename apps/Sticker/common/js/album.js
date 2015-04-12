@@ -1,7 +1,12 @@
-$("#albumSubmit").click(function(){
+$(function(){
+	$("#albumSubmit").click(function(){
+
+		$("#albumForm").submit();
+	});
 	
-	$("#albumForm").submit();
-});
-$("#albumForm").submit(function(){
-	alert("Done!!");
-});
+	$("#albumForm").submit(function(){
+		alert("Album!!");
+
+	});
+
+	});
