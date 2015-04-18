@@ -17,7 +17,6 @@ function intialize() {
 
 
 $(function() {
-	
 	intialize();
 	
 	$('#stickAlbumSelect').change(function() {
@@ -36,7 +35,9 @@ $(function() {
 		$("#homePopup2").popup("close");
 	});
 	$('#delYes').click(function() {
+		$("#homePopup2").popup("close");
 		alert("Deleted");
+		intialize();
 	});
 
 });
