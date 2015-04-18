@@ -1,4 +1,6 @@
+
 $(function(){
+	
 	$("#stickDone").click(function(){
 		$("#stickForm").submit();
 	});
@@ -6,5 +8,4 @@ $(function(){
 	$("#stickForm").submit(function(){
 		alert("Stick!!");
 	});
-
 	});

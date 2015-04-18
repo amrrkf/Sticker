@@ -68,41 +68,86 @@
 					class="ui-btn ui-content ui-shadow ui-btn-corner-all">Album</a>
 			</div>
 		</div>
+		<div data-role="popup" id="homePopup2" data-overlay-theme="b"
+			data-position-to="window" class="ui-content" data-history="false">
+			<div data-type="vertical">
+				<h4 align="center">Are you sure?!</h4>
+				<div data-type="horizontal" align="center">
+					<a href="index.html" id="delYes"
+						class="ui-btn ui-content ui-shadow ui-btn-corner-all ui-btn-inline">Yes</a>
+					<a href="#" id="delNo"
+						class="ui-btn ui-content ui-shadow ui-btn-corner-all ui-btn-inline">No</a>
+				</div>
+			</div>
+		</div>
 		<div data-role="header">
 			<a data-rel="popup" href="#homePopup1"
 				class="ui-btn  ui-icon-plus ui-content ui-btn-left ui-btn-icon-left ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a>
-			<div align="center" ><img alt="logo" align="top" src="images/logo.png"></img></div>
-			<a href="#homePanel" 
-				class="ui-btn  ui-icon-bars ui-content ui-btn-right ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a>
+			<div align="center">
+				<img alt="logo" align="top" src="images/logo.png"></img>
+			</div>
+			<div class="ui-btn-right" data-type="horizontal">
+				<a id="deleteSelect"
+					class="ui-btn ui-content ui-icon-delete ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a>
+				<a href="#homePanel"
+					class="ui-btn ui-content  ui-icon-bars ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a>
+			</div>
+
 		</div>
-		<div data-role="main">
-			<div id="stickList"></div>
-			<br />
+		<div data-role="main" class="ui-content">
+			<select name="stickAlbumSelect" id="stickAlbumSelect"
+				data-native-menu="false" data-inline="true" data-overlay-theme="b">
+				<option value="sti">Sticks</option>
+				<option value="alb">Albums</option>
+			</select>
+			<div id="stickList">
+				<div class="stick ui-body ui-corner-all">
+					<div id="checkBoxStick" class="right-checkbox">
+						<input type="checkbox" name="checkbox-h-2a" id="checkbox-h-2a">
+					</div>
+					<div class="stickTitle">Stick</div>
+					<div class="ui-grid-a">
+						<div class="ui-black-a stickTime" title="stickTime">time</div>
+						<div class="ui-block-b stickLoc" title="stickLoc">location</div>
+					</div>
+					<div align="center">	
+						<img class="stickImg" src="images/icon.png"></img>
+					</div>
+					<p align="center" class="stickDsc">This is a sticky note you
+						can type and edit.</p>
 
-			<div data-role="main" class="stick ui-body ui-corner-all">
-				<div class="stickTitle">temp</div>
-				<div class="ui-grid-a">
-					<div class="ui-black-a stickTime" title="stickTime">time</div>
-					<div class="ui-block-b stickLoc" title="stickLoc">location</div>
+					<div data-role="navbar" class="ui-content nav" id="navbar">
+						<ul>
+							<li><a
+								class="ui-btn ui-content  ui-icon-action ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a></li>
+							<li><a href="editStick.html"
+								class="ui-btn ui-content  ui-icon-edit ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a></li>
+							<li><a
+								class=" ui-btn ui-content  ui-icon-delete ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a></li>
+						</ul>
+					</div>
 				</div>
-				<div align="center">
-					<img class="stickImg" src="images/icon.png"></img>
+			</div>
+			<div id="albumList">
+				<div class="album ui-body ui-corner-all">
+					<div id="checkBoxAlbum" class="right-checkbox">
+						<input type="checkbox" name="checkbox-h-2a" id="checkbox-h-2a">
+					</div>
+					<div class="stickTitle">Album</div>
+					<p align="left" class="stickDsc">This is a sticky note you can
+						type and edit.</p>
+
+					<div data-role="navbar" class="ui-content nav" id="navbar1">
+						<ul>
+							<li><a
+								class="ui-btn ui-content  ui-icon-action ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a></li>
+							<li><a href="editAlbum.html"
+								class="ui-btn ui-content  ui-icon-edit ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a></li>
+							<li><a
+								class=" ui-btn ui-content  ui-icon-delete ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a></li>
+						</ul>
+					</div>
 				</div>
-				<p align="center" class="stickDsc">This is a sticky note you can
-					type and edit.</p>
-
-				<div data-role="navbar" class="ui-content nav" id="navbar">
-					<ul>
-						<li><a
-							class="ui-btn ui-content  ui-icon-action ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a></li>
-						<li><a href="editStick.html"
-							class="ui-btn ui-content  ui-icon-edit ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a></li>
-						<li><a
-							class=" ui-btn ui-content  ui-icon-delete ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a></li>
-					</ul>
-				</div>
-
-
 			</div>
 		</div>
 		<script src="js/index.js"></script>
@@ -110,7 +155,5 @@
 		<script src="js/main.js"></script>
 		<script src="js/messages.js"></script>
 	</div>
-
-
 </body>
 </html>
