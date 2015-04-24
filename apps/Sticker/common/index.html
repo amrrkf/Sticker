@@ -21,134 +21,42 @@
 <script src="jqueryMobile/jquery.mobile-1.4.5.js"></script>
 </head>
 <body style="display: none;">
-	<div data-role="page" id="home" data-theme="a">
-		<div data-role="panel" id="homePanel" data-position="right"
-			data-display="overlay">
-			<ul data-role="listview" id="homeListview" data-icon="false">
-				<li id="homeListitem"><a href="#">Select</a></li>
-				<li id="homeListitem1"><a data-rel="popup" href="#homePopup">About
-						us</a></li>
-				<li id="homeListitem2"><h3>Theme Color</h3>
-					<div class="container" data-role="content">
-						<div class="ui-grid-b">
-							<div class="ui-block-a">
-								<div class=" circle a"></div>
-							</div>
-							<div class="ui-block-b">
-								<div class=" circle b"></div>
-							</div>
-							<div class="ui-block-c">
-								<div class=" circle c"></div>
-							</div>
-							<br> <br> <br>
-							<div class="ui-block-a">
-								<div class=" circle d"></div>
-							</div>
-							<div class="ui-block-b">
-								<div class=" circle e"></div>
-							</div>
-							<div class="ui-block-c">
-								<div class=" circle f"></div>
-							</div>
-						</div>
-					</div></li>
-			</ul>
-		</div>
-		<div data-role="popup" id="homePopup" data-overlay-theme="b"
-			data-position-to="window" class="ui-content" data-history="false">
-			<h3>Titles</h3>
-			<div>Popup content</div>
-		</div>
-		<div data-role="popup" id="homePopup1" data-overlay-theme="b"
-			data-position-to="origin" class="ui-content" data-history="false">
-			<div data-type="vertical">
-				<a href="stick.html" id="addStick"
-					class="ui-btn ui-content ui-shadow ui-btn-corner-all">Stick</a> <a
-					href="album.html" id="addAlbum"
-					class="ui-btn ui-content ui-shadow ui-btn-corner-all">Album</a>
-			</div>
-		</div>
-		<div data-role="popup" id="homePopup2" data-overlay-theme="b"
-			data-position-to="window" class="ui-content" data-history="false">
-			<div data-type="vertical">
-				<h4 align="center">Are you sure?!</h4>
-				<div data-type="horizontal" align="center">
-					<a href="index.html" id="delYes"
-						class="ui-btn ui-content ui-shadow ui-btn-corner-all ui-btn-inline">Yes</a>
-					<a href="#" id="delNo"
-						class="ui-btn ui-content ui-shadow ui-btn-corner-all ui-btn-inline">No</a>
+	<div data-role="page" id="index" data-theme="a">
+		<div data-role="popup" id="forgetPasswordPopup" data-overlay-theme="b"
+			data-position-to="window" class="ui-content">
+			<h3>Enter your e-mail</h3>
+			<div data-type="vertical" class="ui-content">
+				<input type="text" name="retriveEmailIndex" id="retriveEmailIndex"
+					placeholder="E-mail" required maxlength="80">
+				<div align="center">
+					<a href="index.html"
+						class="ui-btn ui-content ui-icon-check ui-btn-icon-right ui-shadow ui-btn-corner-all">Submit</a>
 				</div>
 			</div>
 		</div>
 		<div data-role="header">
-			<a data-rel="popup" href="#homePopup1"
-				class="ui-btn  ui-icon-plus ui-content ui-btn-left ui-btn-icon-left ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a>
 			<div align="center">
 				<img alt="logo" align="top" src="images/logo.png"></img>
 			</div>
-			<div class="ui-btn-right" data-type="horizontal">
-				<a id="deleteSelect"
-					class="ui-btn ui-content ui-icon-delete ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a>
-				<a href="#homePanel"
-					class="ui-btn ui-content  ui-icon-bars ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a>
-			</div>
-
 		</div>
-		<div data-role="main" class="ui-content">
-			<select name="stickAlbumSelect" id="stickAlbumSelect"
-				data-native-menu="false" data-inline="true" data-overlay-theme="b">
-				<option value="sti">Sticks</option>
-				<option value="alb">Albums</option>
-			</select>
-			<div id="stickList">
-				<div class="stick ui-body ui-corner-all">
-					<div id="checkBoxStick" class="right-checkbox">
-						<input type="checkbox" name="checkbox-h-2a" id="checkbox-h-2a">
-					</div>
-					<div class="stickTitle">Stick</div>
-					<div class="ui-grid-a">
-						<div class="ui-black-a stickTime" title="stickTime">time</div>
-						<div class="ui-block-b stickLoc" title="stickLoc">location</div>
-					</div>
-					<div align="center">	
-						<img class="stickImg" src="images/icon.png"></img>
-					</div>
-					<p align="center" class="stickDsc">This is a sticky note you
-						can type and edit.</p>
-
-					<div data-role="navbar" class="ui-content nav" id="navbar">
-						<ul>
-							<li><a
-								class="ui-btn ui-content  ui-icon-action ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a></li>
-							<li><a href="editStick.html"
-								class="ui-btn ui-content  ui-icon-edit ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a></li>
-							<li><a
-								class=" ui-btn ui-content  ui-icon-delete ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a></li>
-						</ul>
+		<div data-role="main"
+			class="ui-content ui-body ui-body-a ui-corner-all addStick">
+			<form id="homeForm" method="post" action="js/index.js">
+				<div class="ui-field-contain">
+					<input type="email" name="emailIndex" id="emailIndex"
+						placeholder="E-mail" required maxlength="80"> <br> <input
+						type="password" name="passwordIndex" id="passwordIndex"
+						placeholder="Password" required maxlength="80">
+					<div align="center" data-type="horizontal" class="ui-content">
+						<a href="home.html" id="homeLogin"
+							class="ui-btn ui-btn-inline ui-content ui-icon-user ui-btn-icon-left ui-shadow  ui-btn-corner-all">Login</a>
+						<a href="signup.html"
+							class="ui-btn ui-btn-inline ui-content ui-icon-edit ui-btn-icon-left ui-shadow ui-btn-corner-all">Sign
+							up</a> <br> <a data-rel="popup" href="#forgetPasswordPopup">Forgot
+							your password?</a>
 					</div>
 				</div>
-			</div>
-			<div id="albumList">
-				<div class="album ui-body ui-corner-all">
-					<div id="checkBoxAlbum" class="right-checkbox">
-						<input type="checkbox" name="checkbox-h-2a" id="checkbox-h-2a">
-					</div>
-					<div class="stickTitle">Album</div>
-					<p align="left" class="stickDsc">This is a sticky note you can
-						type and edit.</p>
-
-					<div data-role="navbar" class="ui-content nav" id="navbar1">
-						<ul>
-							<li><a
-								class="ui-btn ui-content  ui-icon-action ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a></li>
-							<li><a href="editAlbum.html"
-								class="ui-btn ui-content  ui-icon-edit ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a></li>
-							<li><a
-								class=" ui-btn ui-content  ui-icon-delete ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
+			</form>
 		</div>
 		<script src="js/index.js"></script>
 		<script src="js/initOptions.js"></script>

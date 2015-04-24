@@ -1,0 +1,29 @@
+
+<div data-role="page" id="signup" data-theme="a">
+	<div data-role="header">
+		<div align="center">
+			<img alt="logo" align="top" src="images/logo.png"></img>
+		</div>
+	</div>
+	<div data-role="main"
+		class="ui-content ui-body ui-body-a ui-corner-all addStick">
+		<form id="signupForm" method="post" action="js/signup.js">
+			<div class="ui-field-contain">
+				<input type="email" name="emailSignup" id="emailSignup"
+					placeholder="E-mail" required maxlength="80"> <br> <input
+					type="password" name="passwordSignup" id="passwordSignup"
+					placeholder="Password" required maxlength="80"> <br> <input
+					type="password" name="confirmPasswordSignup" id="confirmPasswordSignup"
+					placeholder="Confirm Password" required maxlength="80">
+				<div align="center" data-type="horizontal" class="ui-content">
+					<a href="home.html" id="confirmSignup"
+						class="ui-btn ui-btn-inline ui-content ui-icon-edit ui-btn-icon-left ui-shadow ui-btn-corner-all">Submit</a>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script src="js/signup.js"></script>
+	<script src="js/initOptions.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/messages.js"></script>
+</div>
