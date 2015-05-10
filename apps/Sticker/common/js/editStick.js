@@ -1,5 +1,5 @@
 function intialize() {
-	
+	$("#imgEditStickDelete").hide();
 }
 
 
@@ -7,21 +7,10 @@ function loadStick() {
 	//add a stick to the user sticks
 }
 
-function capturePhoto() {
-	//capture a photo from the camera
-}
-
-function getPhoto(source) {
-	//load photo from phone gallery
-}
-
 function saveStick() {
 	//save the edits in the stick
 }
 
-function removePhoto() {
-	//remove the loaded photo from the form
-}
 
 $(function(){
 	
@@ -35,6 +24,23 @@ $(function(){
 	
 	$("#editStickForm").submit(function(){
 		alert("edit Stick!!");
+	});
+	$("#takeEditStickPic").click(function(){
+		$("#editStickPopup2").popup("close");
+		capturePhoto();
+		$("#imgEditStickDelete").show();
+
+	});
+	$("#editPicGallery").click(function(){
+		$("#editStickPopup2").popup("close");
+		getPhoto(pictureSource.SAVEDPHOTOALBUM);
+		$("#imgEditStickDelete").show();
+	});
+
+	//remove the loaded photo from the form
+	$("#imgEditStickDelete").click(function(){
+		$(".common-stick-image").attr("src","/");
+		$("#imgEditStickDelete").hide();
 	});
 
 	});
