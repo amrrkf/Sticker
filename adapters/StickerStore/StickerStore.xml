@@ -38,7 +38,6 @@
 	<procedure name="updateUser"/>
 	<procedure name="updateStick"/>
 	<procedure name="updateAlbum"/>
-	<procedure name="updateUSA"/>
 	<procedure name="deleteStick"/>
 	<procedure name="deleteAlbum"/>
 	<procedure name="forgotPassword"/>

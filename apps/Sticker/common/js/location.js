@@ -53,7 +53,11 @@ function locationName(latitude, longitude)
 
 // Wait for Cordova to load
 //
+<<<<<<< HEAD
     
+=======
+   
+>>>>>>> d428b9f2a53d13a8f3a5d13d46de53cf66a22751
 
 // Cordova is ready
 //
