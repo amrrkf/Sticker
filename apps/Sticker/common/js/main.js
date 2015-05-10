@@ -18,10 +18,13 @@ function wlCommonInit(){
 }
 
 $(function(){
+	 
+	$(".pageTheme").attr("class","pageTheme ui-page ui-page-theme-"+$(".pageTheme").attr("data-theme")+" ui-page-active");
+
 	$(".a").click(function(){
 
 		$(".pageTheme").attr("data-theme","a");
-		$(".pageTheme").attr("class","pageTheme ui-page ui-page-theme-a ui-page-active");			
+		$(".pageTheme").attr("class","pageTheme ui-page ui-page-theme-a ui-page-active");
 	});
 	
 	$(".b").click(function(){
