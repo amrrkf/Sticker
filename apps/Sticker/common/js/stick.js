@@ -13,9 +13,7 @@ function getTime() {
 	//get the current time
 	var dt = new Date($.now());
 	var add= dt.toString();
-	var value=add.split(" ");
-    count=value.length;
-    var endTime= value[count-7]+','+value[count-6]+'/'+value[count-5]+'/'+value[count-4]+'   '+value[count-3];
+	var endTime=add.substr(0,24);
     $('#stickTime').text('Time: '+ endTime);
 }
 

@@ -19,18 +19,19 @@ function wlCommonInit(){
 
 $(function(){
 	 
-	$(".pageTheme").attr("class","pageTheme ui-page ui-page-theme-"+$(".pageTheme").attr("data-theme")+" ui-page-active");
-
+//	$(".pageTheme").attr("class","pageTheme ui-page ui-page-theme-"+$(".pageTheme").attr("data-theme")+" ui-page-active");
+	$(".pageTheme").removeClass("ui-page-theme-a").addClass("ui-page-theme-"+$(".pageTheme").attr("data-theme"));
 	$(".a").click(function(){
 
+		$(".pageTheme").removeClass("ui-page-theme-"+$(".pageTheme").attr("data-theme")).addClass("ui-page-theme-a");
 		$(".pageTheme").attr("data-theme","a");
-		$(".pageTheme").attr("class","pageTheme ui-page ui-page-theme-a ui-page-active");
 	});
 	
 	$(".b").click(function(){
 		
-		$(".pageTheme").attr("data-theme","b");                                //da 2lly sh3'al
-		$(".pageTheme").attr("class","pageTheme ui-page ui-page-theme-b ui-page-active");
+		$(".pageTheme").removeClass("ui-page-theme-"+$(".pageTheme").attr("data-theme")).addClass("ui-page-theme-b");
+		$(".pageTheme").attr("data-theme","b");
+		
 
 		
 	});
@@ -38,35 +39,31 @@ $(function(){
 	$(".c").click(function(){
 
 		
+		$(".pageTheme").removeClass("ui-page-theme-"+$(".pageTheme").attr("data-theme")).addClass("ui-page-theme-c");
 		$(".pageTheme").attr("data-theme","c");
-		$(".pageTheme").attr("class","pageTheme ui-page ui-page-theme-c ui-page-active");
-
 
 	});
 
 	$(".d").click(function(){
 
 			
+		$(".pageTheme").removeClass("ui-page-theme-"+$(".pageTheme").attr("data-theme")).addClass("ui-page-theme-d");
 		$(".pageTheme").attr("data-theme","d");
-		$(".pageTheme").attr("class","pageTheme ui-page ui-page-theme-d ui-page-active");
-
 
 		
 	});
 
 	$(".e").click(function(){
 
+	$(".pageTheme").removeClass("ui-page-theme-"+$(".pageTheme").attr("data-theme")).addClass("ui-page-theme-e");
 		$(".pageTheme").attr("data-theme","e");
-		$(".pageTheme").attr("class","pageTheme ui-page ui-page-theme-e ui-page-active");
-
 		
 	});
 
 	$(".f").click(function(){
 
+	$(".pageTheme").removeClass("ui-page-theme-"+$(".pageTheme").attr("data-theme")).addClass("ui-page-theme-f");
 		$(".pageTheme").attr("data-theme","f");
-		$(".pageTheme").attr("class","pageTheme ui-page ui-page-theme-f ui-page-active");
-
 		
 	});
 
