@@ -17,7 +17,7 @@ function onDeviceReady() {
 function onPhotoDataSuccess(imageData) {
 	
 	// Show the captured photo
-	alert("source"+imageData);
+	//alert("source"+imageData);
 	$(".common-stick-image").attr("src",imageData);
 }
 
@@ -34,32 +34,11 @@ function capturePhoto() {
 }
 
 
-// Called when a photo is successfully retrieved
-//
-function onPhotoURISuccess(imageURI) {
-	// Uncomment to view the image file URI 
-	// console.log(imageURI);
-	//	alert(imageURI);
-	// Get image handle
-	//
-	var largeImage = document.getElementById('largeImage');
-
-	// Unhide image elements
-	//
-	largeImage.style.display = 'block';
-
-	// Show the captured photo
-	// The inline CSS rules are used to resize the image
-	//
-	largeImage.src = imageURI;
-}
-
-
 // A button will call this function
 //
 function getPhoto(source) {
 	// Retrieve image file location from specified source
-	navigator.camera.getPicture(onPhotoURISuccess, onFail, {
+	navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
 		quality : 100,
 		destinationType : destinationType.FILE_URI,
 		sourceType : source
