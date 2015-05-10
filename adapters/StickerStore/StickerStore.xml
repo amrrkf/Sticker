@@ -20,16 +20,14 @@
 			<!-- Example for using MySQL connector, do not forget to put the MySQL connector library in the project's lib folder -->
 			<dataSourceDefinition>
 				<driverClass>com.mysql.jdbc.Driver</driverClass>
-				<url>jdbc:mysql://localhost:3306/mydb</url>
-			    <user>myUsername</user>
-    			<password>myPassword</password> 
+				<url>jdbc:mysql://localhost:3306/sticker_db</url>
+			    <user>root</user>
+    			<password>root</password> 
 			</dataSourceDefinition>
 		</connectionPolicy>
 	</connectivity>
 
 	<!-- Replace this with appropriate procedures -->
-	<procedure name="procedure1"/>
-	<procedure name="procedure2"/>
 	<procedure name="login"/>
 	<procedure name="getUserSticks"/>
 	<procedure name="getUserAlbums"/>
