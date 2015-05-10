@@ -40,8 +40,8 @@
 		data-position-to="window" class="ui-content">
 		<h3>Add a Picture to your Stick</h3>
 		<div data-type="vertical" class="ui-content">
-			<a href="#" class="ui-btn ui-content ui-shadow ui-btn-corner-all">Take
-				a Picture</a> <a href="#"
+			<a id="takeEditStickPic" href="#" class="ui-btn ui-content ui-shadow ui-btn-corner-all">Take
+				a Picture</a> <a href="#" id="editPicGallery"
 				class="ui-btn ui-content ui-shadow ui-btn-corner-all">Choose
 				from Gallery</a>
 		</div>
@@ -68,7 +68,7 @@
 				<div>
 					<a id="imgEditStickDelete"
 						class="delete-common-stick-image image-btn-style ui-btn ui-content ui-icon-delete ui-shadow ui-btn-icon-notext ui-btn-corner-all"></a>
-					<img id="editStickImage" class="image-style common-stick-image" src="images/bta32.jpg"></img>
+					<img id="editStickImage" class="image-style common-stick-image" src=""></img>
 				</div>
 				<br>
 				<textarea name="editStickStatus" id="editStickStatus"
@@ -78,6 +78,8 @@
 			</div>
 		</form>
 	</div>
+
+	<script src="js/camera.js"></script>
 	<script src="js/editStick.js"></script>
 	<script src="js/initOptions.js"></script>
 	<script src="js/main.js"></script>

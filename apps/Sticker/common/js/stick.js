@@ -31,7 +31,7 @@ $(function(){
 		alert("Stick!!");
 	});
 
-	$("#takePic").click(function(){
+	$("#takeStickPic").click(function(){
 		$("#stickPopup2").popup("close");
 		capturePhoto();
 		$("#imgStickDelete").show();
@@ -45,7 +45,7 @@ $(function(){
 
 	//remove the loaded photo from the form
 	$("#imgStickDelete").click(function(){
-		$(".common-stick-image").attr("src"," ");
+		$(".common-stick-image").attr("src","/");
 		$("#imgStickDelete").hide();
 	});
 	
