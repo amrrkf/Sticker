@@ -9,7 +9,7 @@ $(function() {
 		var invocationData = {
 			adapter : 'StickerStore',
 			procedure : 'signup',
-			parameters : []
+			parameters : ['amro','ragab']
 		};
 
 		WL.Client.invokeProcedure(invocationData,{
