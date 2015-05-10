@@ -1,18 +1,11 @@
 function intialize() {
-	
+	        navigator.geolocation.getCurrentPosition(getLatLong, onError);
+
 }
 
 
 function addStick(stick) {
 	//add a stick to the user sticks
-}
-
-function capturePhoto() {
-	//capture a photo from the camera
-}
-
-function getPhoto(source) {
-	//load photo from phone gallery
 }
 
 function getTime() {
@@ -37,4 +30,14 @@ $(function(){
 	$("#stickForm").submit(function(){
 		alert("Stick!!");
 	});
+
+	$("#takePic").click(function(){
+		$("#stickPopup2").popup("close");
+		capturePhoto();
+	});
+
+	$("#imgStickDelete").click(function(){
+		$(".common-stick-image").attr("src","");
+	});
+	
 	});
