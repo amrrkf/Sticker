@@ -20,37 +20,37 @@ function wlCommonInit(){
 $(function(){
 	$(".a").click(function(){
 
-		alert("A!!");
+		$(".pageTheme").attr("data-theme","a");
 		
 	});
 	
 	$(".b").click(function(){
 
-		alert("B!!");
+		$(".pageTheme").attr("data-theme","b");
 		
 	});
 
 	$(".c").click(function(){
 
-		alert("C!!");
+		$(".pageTheme").attr("data-theme","c");
 		
 	});
 
 	$(".d").click(function(){
 
-		alert("D!!");
+		$(".pageTheme").attr("data-theme","d");
 		
 	});
 
 	$(".e").click(function(){
 
-		alert("E!!");
+		$(".pageTheme").attr("data-theme","e");
 		
 	});
 
 	$(".f").click(function(){
 
-		alert("F!!");
+		$(".pageTheme").attr("data-theme","f");
 		
 	});
 
