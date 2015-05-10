@@ -12,13 +12,6 @@
  * @return - invocationResult
  */
  
-var procedure1Statement = WL.Server.createSQLStatement("select COLUMN1, COLUMN2 from TABLE1 where COLUMN3 = ?");
-function procedure1(param) {
-	return WL.Server.invokeSQLStatement({
-		preparedStatement : procedure1Statement,
-		parameters : [param]
-	});
-}
 
 /************************************************************************
  * Implementation code for procedure - 'procedure2'
@@ -26,13 +19,6 @@ function procedure1(param) {
  *
  * @return - invocationResult
  */
- 
-function procedure2(param) {
-	return WL.Server.invokeSQLStoredProcedure({
-		procedure : "storedProcedure2",
-		parameters : [param]
-	});
-}
 
 
 function login(email,password) {
@@ -67,11 +53,14 @@ function getUserAlbumSticks(userId,albumId) {
 	});
 }
 
-function signup(email,password) {
+function signup() {
 	//add a new user to the DB
+	var procedure1Statement = WL.Server.createSQLStatement("INSERT INTO User (email, password)	VALUES ('aaaaa','123456');");
+
+	
 	return WL.Server.invokeSQLStatement({
 		preparedStatement : procedure1Statement,
-		parameters : [param]
+		parameters : []
 	});
 }
 
