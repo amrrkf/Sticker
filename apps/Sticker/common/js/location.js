@@ -14,66 +14,62 @@ function wlCommonInit(){
 	// Common initialization code goes here
 	
 }
-$(document).ready(
+
 function locationname(latitude, longitude)
 {
 
-var geocoder ;
-geocoder = new google.maps.Geocoder();
-var latlng = new google.maps.LatLng(latitude, longitude);
+    var geocoder ;
+    geocoder = new google.maps.Geocoder();
+    var latlng = new google.maps.LatLng(latitude, longitude);
 
-geocoder.geocode({'latLng': latlng}, function(results, status)
- {
-
-     if (status == google.maps.GeocoderStatus.OK)
-      {
-             if (results[0])
-             {
-                 var add= results[0].formatted_address ;
-                 $('#stickLocation').text('Location:'+ add);
-
-
-             }
-             else 
-             {
-       alert("address not found");
-             }
-     }
-      else
+    geocoder.geocode({'latLng': latlng}, function(results, status)
      {
-     //document.getElementById("location").innerHTML="Geocoder failed due to: " + status;
-     alert("Geocoder failed due to: " + status);
-     }
- });
 
-}
+         if (status == google.maps.GeocoderStatus.OK)
+          {
+                 if (results[0])
+                 {
+                     var add= results[0].formatted_address ;
+                     $('#stickLocation').text('Location:'+ add);
+
+
+                 }
+                 else 
+                 {
+           alert("address not found");
+                 }
+         }
+          else
+            {
+         //document.getElementById("location").innerHTML="Geocoder failed due to: " + status;
+            alert("Geocoder failed due to: " + status);
+                }
+            });
+
+    }
 
 
 // Wait for Cordova to load
 //
-document.addEventListener("deviceready", onDeviceReady, false);
+    document.addEventListener("deviceready", onDeviceReady, false);
 
 // Cordova is ready
 //
-function onDeviceReady() {
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);
-}
-
-// onSuccess Geolocation
+// getLatLong Geolocation
 //
-function onSuccess(position) {
-    var element = document.getElementById('geolocation');
-    element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
-                        'Longitude: '          + position.coords.longitude             + '<br />' +
-                        'Altitude: '           + position.coords.altitude              + '<br />' +
-                        'Accuracy: '           + position.coords.accuracy              + '<br />' +
-                        'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
-                        'Heading: '            + position.coords.heading               + '<br />' +
-                        'Speed: '              + position.coords.speed                 + '<br />' +
-                        'Timestamp: '          +                                   position.timestamp          + '<br />';
+    function getLatLong(position) {
+        var element = document.getElementById('geolocation');
+        element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
+                            'Longitude: '          + position.coords.longitude             + '<br />' +
+                            'Altitude: '           + position.coords.altitude              + '<br />' +
+                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                            'Heading: '            + position.coords.heading               + '<br />' +
+                            'Speed: '              + position.coords.speed                 + '<br />' +
+                            'Timestamp: '          +                                   position.timestamp          + '<br />';
 
-    locationname(position.coords.latitude, position.coords.longitude);
-}
+        locationname(position.coords.latitude, position.coords.longitude);
+    }
 
 
 // onError Callback receives a PositionError object
@@ -83,4 +79,3 @@ function onError(error) {
             'message: ' + error.message + '\n');
 }
 
-);

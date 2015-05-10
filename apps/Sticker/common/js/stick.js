@@ -1,5 +1,6 @@
 function intialize() {
-	
+	        navigator.geolocation.getCurrentPosition(getLatLong, onError);
+
 }
 
 
