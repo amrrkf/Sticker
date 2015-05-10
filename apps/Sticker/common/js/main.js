@@ -25,12 +25,7 @@ $(function(){
 	});
 	
 	$(".b").click(function(){
-		// $.mobile.page.prototype.options.backBtnTheme='b';
-		// $.mobile.page.prototype.options.headerTheme='b';
-		// $.mobile.page.prototype.options.footerTheme='b';    da mknsh sh3'al
-		// $.mobile.page.prototype.options.contentTheme='b';
-		// $.mobile.listview.prototype.options.filterTheme='b';
-		// $.mobile.page.prototype.options.theme='b';
+		
 		$(".pageTheme").attr("data-theme","b");                                //da 2lly sh3'al
 		$(".pageTheme").attr("class","pageTheme ui-page ui-page-theme-b ui-page-active");
 
