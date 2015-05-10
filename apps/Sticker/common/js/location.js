@@ -15,9 +15,8 @@ function wlCommonInit(){
 	
 }
 
-function locationname(latitude, longitude)
+function locationName(latitude, longitude)
 {
-
     var geocoder ;
     geocoder = new google.maps.Geocoder();
     var latlng = new google.maps.LatLng(latitude, longitude);
@@ -30,13 +29,16 @@ function locationname(latitude, longitude)
                  if (results[0])
                  {
                      var add= results[0].formatted_address ;
-                     $('#stickLocation').text('Location:'+ add);
-
-
+                     var value=add.split(",");
+                     count=value.length;
+                     country=value[count-1];
+                     state=value[count-2];
+                     city=value[count-3];
+                     $('#stickLocation').text('Location: '+ city +','+state +','+country );
                  }
                  else 
                  {
-           alert("address not found");
+                     $('#stickLocation').text('Location: Unknown');
                  }
          }
           else
@@ -51,24 +53,14 @@ function locationname(latitude, longitude)
 
 // Wait for Cordova to load
 //
-    document.addEventListener("deviceready", onDeviceReady, false);
+    
 
 // Cordova is ready
 //
 // getLatLong Geolocation
 //
     function getLatLong(position) {
-        var element = document.getElementById('geolocation');
-        element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
-                            'Longitude: '          + position.coords.longitude             + '<br />' +
-                            'Altitude: '           + position.coords.altitude              + '<br />' +
-                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
-                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
-                            'Heading: '            + position.coords.heading               + '<br />' +
-                            'Speed: '              + position.coords.speed                 + '<br />' +
-                            'Timestamp: '          +                                   position.timestamp          + '<br />';
-
-        locationname(position.coords.latitude, position.coords.longitude);
+        locationName(position.coords.latitude, position.coords.longitude);
     }
 
 
