@@ -21,36 +21,54 @@ $(function(){
 	$(".a").click(function(){
 
 		$(".pageTheme").attr("data-theme","a");
-		
+		$(".pageTheme").attr("class","pageTheme ui-page ui-page-theme-a ui-page-active");			
 	});
 	
 	$(".b").click(function(){
+		// $.mobile.page.prototype.options.backBtnTheme='b';
+		// $.mobile.page.prototype.options.headerTheme='b';
+		// $.mobile.page.prototype.options.footerTheme='b';    da mknsh sh3'al
+		// $.mobile.page.prototype.options.contentTheme='b';
+		// $.mobile.listview.prototype.options.filterTheme='b';
+		// $.mobile.page.prototype.options.theme='b';
+		$(".pageTheme").attr("data-theme","b");                                //da 2lly sh3'al
+		$(".pageTheme").attr("class","pageTheme ui-page ui-page-theme-b ui-page-active");
 
-		$(".pageTheme").attr("data-theme","b");
 		
 	});
 
 	$(".c").click(function(){
 
-		$(".pageTheme").attr("data-theme","c");
 		
+		$(".pageTheme").attr("data-theme","c");
+		$(".pageTheme").attr("class","pageTheme ui-page ui-page-theme-c ui-page-active");
+
+
 	});
 
 	$(".d").click(function(){
 
+			
 		$(".pageTheme").attr("data-theme","d");
+		$(".pageTheme").attr("class","pageTheme ui-page ui-page-theme-d ui-page-active");
+
+
 		
 	});
 
 	$(".e").click(function(){
 
 		$(".pageTheme").attr("data-theme","e");
+		$(".pageTheme").attr("class","pageTheme ui-page ui-page-theme-e ui-page-active");
+
 		
 	});
 
 	$(".f").click(function(){
 
 		$(".pageTheme").attr("data-theme","f");
+		$(".pageTheme").attr("class","pageTheme ui-page ui-page-theme-f ui-page-active");
+
 		
 	});
 
