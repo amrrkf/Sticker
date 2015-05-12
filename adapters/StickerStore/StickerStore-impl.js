@@ -29,6 +29,16 @@ function login(email,password) {
 	});
 }
 
+var getUserIdStatement = WL.Server.createSQLStatement("INSERT INTO user (email, password)	VALUES (email,password);");
+function getUserId(email){
+	// get the Id of a user with specified email
+	return WL.Server.invokeSQLStatement({
+		preparedStatement : getUserIdStatement,
+		parameters : [email]
+	});	
+}
+
+
 var getUserSticksStatement = WL.Server.createSQLStatement("INSERT INTO user (email, password)	VALUES (email,password);");
 function getUserSticks(userId) {
 	//get all the sticks of the user by userId

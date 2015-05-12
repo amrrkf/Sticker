@@ -17,6 +17,13 @@ function wlCommonInit(){
 	
 }
 
+
+// regular expression for mail form validation
+function validateEmail(email) {
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    return re.test(email);
+}
+
 $(function(){
 	 
 //	$(".pageTheme").attr("class","pageTheme ui-page ui-page-theme-"+$(".pageTheme").attr("data-theme")+" ui-page-active");
