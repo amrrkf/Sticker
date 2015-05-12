@@ -1,10 +1,13 @@
-function intialize() {
-
-}
 
 $(function() {
-	intialize();
+	var userId;
+	function intialize() {
+		userId=getActiveUser();
+		alert(userId);
+	}
 
+	intialize();
+	
 	$("#homeLogin").click(function() {
 		$("#homeForm").submit();
 	});

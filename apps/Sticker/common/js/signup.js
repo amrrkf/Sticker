@@ -1,9 +1,7 @@
-function intialize() {
-
-}
 
 $(function() {
-	intialize();
+var href="#";
+
 //////////////////////////////////////////////////////////// getUserId function ////////////////////////////////////////////////////////////
 	function getUserId(email){
 		var invocationData = {
@@ -19,13 +17,18 @@ $(function() {
 	}
 
 	function getUserIdSuccess(result){
+		var userId=result.invocationResult.resultSet[0].userId;
 		openCache();
-	//	writeCache(userId);
+		writeCache(userId);
+		closeCache();
+		href="home.html";
+		$("#confirmSignup").click();
 		
 	}
 
 	function getUserIdFailure(result){
-		//$('#confirmSignup').attr('href','index.html');
+		href="signup.html";
+		$("#confirmSignup").click();
 	}	
 //////////////////////////////////////////////////////////// signup function ////////////////////////////////////////////////////////////
 	function signup(email,password){
@@ -42,18 +45,24 @@ $(function() {
 	}
 
 	function signupSuccess(result){
-		getUserId(email);
-		
+		getUserId(email);		
 	}
 
 	function signupFailure(result){
 		alert('existing mail');
-		//$('#confirmSignup').attr('href','index.html');
+		href="signup.html";
+		$("#confirmSignup").click();
 	}
 	
 //////////////////////////////////////////////////////////// form submission functions ////////////////////////////////////////////////////////////
 	$("#confirmSignup").click(function() {
+		if(href!=="#")
+			$("#confirmSignup").attr("href",href);	
+		else
+		{
+		href="#";
 		$("#signupForm").submit();
+		}
 	});
 
 	$("#signupForm").submit(function() {
@@ -66,9 +75,14 @@ $(function() {
 			alert('please fill the form');
 		else if(!validateEmail(email))						// check validation format for mail
 			alert('invalid mail');
+		else if (password.length<7)							// check minimum length of password
+			alert('password minimum length length is 7');
 		else if (password!==confirmPassword)				// check password=confirm password
 			alert('password & confirmPassword don\'t match');
-		else;
+		else
 			signup(email,password);							// perform signup
+
+		
+		
 	});
 });
