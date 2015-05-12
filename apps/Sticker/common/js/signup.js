@@ -19,7 +19,7 @@ var href="#";
 	function getUserIdSuccess(result){
 		var userId=result.invocationResult.resultSet[0].userId;
 		openCache();
-		writeCache(userId);
+		writeCache(String(userId));
 		closeCache();
 		href="home.html";
 		$("#confirmSignup").click();
@@ -27,7 +27,7 @@ var href="#";
 	}
 
 	function getUserIdFailure(result){
-		href="signup.html";
+		href="index.html";
 		$("#confirmSignup").click();
 	}	
 //////////////////////////////////////////////////////////// signup function ////////////////////////////////////////////////////////////
@@ -45,6 +45,7 @@ var href="#";
 	}
 
 	function signupSuccess(result){
+		var email=$('#emailSignup').val();
 		getUserId(email);		
 	}
 
@@ -72,13 +73,26 @@ var href="#";
 		var confirmPassword=$('#confirmPasswordSignup').val();
 		
 		if(email==''|| password=='' || confirmPassword=='')	// check for empty values
-			alert('please fill the form');
+			{
+				alert('please fill the form');
+				$("#confirmSignup").attr("href","signup.html");	
+
+			}
 		else if(!validateEmail(email))						// check validation format for mail
-			alert('invalid mail');
+			{
+				alert('invalid mail');
+				$("#confirmSignup").attr("href","signup.html");	
+			}
 		else if (password.length<7)							// check minimum length of password
-			alert('password minimum length length is 7');
+			{
+				alert('password minimum length length is 7');
+				$("#confirmSignup").attr("href","signup.html");	
+			}
 		else if (password!==confirmPassword)				// check password=confirm password
-			alert('password & confirmPassword don\'t match');
+			{
+				alert('password & confirmPassword don\'t match');
+				$("#confirmSignup").attr("href","signup.html");	
+			}
 		else
 			signup(email,password);							// perform signup
 

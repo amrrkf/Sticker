@@ -39,7 +39,6 @@ function onWriteSuccess(status){
 alert("Successfully encrypted into cache.");
 }
 function onWriteFailure(status){
-if (status == WL.EncryptedCache.ERROR_EOC_CLOSED)
 alert("cache closed. error code= " + status);
 }
 
