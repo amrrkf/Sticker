@@ -29,6 +29,7 @@
 
 	<!-- Replace this with appropriate procedures -->
 	<procedure name="login"/>
+	<procedure name="getUserId"/>
 	<procedure name="getUserSticks"/>
 	<procedure name="getUserAlbums"/>
 	<procedure name="getUserAlbumSticks"/>

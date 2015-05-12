@@ -29,7 +29,7 @@ function login(email,password) {
 	});
 }
 
-var getUserIdStatement = WL.Server.createSQLStatement("INSERT INTO user (email, password)	VALUES (email,password);");
+var getUserIdStatement = WL.Server.createSQLStatement("SELECT userId FROM user WHERE email = (?);");
 function getUserId(email){
 	// get the Id of a user with specified email
 	return WL.Server.invokeSQLStatement({
