@@ -31,11 +31,13 @@
 	<procedure name="login"/>
 	<procedure name="getUserId"/>
 	<procedure name="getUserSticks"/>
+	<procedure name="updateUSA"/>
 	<procedure name="getUserAlbums"/>
 	<procedure name="getUserAlbumSticks"/>
 	<procedure name="signup"/>
 	<procedure name="addStick"/>
 	<procedure name="addAlbum"/>
+	<procedure name="getAlbums"/>
 	<procedure name="updateUser"/>
 	<procedure name="updateStick"/>
 	<procedure name="updateAlbum"/>
