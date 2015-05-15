@@ -4,6 +4,7 @@ user='null';
 function openCache(){
 var key='userKey';
 WL.EncryptedCache.open(key, true, onOpenComplete, onOpenError);
+
 }
 function onOpenComplete(status){
 alert("Encrypted cache successfully opened");
@@ -81,9 +82,20 @@ function onCloseFailureHandler(status){
 alert("Could not close Encrypted cache");
 }
 
+function destroyCache(){
+WL.EncryptedCache.destroy(onDestroyCompleteHandler,
+onDestroyErrorHandler)
+}
+function onDestroyCompleteHandler(status){
+alert("Encrypted cache destroyed");
+}
+function onDestroyErrorHandler(status){
+alert("Error destroying Encrypted cache");
+}
 
 //get the current logged in user
 function getActiveUser(){
+	
 openCache();
 readCache();
 closeCache();

@@ -25,42 +25,7 @@
 </head>
 <body style="display: none;">
 	<div data-role="page" id="index" data-theme="a" class="pageTheme">
-		<div data-role="popup" id="forgetPasswordPopup" data-overlay-theme="b"
-			data-position-to="window" class="ui-content">
-			<h3>Enter your e-mail</h3>
-			<div data-type="vertical" class="ui-content">
-				<input type="text" name="retriveEmailIndex" id="retriveEmailIndex"
-					placeholder="E-mail" required maxlength="80">
-				<div align="center">
-					<a href="index.html"
-						class="ui-btn ui-content ui-icon-check ui-btn-icon-right ui-shadow ui-btn-corner-all">Submit</a>
-				</div>
-			</div>
-		</div>
-		<div data-role="header">
-			<div align="center">
-				<img alt="logo" align="top" src="images/logo.png"></img>
-			</div>
-		</div>
-		<div data-role="main"
-			class="ui-content ui-body ui-body-a ui-corner-all addStick">
-			<form id="homeForm" method="post" action="js/index.js">
-				<div class="ui-field-contain">
-					<input type="email" name="emailIndex" id="emailIndex"
-						placeholder="E-mail" required maxlength="80"> <br> <input
-						type="password" name="passwordIndex" id="passwordIndex"
-						placeholder="Password" required maxlength="80">
-					<div align="center" data-type="horizontal" class="ui-content">
-						<a href="#" id="homeLogin"
-							class="ui-btn ui-btn-inline ui-content ui-icon-user ui-btn-icon-left ui-shadow  ui-btn-corner-all">Login</a>
-						<a href="signup.html"
-							class="ui-btn ui-btn-inline ui-content ui-icon-edit ui-btn-icon-left ui-shadow ui-btn-corner-all">Sign
-							up</a> <br> <a data-rel="popup" href="#forgetPasswordPopup">Forgot
-							your password?</a>
-					</div>
-				</div>
-			</form>
-		</div>
+		<a href="#" id="enterIndex" class="ui-btn ui-btn-inline ui-content ui-icon-edit ui-btn-icon-left ui-shadow ui-btn-corner-all">Enter</a>
 		<script src="js/cache.js"></script>
 		<script src="js/main.js"></script>
 		<script src="js/index.js"></script>

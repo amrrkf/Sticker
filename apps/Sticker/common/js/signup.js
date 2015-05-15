@@ -1,7 +1,16 @@
 
 $(function() {
 var href="#";
-
+	
+	$("#confirmSignup").click(function() {
+		if(href!=="#")
+			$("#confirmSignup").attr("href",href);	
+		else
+		{
+		href="#";
+		$("#signupForm").submit();
+		}
+	});
 //////////////////////////////////////////////////////////// getUserId function ////////////////////////////////////////////////////////////
 	function getUserId(email){
 		var invocationData = {
@@ -56,15 +65,7 @@ var href="#";
 	}
 	
 //////////////////////////////////////////////////////////// form submission functions ////////////////////////////////////////////////////////////
-	$("#confirmSignup").click(function() {
-		if(href!=="#")
-			$("#confirmSignup").attr("href",href);	
-		else
-		{
-		href="#";
-		$("#signupForm").submit();
-		}
-	});
+	
 
 	$("#signupForm").submit(function() {
 		// get form values

@@ -1,18 +1,15 @@
 
 $(function() {
-	var userId;
-	function intialize() {
-		userId=getActiveUser();
-		alert(userId);
-	}
 
-	intialize();
+	$("#enterIndex").hide();
+	var href="#";
+	var userId=getActiveUser();
+	alert(userId);
+	if(userId!=='null')
+			href="home.html";		
+	else 
+			href="login.html";
 	
-	$("#homeLogin").click(function() {
-		$("#homeForm").submit();
-	});
-
-	$("#homeForm").submit(function() {
-		alert("Login Successful");
-	});
+	$("#enterIndex").attr("href",href);			
+	$("#enterIndex").click();	
 });
