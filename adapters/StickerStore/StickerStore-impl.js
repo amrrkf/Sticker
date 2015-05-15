@@ -100,6 +100,17 @@ function addAlbum(userId, albumTitle, albumInfo) {
 	});
 }
 
+
+// done
+var getAlbumsStatement = WL.Server.createSQLStatement("SELECT albumTitle, albumInfo FROM album WHERE userId = (?) and albumId = (?);");
+function getAlbums(userId, albumId) {
+	//add a new album to the user userId
+	return WL.Server.invokeSQLStatement({
+		preparedStatement : getAlbumsStatement,
+		parameters : [userId, albumId]
+	});
+}
+
 // updates user's password -- done
 var updateUserStatement = WL.Server.createSQLStatement("UPDATE user SET password = (?) WHERE userId = (?);");
 function updateUser(userId,password) {
@@ -110,44 +121,56 @@ function updateUser(userId,password) {
 	});
 }
 
-// 
-var updateStickStatement = WL.Server.createSQLStatement("INSERT INTO user (email, password)	VALUES (?,?);");
-function updateStick(userId,stickId,stick) {
+// updates a stick due its id .. change some variables -- done
+var updateStickStatement = WL.Server.createSQLStatement("UPDATE stick SET stickTitle = (?), stickImage = (?), stickTime = (?), stickLocation = (?), stickInfo = (?)  WHERE stickId = (?);");
+function updateStick(stickId, stickTitle, stickImage, stickTime, stickLocation, stickInfo) {
 	//update a stick specified by stickId for the user userId
 	return WL.Server.invokeSQLStatement({
 		preparedStatement : updateStickStatement,
-		parameters : [userId,stickId,stick]
+		parameters : [stickTitle, stickImage, stickTime, stickLocation, stickInfo, stickId]
 	});
 }
 
-var updateAlbumStatement = WL.Server.createSQLStatement("INSERT INTO user (email, password)	VALUES (?,?);");
-function updateAlbum(userId,albumId,album) {
+// updates an album due to its id .. change some variables -- done
+var updateAlbumStatement = WL.Server.createSQLStatement("UPDATE album SET albumTitle = (?), albumInfo = (?) WHERE albumId = (?);");
+function updateAlbum(albumId, albumTitle, albumInfo) {
 	//update an album specified by albumId for the user userId
 	return WL.Server.invokeSQLStatement({
 		preparedStatement : updateAlbumStatement,
-		parameters : [userId,albumId,album]
+		parameters : [albumTitle, albumInfo, albumId]
 	});
 }
 
-var deleteStickStatement = WL.Server.createSQLStatement("INSERT INTO user (email, password)	VALUES (?,?);");
-function deleteStick(userId,stickId) {
+var updateUSAStatement = WL.Server.createSQLStatement("INSERT INTO usa (userId, albumId, stickId) VALUES(?,?,?);")
+function updateUSA(userId, albumId, stickId) {
+		return WL.Server.invokeSQLStatement({
+			preparedStatement : updateUSAStatement,
+			parameters : [userId, albumId, stickId]
+		})
+}
+
+// deletes a stick due to its id and updates other tables -- done
+var deleteStickStatement = WL.Server.createSQLStatement("DELETE FROM stick WHERE stickId = (?);");
+function deleteStick(stickId) {
 	//delete a stick specified by stickId for the user userId
 	return WL.Server.invokeSQLStatement({
 		preparedStatement : deleteStickStatement,
-		parameters : [userId,stickId]
+		parameters : [stickId]
 	});
 }
 
-var deleteAlbumStatement = WL.Server.createSQLStatement("INSERT INTO user (email, password)	VALUES (?,?);");
-function deleteAlbum(userId,albumId) {
+// deletes an album due to its id and updates other tables -- done
+var deleteAlbumStatement = WL.Server.createSQLStatement("DELETE FROM album WHERE albumId = (?);");
+function deleteAlbum(albumId) {
 	//delete an album specified by albumId for the user userId
 	return WL.Server.invokeSQLStatement({
 		preparedStatement : deleteAlbumStatement,
-		parameters : [userId,albumId]
+		parameters : [albumId]
 	});
 }
 
-var forgotPasswordStatement = WL.Server.createSQLStatement("INSERT INTO user (email, password)	VALUES (?,?);");
+
+var forgotPasswordStatement = WL.Server.createSQLStatement("SELECT password,email FROM user WHERE email = (?);");
 function forgotPassword(email) {
 	//send a email to the email with its saved password
 	return WL.Server.invokeSQLStatement({
