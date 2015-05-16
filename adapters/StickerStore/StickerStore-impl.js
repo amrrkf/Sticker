@@ -181,12 +181,12 @@ function deleteAlbum(albumId) {
 }
 
 //delete from USA
-var deleteUSAStatement = WL.Server.createSQLStatement("DELETE FROM usa WHERE userId = (?) and albumId = (?) and stickId = (?);");
-function deleteUSA(userId,albumId,stickId) {
+var deleteUSAStatement = WL.Server.createSQLStatement("DELETE FROM usa WHERE userId = (?) and albumId = (?);");
+function deleteUSA(userId,albumId) {
 	//delete an entry from USA
 	return WL.Server.invokeSQLStatement({
 		preparedStatement : deleteUSAStatement,
-		parameters : [userId,albumId,stickId]
+		parameters : [userId,albumId]
 	});
 }
 

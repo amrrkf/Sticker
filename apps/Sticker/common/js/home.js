@@ -1,35 +1,30 @@
 $(function() {
 var userId;
 var href="#";
-/////////////////////////////////////////////////////////// getUserSticks ////////////////////////////////////////////////////////
-function deleteStick(userId){
+/////////////////////////////////////////////////////////// deleteStick ////////////////////////////////////////////////////////
+function deleteStick(stickId){
+	alert(stickId);
 		var invocationData = {
 			adapter : 'StickerStore',
-			procedure : 'getUserSticks',
-			parameters : [userId]
+			procedure : 'deleteStick',
+			parameters : [stickId]
 		};
 
 		WL.Client.invokeProcedure(invocationData,{
-			onSuccess : getUserSticksSuccess,
-			onFailure : getUserSticksFailure
+			onSuccess : deleteStickSuccess,
+			onFailure : deleteStickFailure
 		});
 	}
 
 
-function getUserSticksSuccess(result){
-		var resultLength=result.invocationResult.resultSet.length;	
-		if(resultLength==0)
-		{
-		alert("No sticks found, create a new stick");
-		//WL.Toast.show("No sticks found, create a new stick");
+function deleteStickSuccess(){
+		alert("Stick successfully deleted");
+		//WL.Toast.show("Stick successfully deleted");
 		}
-		else 
-			displaySticks(result.invocationResult.resultSet);		
-	}
 
-function getUserSticksFailure(result){
-		alert("Error loading sticks");
-		//WL.Toast.show("Error loading sticks");	
+function deleteStickFailure(response){
+		alert("Error deleting stick");
+		//WL.Toast.show("Error deleting stick");	
 	}	
 
 /////////////////////////////////////////////////////////// getUserSticks ////////////////////////////////////////////////////////
@@ -95,6 +90,7 @@ function displaySticks(sticks) {
 	$('.stickDelete').click(function() {
 		stickId=parseInt($(this).attr("id").split('-')[1]);
 		//delete selected sticks or albums
+		deleteStick(stickId);
 		intialize();
 	});
 
