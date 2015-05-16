@@ -122,12 +122,12 @@ function updateUser(userId,password) {
 }
 
 // updates a stick due its id .. change some variables -- done
-var updateStickStatement = WL.Server.createSQLStatement("UPDATE stick SET stickTitle = (?), stickImage = (?), stickTime = (?), stickLocation = (?), stickInfo = (?)  WHERE stickId = (?);");
-function updateStick(stickId, stickTitle, stickImage, stickTime, stickLocation, stickInfo) {
+var updateStickStatement = WL.Server.createSQLStatement("UPDATE stick SET stickTitle = (?), stickImage = (?), stickInfo = (?)  WHERE stickId = (?);");
+function updateStick(stickId, stickTitle, stickImage, stickInfo) {
 	//update a stick specified by stickId for the user userId
 	return WL.Server.invokeSQLStatement({
 		preparedStatement : updateStickStatement,
-		parameters : [stickTitle, stickImage, stickTime, stickLocation, stickInfo, stickId]
+		parameters : [stickTitle, stickImage, stickInfo, stickId]
 	});
 }
 
