@@ -1,6 +1,7 @@
  
 var href="#";
 var userId;
+var albumId;
 /////////////////////////////////////////////////////////// getUserSticks ////////////////////////////////////////////////////////
 function getUserSticks(userId){
 		var invocationData = {
@@ -146,7 +147,36 @@ function checking(checkedSticks){
 	}
 	href="home.html";
 	$(".albumSubmit").click();		
+}
+//////////////////////////////////////////////////////////////updateAlbum/////////////////////////////////////////////////////
+function updateAlbum(albumTitle, albumInfo) {
+		var invocationData = {
+			adapter : 'StickerStore',
+			procedure : 'updateAlbum',
+			parameters : [albumId, albumTitle, albumInfo]
+		};
+
+		WL.Client.invokeProcedure(invocationData,{
+			onSuccess :updateAlbumSuccess,
+			onFailure : updateAlbumFailure
+		});
+	}
+	function updateAlbumSuccess(result){
+		alert("getUserAlbum: Success!")
+		deleteSticksFromAlbum(albumId);
+		addSticksToAlbum(albumId);
+		//	writeCache(userId);
+		
+	}
+
+	function updateAlbumFailure(result){
+		alert("getUserAlbum: Failure!")	
+		href="editAlbum.html?albumId="+String(albumId);
+		$(".albumSubmit").click();
+			
+	}	
+///////////////////////////////////////////////////////////deleteSticksFromAlbum(albumId)///////////////////////////////////
+function deleteSticksFromAlbum(albumId){
 
 
 }
-	
