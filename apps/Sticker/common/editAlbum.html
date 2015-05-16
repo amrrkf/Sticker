@@ -3,7 +3,7 @@
 	<div data-role="panel" id="editAlbumPanel" data-position="right"
 		data-display="overlay">
 		<ul data-role="listview" id="editAlbumListview" data-icon="false">
-			<li id="editAlbumListitem1"><a href="index.html">Log out</a></li>
+			<li id="editAlbumListitem1"><a class="logoutClass" href="login.html">Log out</a></li>
 			<li id="editAlbumListitem"><a data-rel="popup"
 				href="#editAlbumPopup">About us</a></li>
 			<li id="editAlbumListitem0"><h3>Theme Color</h3>
@@ -38,8 +38,8 @@
 		<div>Popup content</div>
 	</div>
 	<div data-role="header">
-		<a href="home.html" id="editAlbumSubmit"
-			class="ui-btn ui-content ui-btn-inline ui-icon-check ui-btn-icon-left ui-btn-left ui-shadow ui-btn-corner-all">Done</a>
+		<a href="#" id="editAlbumSubmit"
+			class="albumSubmit ui-btn ui-content ui-btn-inline ui-icon-check ui-btn-icon-left ui-btn-left ui-shadow ui-btn-corner-all">Done</a>
 		<div align="center">
 			<img alt="logo" align="top" src="images/logo.png"></img>
 		</div>
@@ -70,10 +70,12 @@
 			</div>
 		</form>
 	</div>
-	<script src="js/editAlbum.js"></script>
+	
 	<script src="js/initOptions.js"></script>
 	<script src="js/main.js"></script>
+	<script src+"js/cache.js"></script>
+	<script src="js/album.js"></script>
+	<script src="js/editAlbum.js"></script>
 	<script src="js/messages.js"></script>
-	<script src+"js/cash.js"></script>
 
 </div>
