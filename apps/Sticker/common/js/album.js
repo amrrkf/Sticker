@@ -40,6 +40,7 @@ function getUserSticksSuccess(result){
 		if(resultLength==0)
 		{
 		alert("No sticks found, album can't be created");
+		//WL.Toast.show("No sticks found, album can't be created");
 		href="home.html";
 		$("#albumSubmit").click();	
 		}
@@ -49,6 +50,7 @@ function getUserSticksSuccess(result){
 
 function getUserSticksFailure(result){
 		alert("Error loading sticks");
+		//WL.Toast.show("Error loading sticks");
 		href="home.html";
 		$("#albumSubmit").click();
 	
@@ -92,6 +94,7 @@ function addAlbumSuccess(result){
 
 function addAlbumFailure(result){
 		alert("Failed to add album");
+		//WL.Toast.show("Failed to add album");
 	}	
 	
 ////////////////////////////////////////////////////////////// addStickstoAlbum ///////////////////////////////////////////////////////
@@ -135,15 +138,18 @@ function updateUSAFailure(result){
 		albumInfo=$("#albumNotes").val();
 		if(albumTitle==""){
 			alert("Ablum's name cant be empty u should fill it");
+			//WL.Toast.show("Ablum's name cant be empty u should fill it");
 			return false;
 		}
 		else if(albumInfo==""){
 			alert("Ablum's notes cant be empty u should fill it");
+			//WL.Toast.show("Ablum's notes cant be empty u should fill it");
 			return false;
 		}
 		else if($(".albumCheck:checked").length==0)
 		{
 			alert("please check at least one stick");
+			//WL.Toast.show("please check at least one stick");
 			return false;
 
 		}

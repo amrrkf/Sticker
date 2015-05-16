@@ -16,6 +16,7 @@ $(function(){
 //intialize Stick
 	function intialize() {
 		userId= parseInt(getActiveUser());
+		//userId=1;
 		navigator.geolocation.getCurrentPosition(getLatLong, onError);
 		$("#imgStickDelete").hide();
 		getTime();    
@@ -44,14 +45,19 @@ $(function(){
 	    href="home.html";
 		$("#stickDone").click();
 		var tempSrc=$(".common-stick-image").attr("src");
-		savePic(tempSrc);
+		
+		if(tempSrc!==''){
+			savePic(tempSrc);
+		}
 		alert("success add stick");
+		//WL.Toast.show("success add stick");
 	}
 
 	function addStickFailure(response){
 		href="stick.html";
 		$("#stickDone").click();
 		alert("error add stick");
+		//WL.Toast.show("error add stick");
 	}	
 
 	
@@ -74,7 +80,7 @@ $(function(){
 		var sName=$('#stickName').val();  //stick name
 		var imageSrc=$(".common-stick-image").attr("src");
 		var imageName;
-		if(imageSrc!=''){
+		if(imageSrc!==''){
 		var value=imageSrc.split("/");
     	count=value.length;
     	imageName= value[count-1]; //image name
@@ -91,6 +97,7 @@ $(function(){
 		if(sName==''|| sStatus=='')	// check for empty values
 			{
 				alert('please fill the form');
+				//WL.Toast.show("please fill the form");
 				return false;
 			}
 		else{
@@ -116,7 +123,7 @@ $(function(){
 
 	//remove the loaded photo from the form
 	$("#imgStickDelete").click(function(){
-		$(".common-stick-image").attr("src","/");
+		$(".common-stick-image").attr("src","");
 		$("#imgStickDelete").hide();
 	});
 	

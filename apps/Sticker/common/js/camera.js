@@ -49,6 +49,7 @@ function getPhoto(source) {
 // 
 function onFail(message) {
 	alert('Failed because: ' + message);
+	//WL.Toast.show('Failed because: ' + message);
 }
 
 function savePic(file) {
@@ -82,4 +83,6 @@ function successMove(entry) {
 
 function resOnError(error) {
 	alert(error.code);
+	//WL.Toast.show(error.code);
+
 }

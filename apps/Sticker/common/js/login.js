@@ -9,6 +9,7 @@ $(function() {
              + "&body=" + escape("dekmdekdmek");
     window.location.href = link;
     alert("sent");
+    //WL.Toast.show("sent");
 	}
 
 	$("#homeLogin").click(function() {
@@ -42,6 +43,7 @@ $(function() {
 		var resultLength=result.invocationResult.resultSet.length;
 		if(resultLength===0){
 			alert('invalid email');
+			//WL.Toast.show('invalid email');
 		}
 		else{
 			email=result.invocationResult.resultSet[0].email;
@@ -53,7 +55,7 @@ $(function() {
 
 	function forgotPasswordFailure(result){
 		alert('invalid email');
-	
+		//WL.Toast.show('invalid email');
 	}
 
 //////////////////////////////////////////////////////////// login function ////////////////////////////////////////////////////////////
@@ -74,6 +76,7 @@ $(function() {
 		var resultLength=result.invocationResult.resultSet.length;
 		if(resultLength===0){
 			alert('invalid email or password');
+			//WL.Toast.show('invalid email or password');
 			href="login.html";
 			$("#homeLogin").click();
 		}
@@ -90,6 +93,7 @@ $(function() {
 
 	function loginFailure(result){
 		alert('invalid email or password');
+		//WL.Toast.show('invalid email or password');
 		href="login.html";
 		$("#homeLogin").click();
 	}
@@ -101,12 +105,14 @@ $(function() {
 		if(email==''|| password=='')	// check for empty values
 			{
 				alert('please fill the form');
+				//WL.Toast.show('please fill the form');
 				return false;
 
 			}
 		else if(!validateEmail(email))						// check validation format for mail
 			{
 				alert('invalid mail');
+				//WL.Toast.show('invalid mail');
 				return false;
 			}
 		else 
@@ -119,11 +125,13 @@ $(function() {
 		if(email=='')	// check for empty values
 			{
 				alert('please enter your mail');
+				//WL.Toast.show('please enter your mail');
 				return false;
 			}
 		else if(!validateEmail(email))						// check validation format for mail
 			{
 				alert('invalid mail');
+				//WL.Toast.show('invalid mail');
 				return false;
 			}
 		else {
