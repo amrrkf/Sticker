@@ -64,7 +64,7 @@ function displaySticks(sticks) {
 
 }
 
-/////////////////////////////////////////////////////////// getUserSticks ////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////// getUserAlbums ////////////////////////////////////////////////////////
 function getUserAlbums(userId){
 		var invocationData = {
 			adapter : 'StickerStore',
@@ -83,59 +83,41 @@ function getUserAlbumsSuccess(result){
 		var resultLength=result.invocationResult.resultSet.length;	
 		if(resultLength==0)
 		{
-		alert("No sticks found, create a new stick");
-		//WL.Toast.show("No sticks found, create a new stick");
+		alert("No albums found, create a new album");
+		//WL.Toast.show("No albums found, create a new album");
 		}
 		else 
-			displaySticks(result.invocationResult.resultSet);		
+			displayAlbums(result.invocationResult.resultSet);		
 	}
 
 function getUserAlbumsFailure(result){
-		alert("Error loading sticks");
-		//WL.Toast.show("Error loading sticks");	
+		alert("Error loading albums");
+		//WL.Toast.show("Error loading albums");	
 	}	
 
-//////////////////////////////////////////////////////// displaySticks /////////////////////////////////////////////////////////////
-function displaySticks(sticks) {
+//////////////////////////////////////////////////////// displayAlbums /////////////////////////////////////////////////////////////
+function displayAlbums(albums) {
 
-	var sticksDiv=$("#stickList");
-	var stickImage;	
-	for (var i = 0; i < sticks.length; i++) {
+	var albumsDiv=$("#albumList");
+	
+	for (var i = 0; i < albums.length; i++) {
+		var Id=String(albums[i].albumId);
 		
-		var Id=String(sticks[i].stickId);
-		
-		var html1=$("<div class='right-checkbox'>").append("<input type='checkbox' name='checkbox-h-2a' class='stickCheckBox' id=checkbox-"+Id+">");
-		var html2=$("<div class=stickTitle>"+sticks[i].stickTitle+"</div>");
-		var html3=$("<div class=ui-grid-a>")
-		.append("<div class='ui-black-a stickTime' title='stickTime'>Time: "+sticks[i].stickTime,"<div class='ui-block-b stickLoc' title='stickLoc'>Location: "+sticks[i].stickLocation);
-		if(sticks[i].stickImage==""||sticks[i].stickImage==null)
-			stickImage="";
-		else stickImage="/Sticker/"+sticks[i].stickImage;
-		var html4=$("<div align='center'>").append("<img class='stickImg' src="+stickImage+">");
-		var html5=$("<p align='center' class='stickDsc'>"+sticks[i].stickInfo+"</p>");
-		
-		var html611=$("<li class='ui-block-a'>").append("<a class='ui-btn ui-content  ui-icon-action ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
-		var html612=$("<li class='ui-block-b'>").append("<a href='editStick.html?stickId="+Id+"' class='ui-btn ui-content  ui-icon-edit ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
-		var html613=$("<li class='ui-block-c'>").append("<a class=' ui-btn ui-content  ui-icon-delete ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
-		var html61=$("<ul class='ui-grid-b'>").append(html611,html612,html613);
-		var html6=$("<div data-role='navbar' class='ui-content nav ui-navbar' role='navigation'>").append(html61);
+		var html1=$("<div class='right-checkbox'>").append("<input type='checkbox' name='checkbox-h-2a' class='albumCheckBox' id=checkbox-"+Id+">");
+		var html2=$("<div class=stickTitle>"+albums[i].albumTitle+"</div>");
+		var html3=$("<p align='left' class='stickDsc'>"+albums[i].albumInfo+"</p>");
+		var html411=$("<li class='ui-block-a'>").append("<a class='ui-btn ui-content  ui-icon-action ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
+		var html412=$("<li class='ui-block-b'>").append("<a href='editAlbum.html?albumId="+Id+"' class='ui-btn ui-content  ui-icon-edit ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
+		var html413=$("<li class='ui-block-c'>").append("<a class=' ui-btn ui-content  ui-icon-delete ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
+		var html41=$("<ul class='ui-grid-b'>").append(html411,html412,html413);
+		var html4=$("<div data-role='navbar' class='ui-content nav ui-navbar' role='navigation'>").append(html41);
 
-		var html=$("<div id=stick-"+Id+" class='stick ui-body ui-corner-all'>").append(html1,html2,html3,html4,html5,html6);
-		sticksDiv.append(html);
+		var html=$("<div id=album-"+Id+" class='album ui-body ui-corner-all'>").append(html1,html2,html3,html4);
+		albumsDiv.append(html);
 	}
-	$(".stickCheckBox").hide();
+	$(".albumCheckBox").hide();
 
 }
-
-	function loadAlbums() {
-		//load all albums for the logged in user
-	}
-
-
-	function displayAlbums(albums) {
-		//display albums in their positions
-	}
-
 
 	function deleteItem() {
 		//delete selected sticks or albums
@@ -165,6 +147,7 @@ function displaySticks(sticks) {
 		if (optValueSelected == "alb") {
 			$("#stickList").hide();
 			//load albums from DB
+			getUserAlbums(userId);
 			$("#albumList").show();
 		} else {
 			$("#albumList").hide();
@@ -173,7 +156,6 @@ function displaySticks(sticks) {
 			$("#stickList").show();
 		}
 		$("#deleteSelect").hide();
-		$(".albumCheckBox").hide();
 	}
 
 	intialize();
