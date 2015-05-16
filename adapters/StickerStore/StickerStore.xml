@@ -44,6 +44,7 @@
 	<procedure name="updateAlbum"/>
 	<procedure name="deleteStick"/>
 	<procedure name="deleteAlbum"/>
+	<procedure name="deleteUSA"/>
 	<procedure name="forgotPassword"/>
 
 </wl:adapter>

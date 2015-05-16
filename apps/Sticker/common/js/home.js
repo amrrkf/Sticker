@@ -2,6 +2,37 @@ $(function() {
 var userId;
 var href="#";
 /////////////////////////////////////////////////////////// getUserSticks ////////////////////////////////////////////////////////
+function deleteStick(userId){
+		var invocationData = {
+			adapter : 'StickerStore',
+			procedure : 'getUserSticks',
+			parameters : [userId]
+		};
+
+		WL.Client.invokeProcedure(invocationData,{
+			onSuccess : getUserSticksSuccess,
+			onFailure : getUserSticksFailure
+		});
+	}
+
+
+function getUserSticksSuccess(result){
+		var resultLength=result.invocationResult.resultSet.length;	
+		if(resultLength==0)
+		{
+		alert("No sticks found, create a new stick");
+		//WL.Toast.show("No sticks found, create a new stick");
+		}
+		else 
+			displaySticks(result.invocationResult.resultSet);		
+	}
+
+function getUserSticksFailure(result){
+		alert("Error loading sticks");
+		//WL.Toast.show("Error loading sticks");	
+	}	
+
+/////////////////////////////////////////////////////////// getUserSticks ////////////////////////////////////////////////////////
 function getUserSticks(userId){
 		var invocationData = {
 			adapter : 'StickerStore',
@@ -53,7 +84,7 @@ function displaySticks(sticks) {
 		
 		var html611=$("<li class='ui-block-a'>").append("<a class='ui-btn ui-content  ui-icon-action ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
 		var html612=$("<li class='ui-block-b'>").append("<a href='editStick.html?stickId="+Id+"' class='ui-btn ui-content  ui-icon-edit ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
-		var html613=$("<li class='ui-block-c'>").append("<a class=' ui-btn ui-content  ui-icon-delete ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
+		var html613=$("<li class='ui-block-c'>").append("<a id=delete-"+Id+" class='stickDelete ui-btn ui-content  ui-icon-delete ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
 		var html61=$("<ul class='ui-grid-b'>").append(html611,html612,html613);
 		var html6=$("<div data-role='navbar' class='ui-content nav ui-navbar' role='navigation'>").append(html61);
 
@@ -61,6 +92,13 @@ function displaySticks(sticks) {
 		sticksDiv.append(html);
 	}
 	$(".stickCheckBox").hide();
+	$('.stickDelete').click(function() {
+		stickId=parseInt($(this).attr("id").split('-')[1]);
+		//delete selected sticks or albums
+		intialize();
+	});
+
+
 
 }
 
@@ -108,7 +146,7 @@ function displayAlbums(albums) {
 		var html3=$("<p align='left' class='stickDsc'>"+albums[i].albumInfo+"</p>");
 		var html411=$("<li class='ui-block-a'>").append("<a class='ui-btn ui-content  ui-icon-action ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
 		var html412=$("<li class='ui-block-b'>").append("<a href='editAlbum.html?albumId="+Id+"' class='ui-btn ui-content  ui-icon-edit ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
-		var html413=$("<li class='ui-block-c'>").append("<a class=' ui-btn ui-content  ui-icon-delete ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
+		var html413=$("<li class='ui-block-c'>").append("<a id=delete-"+Id+" class='albumDelete ui-btn ui-content  ui-icon-delete ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
 		var html41=$("<ul class='ui-grid-b'>").append(html411,html412,html413);
 		var html4=$("<div data-role='navbar' class='ui-content nav ui-navbar' role='navigation'>").append(html41);
 
@@ -116,6 +154,7 @@ function displayAlbums(albums) {
 		albumsDiv.append(html);
 	}
 	$(".albumCheckBox").hide();
+
 
 }
 
@@ -163,23 +202,29 @@ function displayAlbums(albums) {
 	$('#stickAlbumSelect').change(function() {
 		intialize();
 	});
+	
 	$('#homeListitem').click(function() {
 		$("#deleteSelect").show();
 		$("#homePanel").panel("close");
 		$(".stickCheckBox").show();
 		$(".albumCheckBox").show();
 	});
+	
 	$('#deleteSelect').click(function() {
 		$("#homePopup2").popup("open");
 	});
+	
 	$('#delNo').click(function() {
 		$("#homePopup2").popup("close");
 	});
+	
 	$('#delYes').click(function() {
 		$("#homePopup2").popup("close");
 		alert("Deleted");
 		//delete selected sticks or albums
 		intialize();
 	});
+
+
 
 });
