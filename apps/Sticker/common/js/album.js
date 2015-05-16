@@ -1,5 +1,4 @@
  
-$(function(){
 var href="#";
 
 /////////////////////////////////////////////////////////// getUserSticks ////////////////////////////////////////////////////////
@@ -127,13 +126,27 @@ function getUserAlbumSticks(userId,albumId){
 	function getUserAlbumSticksSuccess(result){
 		alert("getUserAlbum: Success!")
 		checking(result.invocationResult.resultSet);	
-	//	writeCache(userId);
+		//	writeCache(userId);
 		
 	}
 
 	function getUserAlbumSticksFailure(result){
 		alert("getUserAlbum: Failure!")		
 	}	
-function checking(checkedSticks)
+function checking(checkedSticks){
+	var checkboxes=$(".albumCheck");
+	for(var i = 0; i < checkboxes.length; i++){
+		for(var j=0;j<checkedSticks.length;j++){	
+		var stickId=parseInt(checkboxes[i].id.split('-')[1]);
+		if(stickId==checkedSticks[j].stickId){
+ 			checkboxes[i].checked=ture;
+			
+		}
+		}
+	}
+	href="home.html";
+	$(".albumSubmit").click();		
+
+
+}
 	
-});
