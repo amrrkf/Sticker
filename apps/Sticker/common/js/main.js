@@ -32,6 +32,12 @@ function validateEmail(email) {
 }
 
 $(function(){
+
+	$("#logoutClass").click(function() {
+		openCache();
+		removeCache();
+		closeCache();
+	});
 	 
 //	$(".pageTheme").attr("class","pageTheme ui-page ui-page-theme-"+$(".pageTheme").attr("data-theme")+" ui-page-active");
 	$(".pageTheme").removeClass("ui-page-theme-a").addClass("ui-page-theme-"+$(".pageTheme").attr("data-theme"));
