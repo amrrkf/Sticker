@@ -1,13 +1,10 @@
 
-//intialize Stick
-	function intialize() {
-		//userId= getActiveUser();
-		navigator.geolocation.getCurrentPosition(getLatLong, onError);
-		$("#imgStickDelete").hide();
-		getTime();    
-	}
+$(function(){
 
-	function getTime() {
+	var userId;
+	var href="#";
+
+		function getTime() {
 		//get the current time
 		var dt = new Date($.now());
 		var add= dt.toString();
@@ -15,15 +12,28 @@
 	    $('#stickTime').text('Time: '+ endTime);
 	}
 
-$(function(){
+
+//intialize Stick
+	function intialize() {
+		//userId= getActiveUser();
+		userId=1;
+		navigator.geolocation.getCurrentPosition(getLatLong, onError);
+		$("#imgStickDelete").hide();
+		getTime();    
+	}
 	
-	//var userId;
 //////////////////////////////////////////////////////////////////////////////////////////
 	intialize();
 
 	
 	//add stick functions for adapter 
 	function addStick(userId, stickTitle, stickImage, stickTime, stickLocation, stickInfo){
+			/*alert(userId);
+			alert(stickTitle);
+			alert(stickImage);
+			alert(stickTime);
+			alert(stickLocation);
+			alert(stickInfo);*/
 		var invocationData = {
 			adapter : 'StickerStore',
 			procedure : 'addStick',
@@ -37,18 +47,17 @@ $(function(){
 	}
 
 	function addStickSuccess(){
-		/*var userId=result.invocationResult.resultSet[0].userId;
-		openCache();
-		writeCache(String(userId));
-		closeCache();
-		href="home.html";
-		$("#confirmSignup").click();*/
+	    href="home.html";
+		$("#stickDone").click();
+		var tempSrc=$(".common-stick-image").attr("src");
+		savePic(tempSrc);
 		alert("success add stick");
 	}
 
-	function addStickFailure(){
-		/*href="index.html";
-		$("#confirmSignup").click();*/
+	function addStickFailure(response){
+		href="stick.html";
+		$("#stickDone").click();
+		//alert(JSON.stringify(response));
 		alert("error add stick");
 	}	
 
@@ -57,42 +66,43 @@ $(function(){
 //////////////////////////////////////////////////////////////////////////////////////////
 
 	$("#stickDone").click(function(){
+		if(href!=="#")
+			$("#stickDone").attr("href",href);	
+		else
+		{
+		href="#";
 		$("#stickForm").submit();
+		}
+
 	});
 	
 	$("#stickForm").submit(function() {
 		// get form values
-		//alert("sdbakjsajknasjk");
 		var sName=$('#stickName').val();  //stick name
 		var imageSrc=$(".common-stick-image").attr("src");
 		var imageName;
-		//alert(imageSrc);
 		if(imageSrc!=''){
 		var value=imageSrc.split("/");
     	count=value.length;
     	imageName= value[count-1]; //image name
-		//alert(imageName);
 		}
 		else{
 			imageName='';
 		}
 		var sStatus=$('#stickStatus').val(); //status
-		//alert(sStatus);
 		var sLoc=$('#stickLocation').html(); 
 		var sLocation=sLoc.substr(9);
-		//alert(sLocation.substr(9));
 		var sT=$('#stickTime').html();
 		var sTime=sT.substr(5);
-		//alert(sTime.substr(5));
 
 		if(sName==''|| sStatus=='')	// check for empty values
 			{
 				alert('please fill the form');
-				$("#stickDone").attr("href","stick.html");	
+				return false;
 			}
 		else{
-				//$("#stickDone").attr("href","stick.html");	
-				addStick(1, sName, imageName, sTime, sLocation, sStatus);		// perform addStick
+				addStick(userId, sName, imageName, sTime, sLocation, sStatus);		// perform addStick
+				//return true;
 		}
 			
 
@@ -118,6 +128,4 @@ $(function(){
 		$("#imgStickDelete").hide();
 	});
 	
-
-
 	});
