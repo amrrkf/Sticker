@@ -40,15 +40,14 @@ function getUserSticksFailure(result){
 
 //////////////////////////////////////////////////////// displaySticks /////////////////////////////////////////////////////////////
 function displaySticks(sticks) {
-
-	var sticksDiv=$("#existingStickList");
+	var sticksDiv=$(".stickList");
 	for (var i = 0; i < sticks.length; i++) {
 		var Id=String(sticks[i].stickId);
 		
 		var html1=$("<div class='right-checkbox'>").append("<input type='checkbox' name='checkbox-h-2a' class='albumCheck' id=checkbox-"+Id+">");
 		var html2=$("<div class=stickTitle>"+sticks[i].stickTitle+"</div>");
 		var html3=$("<div class=ui-grid-a>")
-		.append("<div class='ui-black-a stickTime' title='stickTime'>"+sticks[i].stickTime,"<div class='ui-block-b stickLoc' title='stickLoc'>"+sticks[i].stickLocation);
+		.append("<div class='ui-black-a stickTime' title='stickTime'>Time: "+sticks[i].stickTime,"<div class='ui-block-b stickLoc' title='stickLoc'>Location: "+sticks[i].stickLocation);
 		
 		var html=$("<div id=stick"+Id+" class='stick ui-body ui-corner-all'>").append(html1,html2,html3);
 		sticksDiv.append(html);
@@ -70,7 +69,7 @@ function addAlbum(userId,albumTitle, albumInfo) {
 	}
 function addAlbumSuccess(result){
 		//var albumId=result.invocationResult.resultSet.albumId;
-		var albumId=1;
+	
 		addSticksToAlbum(albumId)
 	}
 
@@ -125,28 +124,21 @@ function getUserAlbumSticks(userId,albumId){
 		});
 	}
 	function getUserAlbumSticksSuccess(result){
-		alert("getUserAlbum: Success!")
+		alert("getUserAlbumSticks: Success!")
 		checking(result.invocationResult.resultSet);	
 		//	writeCache(userId);
 		
 	}
 
 	function getUserAlbumSticksFailure(result){
-		alert("getUserAlbum: Failure!")		
+		alert("getUserAlbumSticks: Failure!")		
 	}	
 function checking(checkedSticks){
-	var checkboxes=$(".albumCheck");
-	for(var i = 0; i < checkboxes.length; i++){
-		for(var j=0;j<checkedSticks.length;j++){	
-		var stickId=parseInt(checkboxes[i].id.split('-')[1]);
-		if(stickId==checkedSticks[j].stickId){
- 			checkboxes[i].checked=ture;
-			
-		}
-		}
+	for(var j=0;j<checkedSticks.length;j++){
+		$(".albumCheck#checkbox-"+String(checkedSticks[j].stickId)).prop('checked', true);
+
 	}
-	href="home.html";
-	$(".albumSubmit").click();		
+		
 }
 //////////////////////////////////////////////////////////////updateAlbum/////////////////////////////////////////////////////
 function updateAlbum(albumTitle, albumInfo) {
@@ -162,7 +154,7 @@ function updateAlbum(albumTitle, albumInfo) {
 		});
 	}
 	function updateAlbumSuccess(result){
-		alert("getUserAlbum: Success!")
+		alert("updateAlbum: Success!")
 		deleteSticksFromAlbum(albumId);
 		addSticksToAlbum(albumId);
 		//	writeCache(userId);
@@ -170,13 +162,40 @@ function updateAlbum(albumTitle, albumInfo) {
 	}
 
 	function updateAlbumFailure(result){
+		alert("updateAlbum: Failure!")	
+		href="editAlbum.html?albumId="+String(albumId);
+		$(".albumSubmit").click();
+			
+	}	
+///////////////////////////////////////////////////////////deleteSticksFromAlbum///////////////////////////////////
+function deleteSticksFromAlbum(albumId){
+
+
+}
+///////////////////////////////////////////////////////////getAlbums/////////////////////////////////////////////////////////
+function getAlbums(userId, albumId){
+var invocationData = {
+			adapter : 'StickerStore',
+			procedure : 'getAlbums',
+			parameters : [userId, albumId]
+		};
+
+		WL.Client.invokeProcedure(invocationData,{
+			onSuccess :getAlbumSuccess,
+			onFailure : getAlbumFailure
+		});
+	}
+	function getAlbumSuccess(result){
+		alert("getUserAlbum: Success!")
+		$("#editAlbumName").val(result.invocationResult.resultSet[0].albumTitle);
+		$("#editAlbumNotes").val(result.invocationResult.resultSet[0].albumInfo);
+		getUserAlbumSticks(userId,albumId);
+	}
+
+	function getAlbumFailure(result){
 		alert("getUserAlbum: Failure!")	
 		href="editAlbum.html?albumId="+String(albumId);
 		$(".albumSubmit").click();
 			
 	}	
-///////////////////////////////////////////////////////////deleteSticksFromAlbum(albumId)///////////////////////////////////
-function deleteSticksFromAlbum(albumId){
 
-
-}

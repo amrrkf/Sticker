@@ -3,8 +3,11 @@ $(function(){
 
 
 $(".albumSubmit").click(function(){
-		if(href!=="#")
+		if(href!=="#"){
+			alert("gowwa el click");
 			$(".albumSubmit").attr("href",href);	
+		
+		}
 		else
 		{
 			$("#editAlbumForm").submit();
@@ -17,6 +20,7 @@ function intialize() {
  	getUserSticks(userId);
  	//albumId=getParameterByName("albumId");
  	albumId=1;
+ 	getAlbums(userId,albumId);
 }
 
 
