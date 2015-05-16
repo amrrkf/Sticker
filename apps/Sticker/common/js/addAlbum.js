@@ -1,7 +1,7 @@
  
 $(function(){
 
-
+var userId;
 
 
 $(".albumSubmit").click(function(){

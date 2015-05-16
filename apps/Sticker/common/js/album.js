@@ -1,7 +1,7 @@
  
 $(function(){
 var href="#";
-var userId;
+
 /////////////////////////////////////////////////////////// getUserSticks ////////////////////////////////////////////////////////
 function getUserSticks(userId){
 		var invocationData = {
@@ -125,15 +125,15 @@ function getUserAlbumSticks(userId,albumId){
 		});
 	}
 	function getUserAlbumSticksSuccess(result){
-		alert("getUserAlbum: Success!")	
+		alert("getUserAlbum: Success!")
+		checking(result.invocationResult.resultSet);	
 	//	writeCache(userId);
 		
 	}
 
 	function getUserAlbumSticksFailure(result){
-		alert("getUserAlbum: Failure!")
-		
+		alert("getUserAlbum: Failure!")		
 	}	
-
+function checking(checkedSticks)
 	
 });

@@ -1,6 +1,6 @@
  
 $(function(){
-
+var userId;
 
 
 
