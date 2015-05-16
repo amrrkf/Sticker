@@ -76,23 +76,22 @@ var href="#";
 		if(email==''|| password=='' || confirmPassword=='')	// check for empty values
 			{
 				alert('please fill the form');
-				$("#confirmSignup").attr("href","signup.html");	
-
+				return false;
 			}
 		else if(!validateEmail(email))						// check validation format for mail
 			{
 				alert('invalid mail');
-				$("#confirmSignup").attr("href","signup.html");	
+				return false;
 			}
 		else if (password.length<7)							// check minimum length of password
 			{
 				alert('password minimum length length is 7');
-				$("#confirmSignup").attr("href","signup.html");	
+				return false;
 			}
 		else if (password!==confirmPassword)				// check password=confirm password
 			{
 				alert('password & confirmPassword don\'t match');
-				$("#confirmSignup").attr("href","signup.html");	
+				return false;
 			}
 		else
 			signup(email,password);							// perform signup

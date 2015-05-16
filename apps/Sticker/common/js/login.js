@@ -2,7 +2,15 @@
 $(function() {
 	var userId;
 	var href="#";
-	
+
+	function sendMail() {
+    var link = "mailto:abdallahmagdy1993@gmail.com"
+             + "?subject=" + escape("This is my subject")
+             + "&body=" + escape("dekmdekdmek");
+    window.location.href = link;
+    alert("sent");
+	}
+
 	$("#homeLogin").click(function() {
 		if(href!=="#")
 		{
@@ -16,7 +24,39 @@ $(function() {
 		}
 	});
 
-//////////////////////////////////////////////////////////// getUserId function ////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////// forgotpassword function ////////////////////////////////////////////////////////////
+	function forgotPassword(email){
+		var invocationData = {
+			adapter : 'StickerStore',
+			procedure : 'forgotPassword',
+			parameters : [email]
+		};
+
+		WL.Client.invokeProcedure(invocationData,{
+			onSuccess : forgotPasswordSuccess,
+			onFailure : forgotPasswordFailure
+		});
+	}
+
+	function forgotPasswordSuccess(result){
+		var resultLength=result.invocationResult.resultSet.length;
+		if(resultLength===0){
+			alert('invalid email');
+		}
+		else{
+			email=result.invocationResult.resultSet[0].email;
+			password=result.invocationResult.resultSet[0].password;
+			//send email
+			sendMail();
+		}
+	}
+
+	function forgotPasswordFailure(result){
+		alert('invalid email');
+	
+	}
+
+//////////////////////////////////////////////////////////// login function ////////////////////////////////////////////////////////////
 	function login(email,password){
 		var invocationData = {
 			adapter : 'StickerStore',
@@ -60,15 +100,35 @@ $(function() {
 		if(email==''|| password=='')	// check for empty values
 			{
 				alert('please fill the form');
-				$("#homeLogin").attr("href","login.html");	
+				return false;
 
 			}
 		else if(!validateEmail(email))						// check validation format for mail
 			{
 				alert('invalid mail');
-				$("#homeLogin").attr("href","login.html");	
+				return false;
 			}
 		else 
 			login(email,password);
 	});
+
+
+	$("#forgotSubmit").click(function() {
+		var email=$('#retriveEmailLogin').val();
+		if(email=='')	// check for empty values
+			{
+				alert('please enter your mail');
+				return false;
+			}
+		else if(!validateEmail(email))						// check validation format for mail
+			{
+				alert('invalid mail');
+				return false;
+			}
+		else {
+			forgotPassword(email);
+		}
+		
+	});
+
 });
