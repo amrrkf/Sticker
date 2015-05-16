@@ -57,10 +57,11 @@ function savePic(file) {
 
 //Callback function when the file system uri has been resolved
 function resolveOnSuccess(entry) {
-	var d = new Date();
-	var n = d.getTime();
-	//new file name
-	var newFileName = n + ".jpg";
+	
+	var imgSrc=$(".common-stick-image").attr("src");
+	var value=imgSrc.split("/");
+    count=value.length;
+    var newFileName= value[count-1]; //image name
 	var myFolderApp = "Sticker";
 
 	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSys) {
