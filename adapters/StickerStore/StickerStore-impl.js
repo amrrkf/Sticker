@@ -111,6 +111,17 @@ function getAlbums(userId, albumId) {
 	});
 }
 
+
+// done
+var getStickStatement = WL.Server.createSQLStatement("SELECT * FROM stick WHERE userId = (?) and stickId = (?);");
+function getStick(userId, stickId) {
+	//get stick by stickId
+	return WL.Server.invokeSQLStatement({
+		preparedStatement : getStickStatement,
+		parameters : [userId, stickId]
+	});
+}
+
 // updates user's password -- done
 var updateUserStatement = WL.Server.createSQLStatement("UPDATE user SET password = (?) WHERE userId = (?);");
 function updateUser(userId,password) {

@@ -38,6 +38,7 @@
 	<procedure name="addStick"/>
 	<procedure name="addAlbum"/>
 	<procedure name="getAlbums"/>
+	<procedure name="getStick"/>
 	<procedure name="updateUser"/>
 	<procedure name="updateStick"/>
 	<procedure name="updateAlbum"/>
