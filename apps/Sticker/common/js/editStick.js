@@ -1,5 +1,16 @@
+
+
+var stickId;
+var userId;
+var href="#";
+
 function intialize() {
 	$("#imgEditStickDelete").hide();
+	userId= parseInt(getActiveUser());	
+	setTimeout(function(){
+	stickId=getParameterByName('stickId');
+	alert(stickId);
+	}, 2000);
 }
 
 
@@ -11,12 +22,12 @@ function saveStick() {
 	//save the edits in the stick
 }
 
-
 $(function(){
 	
 	intialize();
+
 	
-	
+
 	$("#saveStick").click(function(){
 
 		$("#editStickForm").submit();
@@ -39,8 +50,9 @@ $(function(){
 
 	//remove the loaded photo from the form
 	$("#imgEditStickDelete").click(function(){
-		$(".common-stick-image").attr("src","/");
+		$(".common-stick-image").attr("src","");
 		$("#imgEditStickDelete").hide();
 	});
 
+	
 	});
