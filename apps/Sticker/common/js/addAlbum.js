@@ -9,7 +9,7 @@ $(".albumSubmit").click(function(){
 			$(".albumSubmit").attr("href",href);	
 		else
 		{
-			$("#editAlbumForm").submit();
+			$("#albumForm").submit();
 		}
 	});
 
@@ -23,9 +23,9 @@ function intialize() {
 	intialize();
 	
 	
-	$("#editAlbumForm").submit(function(){
-		albumTitle=$("#editAlbumName").val();
-		albumInfo=$("#editAlbumNotes").val();
+	$("#albumForm").submit(function(){
+		albumTitle=$("#albumName").val();
+		albumInfo=$("#albumNotes").val();
 		if(albumTitle==""){
 			alert("Ablum's name cant be empty u should fill it");
 			//WL.Toast.show("Ablum's name cant be empty u should fill it");

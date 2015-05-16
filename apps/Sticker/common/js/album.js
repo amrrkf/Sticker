@@ -1,25 +1,7 @@
  
 $(function(){
-
-var userId;
 var href="#";
-
-$("#albumSubmit").click(function(){
-		if(href!=="#")
-			$("#albumSubmit").attr("href",href);	
-		else
-		{
-			$("#albumForm").submit();
-		}
-	});
-
-
-function intialize() {
-	userId= parseInt(getActiveUser());
- 	getUserSticks(userId);
-}
-
-
+var userId;
 /////////////////////////////////////////////////////////// getUserSticks ////////////////////////////////////////////////////////
 function getUserSticks(userId){
 		var invocationData = {
@@ -42,7 +24,7 @@ function getUserSticksSuccess(result){
 		alert("No sticks found, album can't be created");
 		//WL.Toast.show("No sticks found, album can't be created");
 		href="home.html";
-		$("#albumSubmit").click();	
+		$(".albumSubmit").click();	
 		}
 		else 
 			displaySticks(result.invocationResult.resultSet);		
@@ -52,7 +34,7 @@ function getUserSticksFailure(result){
 		alert("Error loading sticks");
 		//WL.Toast.show("Error loading sticks");
 		href="home.html";
-		$("#albumSubmit").click();
+		$(".albumSubmit").click();
 	
 	}	
 
@@ -104,13 +86,13 @@ function addSticksToAlbum(albumId){
 	
 		if(checkboxes[i].checked){
  			var stickId=parseInt(checkboxes[i].id.split('-')[1]);
-			updateUSAStatement(userId,albumId, stickId);
+			updateUSA(userId,albumId, stickId);
 		}
 	}
 	href="home.html";
-	$("#albumSubmit").click();		
+	$(".albumSubmit").click();		
 }
-function updateUSAStatement(userId,albumId, stickId){
+function updateUSA(userId,albumId, stickId){
 				var invocationData = {
 					adapter : 'StickerStore',
 					procedure : 'updateUSA',
@@ -127,33 +109,31 @@ function updateUSASuccess(result){
 
 function updateUSAFailure(result){
 
-	}		
+	}
+/////////////////////////////////////////////////////////////////getUserAlbumSticks/////////////////////////////////////////////////
 
-///////////////////////////////////////////////////////////////// page functions //////////////////////////////////////////////////////	
-	intialize();
+function getUserAlbumSticks(userId,albumId){
+		var invocationData = {
+			adapter : 'StickerStore',
+			procedure : 'getUserAlbumSticks',
+			parameters : [userId,albumId]
+		};
+
+		WL.Client.invokeProcedure(invocationData,{
+			onSuccess :getUserAlbumSticksSuccess,
+			onFailure : getUserAlbumSticksFailure
+		});
+	}
+	function getUserAlbumSticksSuccess(result){
+		alert("getUserAlbum: Success!")	
+	//	writeCache(userId);
+		
+	}
+
+	function getUserAlbumSticksFailure(result){
+		alert("getUserAlbum: Failure!")
+		
+	}	
+
 	
-	
-	$("#albumForm").submit(function(){
-		albumTitle=$("#albumName").val();
-		albumInfo=$("#albumNotes").val();
-		if(albumTitle==""){
-			alert("Ablum's name cant be empty u should fill it");
-			//WL.Toast.show("Ablum's name cant be empty u should fill it");
-			return false;
-		}
-		else if(albumInfo==""){
-			alert("Ablum's notes cant be empty u should fill it");
-			//WL.Toast.show("Ablum's notes cant be empty u should fill it");
-			return false;
-		}
-		else if($(".albumCheck:checked").length==0)
-		{
-			alert("please check at least one stick");
-			//WL.Toast.show("please check at least one stick");
-			return false;
-
-		}
-		else addAlbum(userId,albumTitle,albumInfo);
-	});
-
-	});
+});
