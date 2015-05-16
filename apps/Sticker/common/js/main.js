@@ -33,7 +33,7 @@ function validateEmail(email) {
 
 $(function(){
 
-	$("#logoutClass").click(function() {
+	$(".logoutClass").click(function() {
 		openCache();
 		removeCache();
 		closeCache();

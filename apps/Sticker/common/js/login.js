@@ -100,7 +100,6 @@ $(function() {
 		}
 		else{
 			userId=result.invocationResult.resultSet[0].userId;
-			closeCache();
 			openCache();
 			writeCache(String(userId));
 			closeCache();
