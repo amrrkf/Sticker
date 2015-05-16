@@ -3,13 +3,31 @@ $(function() {
 	var userId;
 	var href="#";
 
-	function sendMail() {
-    var link = "mailto:abdallahmagdy1993@gmail.com"
-             + "?subject=" + escape("This is my subject")
-             + "&body=" + escape("dekmdekdmek");
-    window.location.href = link;
-    alert("sent");
-    //WL.Toast.show("sent");
+	function sendMail(email,password) {
+    $.ajax({
+		  type: "POST",
+		  url: "https://mandrillapp.com/api/1.0/messages/send.json",
+		  data: {
+		    'key': 'Dejvu88KNPm5QI0kfShByQ',
+		    'message': {
+		      'from_email': 'admin@sticker.com',
+		      'to': [
+		          {
+		            'email': email,
+		            'type': 'to'
+		          }
+		        ],
+		      'autotext': 'true',
+		      'subject': 'Sticker password reset',
+		      'html': 'Hey, dear Sticker App user<br><br>Please keep this email for your records, your sticker password is:<br>'+password+'<br><br><br>Thank you for using Sticker.'
+		    }
+		  }
+		 }).done(function(response) {
+		   //alert(JSON.stringify(response)); // if you're into that sorta thing
+		   alert("your password will be sent within 5 minutes to "+email);
+		   //WL.Toast.show(""your password will be sent within 5 minutes to "+email);
+		 });
+    
 	}
 
 	$("#homeLogin").click(function() {
@@ -49,7 +67,7 @@ $(function() {
 			email=result.invocationResult.resultSet[0].email;
 			password=result.invocationResult.resultSet[0].password;
 			//send email
-			sendMail();
+			sendMail(email,password);
 		}
 	}
 
