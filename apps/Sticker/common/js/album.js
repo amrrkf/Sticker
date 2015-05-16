@@ -155,7 +155,7 @@ function updateAlbum(albumTitle, albumInfo) {
 	}
 	function updateAlbumSuccess(result){
 		alert("updateAlbum: Success!")
-		deleteSticksFromAlbum(albumId);
+		deleteSticksFromAlbum(userId,albumId);
 		addSticksToAlbum(albumId);
 		//	writeCache(userId);
 		
@@ -168,10 +168,29 @@ function updateAlbum(albumTitle, albumInfo) {
 			
 	}	
 ///////////////////////////////////////////////////////////deleteSticksFromAlbum///////////////////////////////////
-function deleteSticksFromAlbum(albumId){
+function deleteSticksFromAlbum(userId,albumId){
+	var invocationData = {
+			adapter : 'StickerStore',
+			procedure : 'deleteUSA',
+			parameters : [userId, albumId]
+		};
 
+		WL.Client.invokeProcedure(invocationData,{
+			onSuccess :deleteUSASuccess,
+			onFailure : deleteUSAFailure
+		});
 
 }
+
+	function deleteUSASuccess(result){
+		alert("deleteUSA: Success!")
+			}
+
+	function deleteUSAFailure(result){
+		alert("deleteUSA: Failure!")	
+				
+	}	
+
 ///////////////////////////////////////////////////////////getAlbums/////////////////////////////////////////////////////////
 function getAlbums(userId, albumId){
 var invocationData = {
