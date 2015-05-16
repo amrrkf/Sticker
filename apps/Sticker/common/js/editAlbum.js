@@ -17,10 +17,12 @@ $(".albumSubmit").click(function(){
 
 function intialize() {
 	userId= parseInt(getActiveUser());
- 	getUserSticks(userId);
- 	//albumId=getParameterByName("albumId");
- 	albumId=1;
+	setTimeout(function(){
+ 	albumId=getParameterByName('albumId');
+	getUserSticks(userId);
  	getAlbums(userId,albumId);
+ 		},1000);
+ 	
 }
 
 
@@ -47,7 +49,7 @@ function intialize() {
 			return false;
 
 		}
-		else updateAlbum(albumId,albumTitle,albumInfo);
+		else updateAlbum(albumTitle,albumInfo);
 	});
 
 	});
