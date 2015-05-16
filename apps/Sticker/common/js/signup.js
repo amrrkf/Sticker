@@ -55,7 +55,7 @@ var href="#";
 
 	function signupSuccess(result){
 		var email=$('#emailSignup').val();
-		getUserId(email);		
+		getUserId(email.toLowerCase());		
 	}
 
 	function signupFailure(result){
@@ -94,7 +94,7 @@ var href="#";
 				return false;
 			}
 		else
-			signup(email,password);							// perform signup
+			signup(email.toLowerCase(),password);							// perform signup
 
 		
 		

@@ -79,6 +79,7 @@ $(function() {
 		}
 		else{
 			userId=result.invocationResult.resultSet[0].userId;
+			closeCache();
 			openCache();
 			writeCache(String(userId));
 			closeCache();
@@ -109,7 +110,7 @@ $(function() {
 				return false;
 			}
 		else 
-			login(email,password);
+			login(email.toLowerCase(),password);
 	});
 
 
@@ -126,7 +127,7 @@ $(function() {
 				return false;
 			}
 		else {
-			forgotPassword(email);
+			forgotPassword(email.toLowerCase());
 		}
 		
 	});

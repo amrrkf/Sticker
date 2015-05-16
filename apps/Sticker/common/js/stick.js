@@ -15,8 +15,7 @@ $(function(){
 
 //intialize Stick
 	function intialize() {
-		//userId= getActiveUser();
-		userId=1;
+		userId= parseInt(getActiveUser());
 		navigator.geolocation.getCurrentPosition(getLatLong, onError);
 		$("#imgStickDelete").hide();
 		getTime();    
@@ -28,12 +27,7 @@ $(function(){
 	
 	//add stick functions for adapter 
 	function addStick(userId, stickTitle, stickImage, stickTime, stickLocation, stickInfo){
-			/*alert(userId);
-			alert(stickTitle);
-			alert(stickImage);
-			alert(stickTime);
-			alert(stickLocation);
-			alert(stickInfo);*/
+			
 		var invocationData = {
 			adapter : 'StickerStore',
 			procedure : 'addStick',
@@ -57,7 +51,6 @@ $(function(){
 	function addStickFailure(response){
 		href="stick.html";
 		$("#stickDone").click();
-		//alert(JSON.stringify(response));
 		alert("error add stick");
 	}	
 
@@ -102,7 +95,6 @@ $(function(){
 			}
 		else{
 				addStick(userId, sName, imageName, sTime, sLocation, sStatus);		// perform addStick
-				//return true;
 		}
 			
 

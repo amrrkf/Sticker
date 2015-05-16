@@ -16,7 +16,6 @@ $("#albumSubmit").click(function(){
 
 function intialize() {
 	userId= parseInt(getActiveUser());
-	//userId=2;
  	getUserSticks(userId);
 }
 
