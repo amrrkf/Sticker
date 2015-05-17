@@ -1,6 +1,7 @@
 function wlCommonInit(){
 	
-	
+  WL.App.overrideBackButton(backFunc);      
+
 	/*
 	 * Use of WL.Client.connect() API before any connectivity to a MobileFirst Server is required. 
 	 * This API should be called only once, before any other WL.Client methods that communicate with the MobileFirst Server.
@@ -16,6 +17,11 @@ function wlCommonInit(){
 	// Common initialization code goes here
 	
 }
+
+function backFunc() {
+    alert('You will back to previous page');
+}
+
 //get parameters from link address
 function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
