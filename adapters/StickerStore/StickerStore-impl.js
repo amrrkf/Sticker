@@ -113,6 +113,23 @@ function getAlbums(userId, albumId) {
 
 
 // done
+var getLastAlbumIdStatement = WL.Server.createSQLStatement("SELECT albumId FROM album WHERE userId = (?) ORDER BY albumId DESC LIMIT 1;");
+function getLastAlbumId(userId){
+	return WL.Server.invokeSQLStatement({
+		preparedStatement : getLastAlbumIdStatement,
+		parameters : [userId]
+	})
+}
+
+var getusaStickStatement = WL.Server.createSQLStatement("SELECT * FROM usa WHERE stickId = (?);");
+function getusaStick(stickId){
+	return WL.Server.invokeSQLStatement({
+		preparedStatement : getusaStickStatement,
+		parameters : [stickId]
+	})
+}
+
+// done
 var getStickStatement = WL.Server.createSQLStatement("SELECT * FROM stick WHERE userId = (?) and stickId = (?);");
 function getStick(userId, stickId) {
 	//get stick by stickId

@@ -31,6 +31,8 @@
 	<procedure name="login"/>
 	<procedure name="getUserId"/>
 	<procedure name="getUserSticks"/>
+	<procedure name="getusaStick"/>
+	<procedure name="getLastAlbumId"/>
 	<procedure name="updateUSA"/>
 	<procedure name="getUserAlbums"/>
 	<procedure name="getUserAlbumSticks"/>
