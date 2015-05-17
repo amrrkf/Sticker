@@ -4,7 +4,6 @@ $(function(){
 
 $(".albumSubmit").click(function(){
 		if(href!=="#"){
-			alert("gowwa el click");
 			$(".albumSubmit").attr("href",href);	
 		
 		}

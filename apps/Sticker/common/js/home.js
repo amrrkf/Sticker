@@ -1,6 +1,7 @@
 $(function() {
 var userId;
 var href="#";
+var stickId;
 var optValueSelected;
 /////////////////////////////////////////////////////////// getUserSticks ////////////////////////////////////////////////////////
 function getUserSticks(userId){
@@ -63,9 +64,9 @@ function displaySticks(sticks) {
 	}
 	$(".stickCheckBox").hide();
 	$('.stickDelete').click(function() {
-		var stickId=parseInt($(this).attr("id").split('-')[1]);
+		stickId=parseInt($(this).attr("id").split('-')[1]);
 		//delete selected sticks or albums
-		deleteStick(stickId);
+		getusaStick(stickId);
 	});
 
 
@@ -214,6 +215,38 @@ function deleteAlbumFailure(response){
 		//WL.Toast.show("Error deleting album");	
 	}	
 
+/////////////////////////////////////////////////////////// getusaStick ////////////////////////////////////////////////////////
+function getusaStick(stickId){
+		var invocationData = {
+			adapter : 'StickerStore',
+			procedure : 'getusaStick',
+			parameters : [stickId]
+		};
+
+		WL.Client.invokeProcedure(invocationData,{
+			onSuccess : getusaStickSuccess,
+			onFailure : getusaStickFailure
+		});
+	}
+
+
+function getusaStickSuccess(result){
+		var resultLength=result.invocationResult.resultSet.length;
+		if(resultLength==0){
+				deleteStick(stickId);
+		}
+		else
+		{
+		alert("Stick can't be deleted, It exists in one or more albums");
+		//WL.Toast.show("Stick can't be deleted, It exists in one or more albums");		
+		}
+		}
+
+function getusaStickFailure(response){
+		alert("Error getting stickId");
+		//WL.Toast.show("Error getting stickId");	
+	}	
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	$('#stickAlbumSelect').change(function() {
 		intialize();
@@ -250,8 +283,8 @@ function deleteAlbumFailure(response){
 		
 			if(checkboxes[i].checked){
 				x+=1;
-	 			var stickId=parseInt(checkboxes[i].id.split('-')[1]);
-				deleteStick(stickId);
+	 			stickId=parseInt(checkboxes[i].id.split('-')[1]);
+				getusaStick(stickId)
 			}
 		}
 		if(x==0)
