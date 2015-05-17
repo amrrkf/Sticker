@@ -1,10 +1,8 @@
-
-$(function() {
 var href="#";
 	
-	
-	$("#confirmSignup").click(function() {
+$(".addButton").click(function() {
 		if(href!=="#"){
+
 			$("#confirmSignup").attr("href",href);	
 		}
 		else
@@ -13,6 +11,8 @@ var href="#";
 		$("#signupForm").submit();
 		}
 	});
+
+$(function() {
 //////////////////////////////////////////////////////////// getUserId function ////////////////////////////////////////////////////////////
 	function getUserId(email){
 		var invocationData = {
@@ -29,9 +29,7 @@ var href="#";
 
 	function getUserIdSuccess(result){
 		var userId=result.invocationResult.resultSet[0].userId;
-		JSONadd(userId);
-		href="home.html";
-		$("#confirmSignup").click();
+		JSONinit('add',userId);
 		
 	}
 

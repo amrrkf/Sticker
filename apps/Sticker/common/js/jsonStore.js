@@ -1,6 +1,3 @@
-
-
-
 var collectionName='users';
 var user=null;
 /////////////////////////////////////////////////////////// JSONinit ////////////////////////////////////////////////////
@@ -80,7 +77,10 @@ function JSONadd (value) {
 			//Call add on the JSONStore collection
 			WL.JSONStore.get(collectionName).add(data)
 			.then(function () {
-				alert('Data added to the collection');
+				href="home.html";
+				$(".addButton").click();
+				//alert('Data added to the collection');
+
 			})
 
 			.fail(function (errorObject) {
