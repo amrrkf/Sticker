@@ -4,7 +4,7 @@ $(function() {
 	$("#enterIndex").hide();
 	var href="#";
 	var userId=getActiveUser();
-	//var userId='1';
+	//var userId=null;
 	if(userId!==null)
 			href="home.html";		
 	else 

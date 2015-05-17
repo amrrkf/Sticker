@@ -3,6 +3,20 @@ var userId;
 var href="#";
 var stickId;
 var optValueSelected;
+
+	WL.App.overrideBackButton(backFunc);
+	function backFunc(){
+		 WL.SimpleDialog.show(
+            "Quit application", 
+            "Are you sure?", 
+            [
+             {text: "Yes", handler: function() {WL.App.close();}},
+             {text: "No", handler: function() {}}
+             ]
+    );
+	}
+
+
 /////////////////////////////////////////////////////////// getUserSticks ////////////////////////////////////////////////////////
 function getUserSticks(userId){
 		var invocationData = {

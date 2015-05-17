@@ -1,7 +1,5 @@
 function wlCommonInit(){
 	
-  WL.App.overrideBackButton(backFunc);      
-
 	/*
 	 * Use of WL.Client.connect() API before any connectivity to a MobileFirst Server is required. 
 	 * This API should be called only once, before any other WL.Client methods that communicate with the MobileFirst Server.
@@ -18,9 +16,7 @@ function wlCommonInit(){
 	
 }
 
-function backFunc() {
-    alert('You will back to previous page');
-}
+
 
 //get parameters from link address
 function getParameterByName(name) {
@@ -40,9 +36,21 @@ function validateEmail(email) {
 $(function(){
 
 	$(".logoutClass").click(function() {
-		openCache();
-		removeCache();
-		closeCache();
+		var href=$(".logoutClass").attr("href");
+		if(href==="#")
+			WL.SimpleDialog.show(
+	            "Logout", 
+	            "Are you sure?", 
+	            [
+	             {text: "Yes", handler: function() {		
+	            openCache();
+				removeCache();
+				closeCache();
+				$(".logoutClass").attr("href","login.html");
+				$(".logoutClass").click();}},
+	             {text: "No", handler: function() {}}
+	             ]
+	    		);
 	});
 	 
 //	$(".pageTheme").attr("class","pageTheme ui-page ui-page-theme-"+$(".pageTheme").attr("data-theme")+" ui-page-active");

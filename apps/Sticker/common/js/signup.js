@@ -2,6 +2,7 @@
 $(function() {
 var href="#";
 	
+	
 	$("#confirmSignup").click(function() {
 		if(href!=="#")
 			$("#confirmSignup").attr("href",href);	
