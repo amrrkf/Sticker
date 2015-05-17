@@ -68,9 +68,7 @@ function addAlbum(userId,albumTitle, albumInfo) {
 		});
 	}
 function addAlbumSuccess(result){
-		//var albumId=result.invocationResult.resultSet.albumId;
 		getLastAlbumId(userId)
-		addSticksToAlbum(albumId)
 	}
 
 function addAlbumFailure(result){
@@ -157,7 +155,6 @@ function updateAlbum(albumTitle, albumInfo) {
 		alert("updateAlbum: Success!")
 		deleteSticksFromAlbum(userId,albumId);
 		addSticksToAlbum(albumId);
-		//	writeCache(userId);
 		
 	}
 
@@ -233,8 +230,8 @@ var invocationData = {
 	}
 	function getLastAlbumIdSuccess(result){
 		albumId=result.invocationResult.resultSet[0].albumId;
-		addSticksToAlbum(albumId)
-		
+		alert("getLastAlbumId: Success!");
+		addSticksToAlbum(albumId);
 	}
 
 	function getLastAlbumIdFailure(result){
