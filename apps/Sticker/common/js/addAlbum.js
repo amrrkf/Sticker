@@ -7,6 +7,7 @@ function intialize() {
  
 $(function(){
 
+WL.App.resetBackButton();
 
 
 

@@ -13,6 +13,8 @@ $(".addButton").click(function() {
 	});
 
 $(function() {
+	WL.App.resetBackButton();
+
 //////////////////////////////////////////////////////////// getUserId function ////////////////////////////////////////////////////////////
 	function getUserId(email){
 		var invocationData = {

@@ -20,7 +20,8 @@ $(function(){
 
 
 
-		
+		WL.App.resetBackButton();
+
 
 
 	

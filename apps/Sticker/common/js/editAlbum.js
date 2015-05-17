@@ -10,6 +10,7 @@ function intialize() {
 }
  
 $(function(){
+WL.App.resetBackButton();
 
 
 $(".albumSubmit").click(function(){
