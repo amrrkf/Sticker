@@ -69,7 +69,7 @@ function addAlbum(userId,albumTitle, albumInfo) {
 	}
 function addAlbumSuccess(result){
 		//var albumId=result.invocationResult.resultSet.albumId;
-	
+		getLastAlbumId(userId)
 		addSticksToAlbum(albumId)
 	}
 
@@ -217,4 +217,28 @@ var invocationData = {
 		$(".albumSubmit").click();
 			
 	}	
+
+/////////////////////////////////////////////////////////////getLastAlbumId//////////////////////////////////////////////////
+function getLastAlbumId(userId){
+var invocationData = {
+			adapter : 'StickerStore',
+			procedure : 'getLastAlbumId',
+			parameters : [userId]
+		};
+
+		WL.Client.invokeProcedure(invocationData,{
+			onSuccess :getLastAlbumIdSuccess,
+			onFailure :getLastAlbumIdFailure
+		});
+	}
+	function getLastAlbumIdSuccess(result){
+		albumId=result.invocationResult.resultSet[0].albumId;
+		alert("getLastAlbumId: Success!")
+	}
+
+	function getLastAlbumIdFailure(result){
+		alert("getLastAlbumId: Failure!")	
+				
+	}	
+
 
