@@ -112,11 +112,10 @@ $(function() {
 		}
 		else{
 			userId=result.invocationResult.resultSet[0].userId;
-			openCache();
-			writeCache(String(userId));
-			closeCache();
-			href="home.html";
-			$("#homeLogin").click();
+			JSONinit('add',userId);
+				href="home.html";
+				$("#homeLogin").click();
+	
 		}
 	}
 

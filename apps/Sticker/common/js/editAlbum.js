@@ -1,3 +1,13 @@
+
+function intialize() {
+	userId= user;
+	setTimeout(function(){
+ 	albumId=getParameterByName('albumId');
+	getUserSticks(userId);
+ 	getAlbums(userId,albumId);
+ 		},1000);
+ 	
+}
  
 $(function(){
 
@@ -14,18 +24,8 @@ $(".albumSubmit").click(function(){
 	});
 
 
-function intialize() {
-	userId= parseInt(getActiveUser());
-	setTimeout(function(){
- 	albumId=getParameterByName('albumId');
-	getUserSticks(userId);
- 	getAlbums(userId,albumId);
- 		},1000);
- 	
-}
 
-
-	intialize();
+	JSONfind();
 	
 	
 	$("#editAlbumForm").submit(function(){

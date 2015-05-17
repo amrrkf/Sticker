@@ -1,3 +1,9 @@
+
+function intialize() {
+	userId= user;
+ 	getUserSticks(userId);
+}
+
  
 $(function(){
 
@@ -14,13 +20,8 @@ $(".albumSubmit").click(function(){
 	});
 
 
-function intialize() {
-	userId= parseInt(getActiveUser());
- 	getUserSticks(userId);
-}
 
-
-	intialize();
+	JSONfind();
 	
 	
 	$("#albumForm").submit(function(){

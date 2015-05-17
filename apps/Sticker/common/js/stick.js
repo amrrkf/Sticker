@@ -1,34 +1,35 @@
-
-$(function(){
-
-	var userId;
-	var href="#";
-
-		function getTime() {
+var userId;
+var href="#";
+function getTime() {
 		//get the current time
 		var dt = new Date($.now());
 		var add= dt.toString();
 		var endTime=add.substr(0,24);
 	    $('#stickTime').text('Time: '+ endTime);
 	}
-
-
+	
 //intialize Stick
 	function intialize() {
-		userId= parseInt(getActiveUser());
-		//userId=1;
+		userId= user;
 		navigator.geolocation.getCurrentPosition(getLatLong, onError);
 		$("#imgStickDelete").hide();
 		getTime();    
 	}
+
+$(function(){
+
+
+
+		
+
+
 	
 //////////////////////////////////////////////////////////////////////////////////////////
-	intialize();
+	JSONfind();
 
 	
 	//add stick functions for adapter 
 	function addStick(userId, stickTitle, stickImage, stickTime, stickLocation, stickInfo){
-			
 		var invocationData = {
 			adapter : 'StickerStore',
 			procedure : 'addStick',

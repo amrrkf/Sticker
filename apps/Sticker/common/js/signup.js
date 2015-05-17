@@ -4,8 +4,9 @@ var href="#";
 	
 	
 	$("#confirmSignup").click(function() {
-		if(href!=="#")
+		if(href!=="#"){
 			$("#confirmSignup").attr("href",href);	
+		}
 		else
 		{
 		href="#";
@@ -28,16 +29,14 @@ var href="#";
 
 	function getUserIdSuccess(result){
 		var userId=result.invocationResult.resultSet[0].userId;
-		openCache();
-		writeCache(String(userId));
-		closeCache();
+		JSONadd(userId);
 		href="home.html";
 		$("#confirmSignup").click();
 		
 	}
 
 	function getUserIdFailure(result){
-		href="index.html";
+		href="signup.html";
 		$("#confirmSignup").click();
 	}	
 //////////////////////////////////////////////////////////// signup function ////////////////////////////////////////////////////////////

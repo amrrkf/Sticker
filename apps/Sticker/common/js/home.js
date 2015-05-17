@@ -1,21 +1,7 @@
-$(function() {
 var userId;
 var href="#";
 var stickId;
 var optValueSelected;
-
-	WL.App.overrideBackButton(backFunc);
-	function backFunc(){
-		 WL.SimpleDialog.show(
-            "Quit application", 
-            "Are you sure?", 
-            [
-             {text: "Yes", handler: function() {WL.App.close();}},
-             {text: "No", handler: function() {}}
-             ]
-    );
-	}
-
 
 /////////////////////////////////////////////////////////// getUserSticks ////////////////////////////////////////////////////////
 function getUserSticks(userId){
@@ -148,32 +134,7 @@ function displayAlbums(albums) {
 
 
 }
-	function share(stickId) {
-		//share stick specified by stickId
-	}
 
-	function intialize() {
-		userId= parseInt(getActiveUser());
-		$('#stickList').html("");
-		$('#albumList').html("");
-		// function to hide or show albums and sticks
-		var optionSelected = $('#stickAlbumSelect').find('option:selected');
-		optValueSelected = optionSelected.val();
-		if (optValueSelected == "alb") {
-			$("#stickList").hide();
-			//load albums from DB
-			getUserAlbums(userId);
-			$("#albumList").show();
-		} else {
-			$("#albumList").hide();
-			//load sticks from DB
-			getUserSticks(userId);
-			$("#stickList").show();
-		}
-		$("#deleteSelect").hide();
-	}
-
-	intialize();
 
 	/////////////////////////////////////////////////////////// deleteStick ////////////////////////////////////////////////////////
 function deleteStick(stickId){
@@ -193,8 +154,7 @@ function deleteStick(stickId){
 function deleteStickSuccess(){
 		alert("Stick successfully deleted");
 		//WL.Toast.show("Stick successfully deleted");
-		intialize();
-
+		JSONfind();
 		}
 
 function deleteStickFailure(response){
@@ -220,8 +180,7 @@ function deleteAlbum(albumId){
 function deleteAlbumSuccess(){
 		alert("Album successfully deleted");
 		//WL.Toast.show("Album successfully deleted");
-		intialize();
-
+		JSONfind();
 		}
 
 function deleteAlbumFailure(response){
@@ -260,35 +219,6 @@ function getusaStickFailure(response){
 		alert("Error getting stickId");
 		//WL.Toast.show("Error getting stickId");	
 	}	
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	$('#stickAlbumSelect').change(function() {
-		intialize();
-	});
-	
-	$('#homeListitem').click(function() {
-		$("#deleteSelect").show();
-		$("#homePanel").panel("close");
-		$(".stickCheckBox").show();
-		$(".albumCheckBox").show();
-	});
-	
-	$('#deleteSelect').click(function() {
-		$("#homePopup2").popup("open");
-	});
-	
-	$('#delNo').click(function() {
-		$("#homePopup2").popup("close");
-	});
-	
-	$('#delYes').click(function() {
-		$("#homePopup2").popup("close");
-		if (optValueSelected == "alb") {
-			deleteAlbums();
-		} else {
-			deleteSticks();
-		}
-	});
 /////////////////////////////////////////////////////////////// multiple delete ////////////////////////////////////////////////////////
 	function deleteSticks(){
 		var checkboxes=$(".stickCheckBox");
@@ -327,5 +257,77 @@ function getusaStickFailure(response){
 
 
 	}
+
+
+
+	function intialize() {
+		userId= user;
+		$('#stickList').html("");
+		$('#albumList').html("");
+		// function to hide or show albums and sticks
+		var optionSelected = $('#stickAlbumSelect').find('option:selected');
+		optValueSelected = optionSelected.val();
+		if (optValueSelected == "alb") {
+			$("#stickList").hide();
+			//load albums from DB
+			getUserAlbums(userId);
+			$("#albumList").show();
+		} else {
+			$("#albumList").hide();
+			//load sticks from DB
+			getUserSticks(userId);
+			$("#stickList").show();
+		}
+		$("#deleteSelect").hide();
+	}
+
+$(function() {
+
+	WL.App.overrideBackButton(backFunc);
+	function backFunc(){
+		 WL.SimpleDialog.show(
+            "Quit application", 
+            "Are you sure?", 
+            [
+             {text: "Yes", handler: function() {WL.App.close();}},
+             {text: "No", handler: function() {}}
+             ]
+    );
+	}
+
+
+	function share(stickId) {
+		//share stick specified by stickId
+	}
+
+	JSONfind();
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	$('#stickAlbumSelect').change(function() {
+		JSONfind();
+	});
+	
+	$('#homeListitem').click(function() {
+		$("#deleteSelect").show();
+		$("#homePanel").panel("close");
+		$(".stickCheckBox").show();
+		$(".albumCheckBox").show();
+	});
+	
+	$('#deleteSelect').click(function() {
+		$("#homePopup2").popup("open");
+	});
+	
+	$('#delNo').click(function() {
+		$("#homePopup2").popup("close");
+	});
+	
+	$('#delYes').click(function() {
+		$("#homePopup2").popup("close");
+		if (optValueSelected == "alb") {
+			deleteAlbums();
+		} else {
+			deleteSticks();
+		}
+	});
 
 });

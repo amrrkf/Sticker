@@ -43,9 +43,7 @@ $(function(){
 	            "Are you sure?", 
 	            [
 	             {text: "Yes", handler: function() {		
-	            openCache();
-				removeCache();
-				closeCache();
+	             JSONremove();	
 				$(".logoutClass").attr("href","login.html");
 				$(".logoutClass").click();}},
 	             {text: "No", handler: function() {}}

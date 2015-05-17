@@ -2,10 +2,9 @@
 
 
 var collectionName='users';
-
+var user=null;
 /////////////////////////////////////////////////////////// JSONinit ////////////////////////////////////////////////////
-	function JSONinit() {
-		
+	function JSONinit(op,userId) {
 		//Get values from the input fields
 		var	username = 'root',
 			password = '123456';
@@ -36,6 +35,10 @@ var collectionName='users';
 		.then(function () {
 			
 			alert("Collection initialized");
+			if(op=='find')
+				JSONfind();
+			else if(op=='add')
+				JSONadd(userId);
 		})
 
 		.fail(function (errorObject) {
@@ -113,8 +116,13 @@ function JSONfind () {
 			WL.JSONStore.get(collectionName).findAll(options)
 
 			.then(function (res) {
-				alert(res.length);
-				alert(String(res[0].json.value));
+				//alert(res.length);
+				//alert(String(res[0].json.value));
+				if(res.length==0)
+					user=null;
+				else user=res[0].json.value;
+				intialize();	
+
 			})
 
 			.fail(function (errorObject) {
@@ -182,4 +190,18 @@ function JSONfind () {
 		} catch (e) {
 			alert('PERSISTENT_STORE_NOT_OPEN');
 		}
+	}
+//////////////////////////////////////////////// JSONdestroy ////////////////////////////////////////////////////
+function JSONdestroy () {
+		//Destroy removes all documents, all collections, all stores
+		//and every piece of JSONStore metadata
+		WL.JSONStore.destroy()
+
+		.then(function () {
+			alert('Destroy finished succesfully');
+		})
+
+		.fail(function (errorObject) {
+			alert(errorObject.msg);
+		});
 	}

@@ -1,9 +1,8 @@
 
-$(function(){
-
 var stickId=null;
 var userId;
 var href="#";
+
 /////////////////////////////////////////////////Get Stick from DB////////////////////////////////////////
 function getStick(userId, stickId){
 			
@@ -41,6 +40,21 @@ function getStick(userId, stickId){
 		alert("error get stick");
 		//WL.Toast.show("error get stick");
 	}	
+
+
+function intialize() {
+		$("#imgEditStickDelete").hide();
+		userId= user;	
+	
+		setTimeout(function(){
+			stickId=getParameterByName('stickId');
+			alert(stickId);
+			getStick(userId,stickId);
+		}, 1000);
+
+	}
+
+$(function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -84,19 +98,7 @@ function getStick(userId, stickId){
 //////////////////////////////////////////////////////////////////////////////////////////
 
 
-function intialize() {
-		$("#imgEditStickDelete").hide();
-		userId= parseInt(getActiveUser());	
-	
-		setTimeout(function(){
-			stickId=getParameterByName('stickId');
-			alert(stickId);
-			getStick(userId,stickId);
-		}, 1000);
-
-	}
-
-	intialize();
+	JSONfind();
 
 	$("#saveStick").click(function(){
 		if(href!=="#")
