@@ -10,7 +10,9 @@ var user=null;
 			password = '123456';
 
 		//Create the optional options object passed to init
-		var options = {};
+		var options = {
+			localKeyGen: true
+		};
 
 		//Check if a username was passed
 			options.username = username;

@@ -48,6 +48,8 @@ $(function(){
 		var tempSrc=$(".common-stick-image").attr("src");
 		
 		if(tempSrc!==''){
+			alert("lets save pic");
+			alert("addStick-image name:"+tempSrc);
 			savePic(tempSrc);
 		}
 		alert("success add stick");
@@ -80,6 +82,7 @@ $(function(){
 		// get form values
 		var sName=$('#stickName').val();  //stick name
 		var imageSrc=$(".common-stick-image").attr("src");
+		alert("submit:"+imageSrc);
 		var imageName;
 		if(imageSrc!==''){
 		var value=imageSrc.split("/");
@@ -89,6 +92,7 @@ $(function(){
 		else{
 			imageName='';
 		}
+		alert("submit-image name:"+imageName);
 		var sStatus=$('#stickStatus').val(); //status
 		var sLoc=$('#stickLocation').html(); 
 		var sLocation=sLoc.substr(9);

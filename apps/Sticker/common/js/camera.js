@@ -1,5 +1,6 @@
 var pictureSource; // picture source
 var destinationType; // sets the format of returned value 
+var endImage;
 
 // Wait for Cordova to connect with the device
 //
@@ -17,7 +18,7 @@ function onDeviceReady() {
 function onPhotoDataSuccess(imageData) {
 	
 	// Show the captured photo
-	//alert("source"+imageData);
+	alert("source"+imageData);
 	$(".common-stick-image").attr("src",imageData);
 }
 
@@ -53,14 +54,16 @@ function onFail(message) {
 }
 
 function savePic(file) {
+	endImage=file;
 	window.resolveLocalFileSystemURI(file, resolveOnSuccess, resOnError);
 }
 
 //Callback function when the file system uri has been resolved
 function resolveOnSuccess(entry) {
 	
-	var imgSrc=$(".common-stick-image").attr("src");
-	var value=imgSrc.split("/");
+	//var imgSrc=$(".common-stick-image").attr("src");
+	alert("save pic:"+endImage);
+	var value=endImage.split("/");
     count=value.length;
     var newFileName= value[count-1]; //image name
 	var myFolderApp = "Sticker";
@@ -79,6 +82,7 @@ function resolveOnSuccess(entry) {
 //Callback function when the file has been moved successfully - inserting the complete path
 function successMove(entry) {
 	//I do my insert with "entry.fullPath" as for the path
+	alert("picture saved successfully");
 }
 
 function resOnError(error) {
