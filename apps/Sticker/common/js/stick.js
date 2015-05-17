@@ -111,8 +111,8 @@ $(function(){
 
 	$("#takeStickPic").click(function(){
 		$("#stickPopup2").popup("close");
-		capturePhoto();
 		$("#imgStickDelete").show();
+		capturePhoto();
 
 	});
 	$("#takePicGallery").click(function(){
@@ -123,7 +123,8 @@ $(function(){
 
 	//remove the loaded photo from the form
 	$("#imgStickDelete").click(function(){
-		$(".common-stick-image").attr("src","");
+		//$(".common-stick-image").attr("src","");
+		$(".common-stick-image").removeAttr("src");
 		$("#imgStickDelete").hide();
 	});
 	
