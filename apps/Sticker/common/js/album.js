@@ -233,7 +233,8 @@ var invocationData = {
 	}
 	function getLastAlbumIdSuccess(result){
 		albumId=result.invocationResult.resultSet[0].albumId;
-		alert("getLastAlbumId: Success!")
+		addSticksToAlbum(albumId)
+		
 	}
 
 	function getLastAlbumIdFailure(result){
