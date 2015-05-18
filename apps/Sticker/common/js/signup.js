@@ -45,6 +45,7 @@ $("#confirmSignup").click(function() {
 
 	function redirect()
 	{
+		alert("signup");
 			href="home.html";
 			$("#homeLogin").click();
 

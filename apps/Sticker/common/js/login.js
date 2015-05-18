@@ -132,6 +132,8 @@ $("#homeLogin").click(function(){
 
 	function redirect()
 	{
+				alert("login");
+
 			href="home.html";
 			$("#homeLogin").click();
 
