@@ -13,5 +13,5 @@ function intialize(){
 $(function() {
 
 $("#enterIndex").hide();
-JSONinit('find',null);
+JSONinit('find',null,null);
 });

@@ -116,10 +116,8 @@ $("#homeLogin").click(function(){
 		}
 		else{
 			userId=result.invocationResult.resultSet[0].userId;
-			JSONinit('add',userId);
-			href="home.html";
-			$("#homeLogin").click();
-
+			JSONinit('add',userId,redirect);
+		
 				
 	
 		}
@@ -130,6 +128,13 @@ $("#homeLogin").click(function(){
 		//WL.Toast.show('invalid email or password');
 		href="login.html";
 		$("#homeLogin").click();
+	}
+
+	function redirect()
+	{
+			href="home.html";
+			$("#homeLogin").click();
+
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
