@@ -116,9 +116,9 @@ $("#homeLogin").click(function(){
 		}
 		else{
 			userId=result.invocationResult.resultSet[0].userId;
+			JSONinit('add',userId);
 			href="home.html";
 			$("#homeLogin").click();
-			JSONinit('add',userId);
 
 				
 	
