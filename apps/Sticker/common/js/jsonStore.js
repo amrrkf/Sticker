@@ -77,9 +77,7 @@ function JSONadd (value) {
 			//Call add on the JSONStore collection
 			WL.JSONStore.get(collectionName).add(data)
 			.then(function () {
-				href="home.html";
-				$(".addButton").click();
-				//alert('Data added to the collection');
+				alert('Data added to the collection');
 
 			})
 

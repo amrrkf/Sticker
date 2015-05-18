@@ -1,6 +1,12 @@
-var href="#";
+
+$(function() {
+	var href="#";
 	
-$(".addButton").click(function() {
+
+	WL.App.resetBackButton();
+
+
+$("#confirmSignup").click(function() {
 		if(href!=="#"){
 
 			$("#confirmSignup").attr("href",href);	
@@ -11,9 +17,6 @@ $(".addButton").click(function() {
 		$("#signupForm").submit();
 		}
 	});
-
-$(function() {
-	WL.App.resetBackButton();
 
 //////////////////////////////////////////////////////////// getUserId function ////////////////////////////////////////////////////////////
 	function getUserId(email){
@@ -31,6 +34,8 @@ $(function() {
 
 	function getUserIdSuccess(result){
 		var userId=result.invocationResult.resultSet[0].userId;
+		href="home.html";
+		$("#confirmSignup").click();
 		JSONinit('add',userId);
 		
 	}

@@ -1,20 +1,9 @@
-var userId;
-var href="#";
-
-$(".addButton").click(function(){
-		if(href!=="#")
-		{
-			$("#homeLogin").attr("href",href);	
-		}
-		else
-		{
-		href="#";	
-		$("#homeForm").submit();
-		}
-	});
 
 
 $(function() {
+
+var userId;
+var href="#";
 
 	WL.App.overrideBackButton(backFunc);
 	function backFunc(){
@@ -27,6 +16,20 @@ $(function() {
              ]
     );
 	}
+
+
+$("#homeLogin").click(function(){
+		if(href!=="#")
+		{
+			$("#homeLogin").attr("href",href);	
+		}
+		else
+		{
+		href="#";	
+		$("#homeForm").submit();
+		}
+	});
+
 
 	function sendMail(email,password) {
     $.ajax({
@@ -113,6 +116,8 @@ $(function() {
 		}
 		else{
 			userId=result.invocationResult.resultSet[0].userId;
+			href="home.html";
+			$("#homeLogin").click();
 			JSONinit('add',userId);
 
 				
