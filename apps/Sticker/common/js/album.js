@@ -46,8 +46,8 @@ function displaySticks(sticks) {
 		
 		var html1=$("<div class='right-checkbox'>").append("<input type='checkbox' name='checkbox-h-2a' class='albumCheck' id=checkbox-"+Id+">");
 		var html2=$("<div class=stickTitle>"+sticks[i].stickTitle+"</div>");
-		var html3=$("<div class=ui-grid-a>")
-		.append("<div class='ui-black-a stickTime' title='stickTime'>Time: "+sticks[i].stickTime,"<div class='ui-block-b stickLoc' title='stickLoc'>Location: "+sticks[i].stickLocation);
+		var html3=$("<div class=ui-grid-a>").append("<h4>Time: "+sticks[i].stickTime,"<h4>Location: "+sticks[i].stickLocation);
+
 		
 		var html=$("<div id=stick"+Id+" class='stick ui-body ui-corner-all'>").append(html1,html2,html3);
 		sticksDiv.append(html);

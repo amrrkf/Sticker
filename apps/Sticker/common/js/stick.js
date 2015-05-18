@@ -49,8 +49,6 @@ $(function(){
 		var tempSrc=$(".common-stick-image").attr("src");
 		
 		if(tempSrc!==''){
-			alert("lets save pic");
-			alert("addStick-image name:"+tempSrc);
 			savePic(tempSrc);
 		}
 		alert("success add stick");

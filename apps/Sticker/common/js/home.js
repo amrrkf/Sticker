@@ -45,11 +45,10 @@ function displaySticks(sticks) {
 		
 		var html1=$("<div class='right-checkbox'>").append("<input type='checkbox' name='checkbox-h-2a' class='stickCheckBox' id=checkbox-"+Id+">");
 		var html2=$("<div class=stickTitle>"+sticks[i].stickTitle+"</div>");
-		var html3=$("<div class=ui-grid-a>")
-		.append("<div class='ui-black-a stickTime' title='stickTime'>Time: "+sticks[i].stickTime,"<div class='ui-block-b stickLoc' title='stickLoc'>Location: "+sticks[i].stickLocation);
+		var html3=$("<div class=ui-grid-a>").append("<h4>Time: "+sticks[i].stickTime,"<h4>Location: "+sticks[i].stickLocation);
 		if(sticks[i].stickImage==""||sticks[i].stickImage==null)
 			stickImage="";
-		else stickImage="/Sticker/"+sticks[i].stickImage;
+		else stickImage=nativeURL+sticks[i].stickImage;
 		var html4=$("<div align='center'>").append("<img class='stickImg' src="+stickImage+">");
 		var html5=$("<p align='center' class='stickDsc'>"+sticks[i].stickInfo+"</p>");
 		
@@ -261,6 +260,7 @@ function getusaStickFailure(response){
 
 
 	function intialize() {
+		getPic();
 		userId= user;
 		$('#stickList').html("");
 		$('#albumList').html("");

@@ -27,7 +27,8 @@ function getStick(userId, stickId){
 		$("#editStickName").val(stickTitle);
 		if(stickImage!="" && stickImage!=null)
 		{
-			$("#editStickImage").attr("src","/Sticker/"+stickImage);
+			$("#editStickImage").attr("src",nativeURL+stickImage);
+			$("#imgEditStickDelete").show();
 		}
 		$("#editStickStatus").val(stickInfo);
 		$('#editStickLocation').text('Location: '+ stickLocation);
@@ -43,12 +44,12 @@ function getStick(userId, stickId){
 
 
 function intialize() {
+		getPic();
 		$("#imgEditStickDelete").hide();
 		userId= user;	
 	
 		setTimeout(function(){
 			stickId=getParameterByName('stickId');
-			alert(stickId);
 			getStick(userId,stickId);
 		}, 1000);
 
