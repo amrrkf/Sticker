@@ -19,7 +19,6 @@ function onDeviceReady() {
 function onPhotoDataSuccess(imageData) {
 	
 	// Show the captured photo
-	alert("source"+imageData);
 	$(".common-stick-image").attr("src",imageData);
 }
 
