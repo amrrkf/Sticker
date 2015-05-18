@@ -34,7 +34,9 @@ $("#confirmSignup").click(function() {
 
 	function getUserIdSuccess(result){
 		var userId=result.invocationResult.resultSet[0].userId;
-		JSONinit('add',userId,redirect);
+		JSONinit('add',userId);
+		href="home.html";
+		$("#confirmSignup").click();
 		
 	}
 
@@ -43,13 +45,6 @@ $("#confirmSignup").click(function() {
 		$("#confirmSignup").click();
 	}	
 
-	function redirect()
-	{
-		alert("signup");
-			href="home.html";
-			$("#homeLogin").click();
-
-	}
 /////////////
 //////////////////////////////////////////////////////////// signup function ////////////////////////////////////////////////////////////
 	function signup(email,password){

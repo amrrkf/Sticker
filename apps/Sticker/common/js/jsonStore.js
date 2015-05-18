@@ -1,7 +1,7 @@
 var collectionName='users';
 var user=null;
 /////////////////////////////////////////////////////////// JSONinit ////////////////////////////////////////////////////
-	function JSONinit(op,userId,callBack) {
+	function JSONinit(op,userId) {
 		//Get values from the input fields
 		var	username = 'root',
 			password = '123456';
@@ -37,7 +37,7 @@ var user=null;
 			if(op=='find')
 				JSONfind();
 			else if(op=='add')
-				JSONadd(userId,callBack);
+				JSONadd(userId);
 		})
 
 		.fail(function (errorObject) {
@@ -64,7 +64,7 @@ function JSONclose () {
 
 
 	//add
-function JSONadd (value,callBack) {
+function JSONadd (value) {
 
 		//Prepare the data object
 		var data = {};
@@ -78,7 +78,6 @@ function JSONadd (value,callBack) {
 			WL.JSONStore.get(collectionName).add(data)
 			.then(function () {
 				alert('Data added to the collection');
-				callBack();
 
 			})
 

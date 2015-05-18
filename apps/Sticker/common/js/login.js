@@ -116,8 +116,9 @@ $("#homeLogin").click(function(){
 		}
 		else{
 			userId=result.invocationResult.resultSet[0].userId;
-			JSONinit('add',userId,redirect);
-		
+			JSONinit('add',userId);
+			href="home.html";
+			$("#homeLogin").click();
 				
 	
 		}
@@ -130,14 +131,7 @@ $("#homeLogin").click(function(){
 		$("#homeLogin").click();
 	}
 
-	function redirect()
-	{
-				alert("login");
-
-			href="home.html";
-			$("#homeLogin").click();
-
-	}
+	
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	$("#homeForm").submit(function() {

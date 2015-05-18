@@ -262,7 +262,6 @@ function getusaStickFailure(response){
 	function intialize() {
 		getPic();
 		userId= user;
-		alert(userId);
 		$('#stickList').html("");
 		$('#albumList').html("");
 		// function to hide or show albums and sticks
