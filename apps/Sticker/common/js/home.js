@@ -261,6 +261,7 @@ function getusaStickFailure(response){
 
 	function intialize() {
 		getPic();
+		setTimeout(function(){
 		userId= user;
 		$('#stickList').html("");
 		$('#albumList').html("");
@@ -279,6 +280,8 @@ function getusaStickFailure(response){
 			$("#stickList").show();
 		}
 		$("#deleteSelect").hide();
+
+		}, 2000);
 	}
 
 $(function() {
