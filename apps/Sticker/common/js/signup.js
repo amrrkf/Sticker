@@ -35,8 +35,8 @@ $("#confirmSignup").click(function() {
 	function getUserIdSuccess(result){
 		var userId=result.invocationResult.resultSet[0].userId;
 		JSONinit('add',userId);
-		href="home.html";
-		$("#confirmSignup").click();
+		//href="home.html";
+		//$("#confirmSignup").click();
 		
 	}
 

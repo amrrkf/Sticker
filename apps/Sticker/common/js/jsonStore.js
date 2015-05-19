@@ -78,6 +78,8 @@ function JSONadd (value) {
 			WL.JSONStore.get(collectionName).add(data)
 			.then(function () {
 				alert('Data added to the collection');
+				$.mobile.changePage("../home.html");
+
 
 			})
 
