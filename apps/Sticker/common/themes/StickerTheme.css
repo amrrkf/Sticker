@@ -238,7 +238,7 @@ html body .ui-group-theme-a .ui-bar-inherit {
 .ui-overlay-a,
 .ui-page-theme-a,
 .ui-page-theme-a .ui-panel-wrapper {
-	background-color: #d34e45 /*{a-page-background-color}*/;
+	background-color: #ed1c24 /*{a-page-background-color}*/;
 	border-color: #cccccc /*{a-page-border}*/;
 	color: #000000 /*{a-page-color}*/;
 	text-shadow: 0 /*{a-page-shadow-x}*/ 1px /*{a-page-shadow-y}*/ 0 /*{a-page-shadow-radius}*/ #eeeeee /*{a-page-shadow-color}*/;
@@ -400,7 +400,7 @@ html body .ui-group-theme-b .ui-bar-inherit {
 .ui-overlay-b,
 .ui-page-theme-b,
 .ui-page-theme-b .ui-panel-wrapper {
-	background-color: #495dd0 /*{b-page-background-color}*/;
+	background-color: #0071bc /*{b-page-background-color}*/;
 	border-color: #cccccc /*{b-page-border}*/;
 	color: #000000 /*{b-page-color}*/;
 	text-shadow: 0 /*{b-page-shadow-x}*/ 1px /*{b-page-shadow-y}*/ 0 /*{b-page-shadow-radius}*/ #eeeeee /*{b-page-shadow-color}*/;
@@ -564,7 +564,7 @@ html body .ui-group-theme-c .ui-bar-inherit {
 .ui-overlay-c,
 .ui-page-theme-c,
 .ui-page-theme-c .ui-panel-wrapper {
-	background-color: #288628 /*{c-page-background-color}*/;
+	background-color: #006837 /*{c-page-background-color}*/;
 	border-color: #cccccc /*{c-page-border}*/;
 	color: #000000 /*{c-page-color}*/;
 	text-shadow: 0 /*{c-page-shadow-x}*/ 1px /*{c-page-shadow-y}*/ 0 /*{c-page-shadow-radius}*/ #eeeeee /*{c-page-shadow-color}*/;
@@ -728,7 +728,7 @@ html body .ui-group-theme-d .ui-bar-inherit {
 .ui-overlay-d,
 .ui-page-theme-d,
 .ui-page-theme-d .ui-panel-wrapper {
-	background-color: #b724a4 /*{d-page-background-color}*/;
+	background-color: #93278f /*{d-page-background-color}*/;
 	border-color: #cccccc /*{d-page-border}*/;
 	color: #000000 /*{d-page-color}*/;
 	text-shadow: 0 /*{d-page-shadow-x}*/ 1px /*{d-page-shadow-y}*/ 0 /*{d-page-shadow-radius}*/ #eeeeee /*{d-page-shadow-color}*/;
@@ -892,7 +892,7 @@ html body .ui-group-theme-e .ui-bar-inherit {
 .ui-overlay-e,
 .ui-page-theme-e,
 .ui-page-theme-e .ui-panel-wrapper {
-	background-color: #6b6161 /*{e-page-background-color}*/;
+	background-color: #4d4d4d /*{e-page-background-color}*/;
 	border-color: #cccccc /*{e-page-border}*/;
 	color: #000000 /*{e-page-color}*/;
 	text-shadow: 0 /*{e-page-shadow-x}*/ 1px /*{e-page-shadow-y}*/ 0 /*{e-page-shadow-radius}*/ #eeeeee /*{e-page-shadow-color}*/;
@@ -1056,7 +1056,7 @@ html body .ui-group-theme-f .ui-bar-inherit {
 .ui-overlay-f,
 .ui-page-theme-f,
 .ui-page-theme-f .ui-panel-wrapper {
-	background-color: #1a1a93 /*{f-page-background-color}*/;
+	background-color: #2e3192 /*{f-page-background-color}*/;
 	border-color: #cccccc /*{f-page-border}*/;
 	color: #000000 /*{f-page-color}*/;
 	text-shadow: 0 /*{f-page-shadow-x}*/ 1px /*{f-page-shadow-y}*/ 0 /*{f-page-shadow-radius}*/ #eeeeee /*{f-page-shadow-color}*/;
