@@ -2,6 +2,7 @@ var userId;
 var href="#";
 var stickId;
 var optValueSelected;
+var busyInd = new WL.BusyIndicator(_,{text: "Please wait...",bounceAnimation: true});
 
 /////////////////////////////////////////////////////////// getUserSticks ////////////////////////////////////////////////////////
 function getUserSticks(userId){
@@ -26,11 +27,14 @@ function getUserSticksSuccess(result){
 		//WL.Toast.show("No sticks found, create a new stick");
 		}
 		else 
-			displaySticks(result.invocationResult.resultSet);		
+			displaySticks(result.invocationResult.resultSet);	
+			busyInd.hide();
+			
 	}
 
 function getUserSticksFailure(result){
 		alert("Error loading sticks");
+		busyInd.hide();
 		//WL.Toast.show("Error loading sticks");	
 	}	
 
@@ -95,11 +99,13 @@ function getUserAlbumsSuccess(result){
 		//WL.Toast.show("No albums found, create a new album");
 		}
 		else 
-			displayAlbums(result.invocationResult.resultSet);		
+			displayAlbums(result.invocationResult.resultSet);	
+			busyInd.hide();
 	}
 
 function getUserAlbumsFailure(result){
 		alert("Error loading albums");
+		busyInd.hide();
 		//WL.Toast.show("Error loading albums");	
 	}	
 
@@ -260,6 +266,7 @@ function getusaStickFailure(response){
 
 
 	function intialize() {
+		busyInd.show();
 		getPic();
 		setTimeout(function(){
 		userId= user;
@@ -280,8 +287,8 @@ function getusaStickFailure(response){
 			$("#stickList").show();
 		}
 		$("#deleteSelect").hide();
-
 		}, 2000);
+	
 	}
 
 $(function() {
