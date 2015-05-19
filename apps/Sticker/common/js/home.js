@@ -43,8 +43,8 @@ function displaySticks(sticks) {
 
 	var sticksDiv=$("#stickList");
 	var stickImage;	
-	for (var i = 0; i < sticks.length; i++) {
-		
+	for (var i = sticks.length-1; i >=0 ; i--) {
+
 		var Id=String(sticks[i].stickId);
 		
 		var html1=$("<div class='right-checkbox'>").append("<input type='checkbox' name='checkbox-h-2a' class='stickCheckBox' id=checkbox-"+Id+">");
@@ -114,7 +114,7 @@ function displayAlbums(albums) {
 
 	var albumsDiv=$("#albumList");
 	
-	for (var i = 0; i < albums.length; i++) {
+	for (var i = albums.length-1; i >=0 ; i--) {
 		var Id=String(albums[i].albumId);
 		
 		var html1=$("<div class='right-checkbox'>").append("<input type='checkbox' name='checkbox-h-2a' class='albumCheckBox' id=checkbox-"+Id+">");

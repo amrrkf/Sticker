@@ -41,7 +41,7 @@ function getUserSticksFailure(result){
 //////////////////////////////////////////////////////// displaySticks /////////////////////////////////////////////////////////////
 function displaySticks(sticks) {
 	var sticksDiv=$(".stickList");
-	for (var i = 0; i < sticks.length; i++) {
+	for (var i = sticks.length-1; i >=0 ; i--) {
 		var Id=String(sticks[i].stickId);
 		
 		var html1=$("<div class='right-checkbox'>").append("<input type='checkbox' name='checkbox-h-2a' class='albumCheck' id=checkbox-"+Id+">");
@@ -102,6 +102,7 @@ function updateUSA(userId,albumId, stickId){
 				});
 			}
 function updateUSASuccess(result){	
+
 	}
 
 function updateUSAFailure(result){
