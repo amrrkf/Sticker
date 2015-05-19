@@ -20,7 +20,9 @@ function onDeviceReady() {
 function onPhotoDataSuccess(imageData) {
 	img64=imageData;
 	// Show the captured photo
-	$(".common-stick-image").attr("src","data:image/jpeg;base64," + imageData);
+	$(".common-stick-image").attr("src",imageData);
+	//$(".common-stick-image").attr("src","data:image/jpeg;base64," + imageData);
+
 }
 
 

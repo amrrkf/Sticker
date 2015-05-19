@@ -49,7 +49,7 @@ $(function(){
 		var tempSrc=$(".common-stick-image").attr("src");
 		
 		if(tempSrc!==''){
-			//savePic(tempSrc);
+			savePic(tempSrc);
 		}
 		alert("success add stick");
 		//WL.Toast.show("success add stick");
@@ -103,7 +103,7 @@ $(function(){
 				return false;
 			}
 		else{
-				addStick(userId, sName, img64, sTime, sLocation, sStatus);		// perform addStick
+				addStick(userId, sName, imageName, sTime, sLocation, sStatus);		// perform addStick
 		}
 			
 
