@@ -89,7 +89,7 @@ WL.App.resetBackButton();
 	}
 
 	function updateStickFailure(response){
-		href="editStick.html";
+		href="editStick.html?stickId="+String(stickId);
 		$("#saveStick").click();
 		alert("error Update stick");
 		//WL.Toast.show("error add stick");
