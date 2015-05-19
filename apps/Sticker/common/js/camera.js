@@ -2,6 +2,7 @@ var pictureSource; // picture source
 var destinationType; // sets the format of returned value 
 var endImage;
 var nativeURL=null;
+var img64=null;
 
 // Wait for Cordova to connect with the device
 //
@@ -17,9 +18,9 @@ function onDeviceReady() {
 // Called when a photo is successfully retrieved
 //
 function onPhotoDataSuccess(imageData) {
-	
+	img64=imageData;
 	// Show the captured photo
-	$(".common-stick-image").attr("src",imageData);
+	$(".common-stick-image").attr("src","data:image/jpeg;base64," + imageData);
 }
 
 
@@ -30,7 +31,7 @@ function capturePhoto() {
 	navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
 		quality : 100,
 		allowEdit : true,
-		destinationType : destinationType.FILE_URI,
+		destinationType : destinationType.FILE_URL,
 		correctOrientation:true
 	});
 }
@@ -42,7 +43,7 @@ function getPhoto(source) {
 	// Retrieve image file location from specified source
 	navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
 		quality : 100,
-		destinationType : destinationType.FILE_URI,
+		destinationType : destinationType.FILE_URL,
 		sourceType : source,
 		correctOrientation:true
 	});
