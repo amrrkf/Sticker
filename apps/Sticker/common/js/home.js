@@ -120,7 +120,7 @@ function displayAlbums(albums) {
 		var html1=$("<div class='right-checkbox'>").append("<input type='checkbox' name='checkbox-h-2a' class='albumCheckBox' id=checkbox-"+Id+">");
 		var html2=$("<div class=stickTitle>"+albums[i].albumTitle+"</div>");
 		var html3=$("<p align='left' class='stickDsc'>"+albums[i].albumInfo+"</p>");
-		var html411=$("<li class='ui-block-a'>").append("<a class='ui-btn ui-content  ui-icon-action ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
+		var html411=$("<li class='ui-block-a'>").append("<a href='#albumDialog' data-rel='popup' id=preview-"+Id+" class='albumOpen ui-btn ui-content  ui-icon-eye ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
 		var html412=$("<li class='ui-block-b'>").append("<a href='editAlbum.html?albumId="+Id+"' class='ui-btn ui-content  ui-icon-edit ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
 		var html413=$("<li class='ui-block-c'>").append("<a id=delete-"+Id+" class='albumDelete ui-btn ui-content  ui-icon-delete ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
 		var html41=$("<ul class='ui-grid-b'>").append(html411,html412,html413);
@@ -136,6 +136,11 @@ function displayAlbums(albums) {
 		deleteAlbum(albumId);
 	});
 
+	$('.albumOpen').click(function(){
+		var dialogId=parseInt($(this).attr("id").split('-')[1]);
+		getUserAlbumSticks(userId,dialogId);
+
+	});
 
 
 }
@@ -263,7 +268,55 @@ function getusaStickFailure(response){
 
 	}
 
+/////////////////////////////////////////////////////////////////getUserAlbumSticks/////////////////////////////////////////////////
 
+function getUserAlbumSticks(userId,albumId){
+		var invocationData = {
+			adapter : 'StickerStore',
+			procedure : 'getUserAlbumSticks',
+			parameters : [userId,albumId]
+		};
+
+		WL.Client.invokeProcedure(invocationData,{
+			onSuccess :getUserAlbumSticksSuccess,
+			onFailure : getUserAlbumSticksFailure
+		});
+	}
+	function getUserAlbumSticksSuccess(result){
+		alert("getUserAlbumSticks: Success!")
+		displayDialog(result.invocationResult.resultSet);	
+
+		
+	}
+
+	function getUserAlbumSticksFailure(result){
+		alert("getUserAlbumSticks: Failure!")		
+	}	
+
+function displayDialog(sticks){
+	
+	var sticksDiv=$("#albumDialog");
+	var stickImage;	
+	for (var i = sticks.length-1; i >=0 ; i--) {
+
+		var Id=String(sticks[i].stickId);
+		
+		var html2=$("<div class=stickTitle>"+sticks[i].stickTitle+"</div>");
+		var html3=$("<div class=ui-grid-a>").append("<h4>Time: "+sticks[i].stickTime,"<h4>Location: "+sticks[i].stickLocation);
+		if(sticks[i].stickImage==""||sticks[i].stickImage==null)
+			stickImage="";
+		else stickImage=nativeURL+sticks[i].stickImage;
+		var html4=$("<div align='center'>").append("<img class='stickImg' src="+stickImage+">");
+		var html5=$("<p align='center' class='stickDsc'>"+sticks[i].stickInfo+"</p>");
+		
+		var html=$("<div class='stick ui-body ui-corner-all'>").append(html2,html3,html4,html5);
+		sticksDiv.append(html);
+	}
+	
+
+
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	function intialize() {
 		busyInd.show();
@@ -339,5 +392,8 @@ $(function() {
 			deleteSticks();
 		}
 	});
+
+
+	
 
 });
