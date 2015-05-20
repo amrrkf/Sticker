@@ -56,10 +56,10 @@ function displaySticks(sticks) {
 		var html4=$("<div align='center'>").append("<img class='stickImg' src="+stickImage+">");
 		var html5=$("<p align='center' class='stickDsc'>"+sticks[i].stickInfo+"</p>");
 		
-		var html611=$("<li class='ui-block-a'>").append("<a class='ui-btn ui-content  ui-icon-action ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
-		var html612=$("<li class='ui-block-b'>").append("<a href='editStick.html?stickId="+Id+"' class='ui-btn ui-content  ui-icon-edit ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
-		var html613=$("<li class='ui-block-c'>").append("<a id=delete-"+Id+" class='stickDelete ui-btn ui-content  ui-icon-delete ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
-		var html61=$("<ul class='ui-grid-b'>").append(html611,html612,html613);
+		
+		var html611=$("<li class='ui-block-a'>").append("<a href='editStick.html?stickId="+Id+"' class='ui-btn ui-content  ui-icon-edit ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
+		var html612=$("<li class='ui-block-b'>").append("<a id=delete-"+Id+" class='stickDelete ui-btn ui-content  ui-icon-delete ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
+		var html61=$("<ul class='ui-grid-b'>").append(html611,html612);
 		var html6=$("<div data-role='navbar' class='ui-content nav ui-navbar' role='navigation'>").append(html61);
 
 		var html=$("<div id=stick-"+Id+" class='stick ui-body ui-corner-all'>").append(html1,html2,html3,html4,html5,html6);
@@ -327,7 +327,7 @@ function displayDialog(sticks){
 
 	function intialize() {
 		busyInd.show();
-		//getPic();
+		getPic();
 		setTimeout(function(){
 		userId= user;
 		$('#stickList').html("");
@@ -363,11 +363,6 @@ $(function() {
              {text: "No", handler: function() {}}
              ]
     );
-	}
-
-
-	function share(stickId) {
-		//share stick specified by stickId
 	}
 
 	JSONfind();
