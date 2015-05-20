@@ -5,17 +5,19 @@ $(function() {
 var userId;
 var href="#";
 
+	
 	WL.App.overrideBackButton(backFunc);
 	function backFunc(){
 		 WL.SimpleDialog.show(
             "Quit application", 
             "Are you sure?", 
             [
-             {text: "Yes", handler: function() {WL.App.close();}},
-             {text: "No", handler: function() {}}
+             {text: "No", handler: function() {}},
+             {text: "Yes", handler: function() {WL.App.close();}}
              ]
     );
 	}
+
 
 
 $("#homeLogin").click(function(){

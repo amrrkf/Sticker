@@ -69,7 +69,14 @@ function displaySticks(sticks) {
 	$('.stickDelete').click(function() {
 		stickId=parseInt($(this).attr("id").split('-')[1]);
 		//delete selected sticks or albums
-		getusaStick(stickId);
+		WL.SimpleDialog.show(
+            "Delete Stick", 
+            "Are you sure?", 
+            [
+             {text: "No", handler: function() {}},
+             {text: "Yes", handler: function() {getusaStick(stickId);}}
+             ]);
+		
 	});
 
 
@@ -133,7 +140,14 @@ function displayAlbums(albums) {
 	$('.albumDelete').click(function() {
 		var albumId=parseInt($(this).attr("id").split('-')[1]);
 		//delete selected sticks or albums
-		deleteAlbum(albumId);
+		WL.SimpleDialog.show(
+            "Delete Album", 
+            "Are you sure?", 
+            [
+             {text: "No", handler: function() {}},
+             {text: "Yes", handler: function() {deleteAlbum(albumId);}}
+             ]);
+		
 	});
 
 	$('.albumOpen').click(function() {
@@ -359,8 +373,8 @@ $(function() {
             "Quit application", 
             "Are you sure?", 
             [
-             {text: "Yes", handler: function() {WL.App.close();}},
-             {text: "No", handler: function() {}}
+             {text: "No", handler: function() {}},
+             {text: "Yes", handler: function() {WL.App.close();}}
              ]
     );
 	}
@@ -389,9 +403,28 @@ $(function() {
 	$('#delYes').click(function() {
 		$("#homePopup2").popup("close");
 		if (optValueSelected == "alb") {
-			deleteAlbums();
+
+			WL.SimpleDialog.show(
+            "Delete Albums", 
+            "Are you sure?", 
+            [
+             {text: "No", handler: function() {}},
+             {text: "Yes", handler: function() {deleteAlbums();}}
+             ]);
+
+			
 		} else {
-			deleteSticks();
+
+
+			WL.SimpleDialog.show(
+            "Delete Sticks", 
+            "Are you sure?", 
+            [
+             {text: "No", handler: function() {}},
+             {text: "Yes", handler: function() {deleteSticks();}}
+             ]);
+
+
 		}
 	});
 
