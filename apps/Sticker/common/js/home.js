@@ -281,7 +281,7 @@ function getusaStickFailure(response){
 		}
 				if(x==0){
 					//alert("No selected albums");
-					WL.Toast.show.("No selected albums");
+					WL.Toast.show("No selected albums");
 				}
 
 

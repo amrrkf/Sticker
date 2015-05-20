@@ -33,7 +33,7 @@ function capturePhoto() {
 	navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
 		quality : 100,
 		allowEdit : true,
-		destinationType : destinationType.FILE_URL,
+		destinationType : destinationType.FILE_URI,
 		correctOrientation:true
 	});
 }
@@ -45,7 +45,8 @@ function getPhoto(source) {
 	// Retrieve image file location from specified source
 	navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
 		quality : 100,
-		destinationType : destinationType.FILE_URL,
+		allowEdit : false,
+		destinationType : destinationType.FILE_URI,
 		sourceType : source,
 		correctOrientation:true
 	});

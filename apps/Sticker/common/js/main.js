@@ -42,11 +42,12 @@ $(function(){
 	            "Logout", 
 	            "Are you sure?", 
 	            [
+	             {text: "No", handler: function() {}},
 	             {text: "Yes", handler: function() {		
 	             JSONremove();	
 				$(".logoutClass").attr("href","login.html");
-				$(".logoutClass").click();}},
-	             {text: "No", handler: function() {}}
+				$(".logoutClass").click();}}
+	  
 	             ]
 	    		);
 	});

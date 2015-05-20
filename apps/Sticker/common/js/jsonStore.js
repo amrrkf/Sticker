@@ -79,8 +79,6 @@ function JSONadd (value) {
 			.then(function () {
 				//alert('Data added to the collection');
 				$.mobile.changePage("../home.html");
-
-
 			})
 
 			.fail(function (errorObject) {
