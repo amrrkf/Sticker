@@ -120,7 +120,7 @@ function displayAlbums(albums) {
 		var html1=$("<div class='right-checkbox'>").append("<input type='checkbox' name='checkbox-h-2a' class='albumCheckBox' id=checkbox-"+Id+">");
 		var html2=$("<div class=stickTitle>"+albums[i].albumTitle+"</div>");
 		var html3=$("<p align='left' class='stickDsc'>"+albums[i].albumInfo+"</p>");
-		var html411=$("<li class='ui-block-a'>").append("<a href='#albumDialog' data-rel='popup' id=preview-"+Id+" class='albumOpen ui-btn ui-content  ui-icon-eye ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
+		var html411=$("<li class='ui-block-a'>").append("<a href='dialog.html' data-rel='dialog' id=preview-"+Id+" class='albumOpen ui-btn ui-content  ui-icon-eye ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
 		var html412=$("<li class='ui-block-b'>").append("<a href='editAlbum.html?albumId="+Id+"' class='ui-btn ui-content  ui-icon-edit ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
 		var html413=$("<li class='ui-block-c'>").append("<a id=delete-"+Id+" class='albumDelete ui-btn ui-content  ui-icon-delete ui-shadow ui-btn-icon-notext ui-btn-corner-all'></a>");
 		var html41=$("<ul class='ui-grid-b'>").append(html411,html412,html413);
@@ -136,11 +136,16 @@ function displayAlbums(albums) {
 		deleteAlbum(albumId);
 	});
 
-	$('.albumOpen').click(function(){
-		var dialogId=parseInt($(this).attr("id").split('-')[1]);
-		getUserAlbumSticks(userId,dialogId);
+	$('.albumOpen').click(function() {
+		var albumId=parseInt($(this).attr("id").split('-')[1]);
+		getUserAlbumSticks(userId,albumId);
 
-	});
+		
+	});	
+		
+		
+
+	
 
 
 }
@@ -316,11 +321,13 @@ function displayDialog(sticks){
 
 
 }
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	function intialize() {
 		busyInd.show();
-		getPic();
+		//getPic();
 		setTimeout(function(){
 		userId= user;
 		$('#stickList').html("");
