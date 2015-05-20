@@ -29,19 +29,19 @@ $(".albumSubmit").click(function(){
 		albumTitle=$("#albumName").val();
 		albumInfo=$("#albumNotes").val();
 		if(albumTitle==""){
-			alert("Ablum's name cant be empty u should fill it");
-			//WL.Toast.show("Ablum's name cant be empty u should fill it");
+			//alert("Ablum name can't be empty, you should fill it");
+			WL.Toast.show("Ablum name can't be empty, please fill it");
 			return false;
 		}
 		else if(albumInfo==""){
-			alert("Ablum's notes cant be empty u should fill it");
-			//WL.Toast.show("Ablum's notes cant be empty u should fill it");
+			//alert("Ablum notes can't be empty, you should fill it");
+			WL.Toast.show("Ablum notes can't be empty, please fill it");
 			return false;
 		}
 		else if($(".albumCheck:checked").length==0)
 		{
-			alert("please check at least one stick");
-			//WL.Toast.show("please check at least one stick");
+			//alert("please check at least one stick");
+			WL.Toast.show("please check at least one stick");
 			return false;
 
 		}

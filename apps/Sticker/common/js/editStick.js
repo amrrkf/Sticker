@@ -33,12 +33,12 @@ function getStick(userId, stickId){
 		$("#editStickStatus").val(stickInfo);
 		$('#editStickLocation').text('Location: '+ stickLocation);
 	    $('#editStickTime').text('Time: '+ stickTime);
-		alert("success get stick");
+		//alert("success get stick");
 		//WL.Toast.show("success get stick");
 	}
 
 	function getStickFailure(){
-		alert("error get stick");
+		//alert("error get stick");
 		//WL.Toast.show("error get stick");
 	}	
 
@@ -84,14 +84,14 @@ WL.App.resetBackButton();
 		if(tempSrc!==''){
 			savePic(tempSrc);
 		}
-		alert("success Update stick");
-		//WL.Toast.show("success add stick");
+		//alert("success Update stick");
+		WL.Toast.show("Stick successfully updated");
 	}
 
 	function updateStickFailure(response){
 		href="editStick.html?stickId="+String(stickId);
 		$("#saveStick").click();
-		alert("error Update stick");
+		//alert("error Update stick");
 		//WL.Toast.show("error add stick");
 	}	
 
@@ -130,8 +130,8 @@ WL.App.resetBackButton();
 
 		if(sName==''|| sStatus=='')	// check for empty values
 			{
-				alert('please fill the form');
-				//WL.Toast.show("please fill the form");
+				//alert('please fill the form');
+				WL.Toast.show("please fill the form");
 				return false;
 			}
 		else{

@@ -33,7 +33,7 @@ var user=null;
 
 		.then(function () {
 			
-			alert("Collection initialized");
+			//alert("Collection initialized");
 			if(op=='find')
 				JSONfind();
 			else if(op=='add')
@@ -41,7 +41,7 @@ var user=null;
 		})
 
 		.fail(function (errorObject) {
-			alert(errorObject.msg);
+			//alert(errorObject.msg);
 		});
 	}
 
@@ -52,11 +52,11 @@ function JSONclose () {
 		WL.JSONStore.closeAll()
 
 		.then(function () {
-			alert('JSONStore closed');
+			//alert('JSONStore closed');
 		})
 
 		.fail(function (errorObject) {
-			alert(errorObject.msg);
+			//alert(errorObject.msg);
 		});
 	}
 
@@ -77,18 +77,18 @@ function JSONadd (value) {
 			//Call add on the JSONStore collection
 			WL.JSONStore.get(collectionName).add(data)
 			.then(function () {
-				alert('Data added to the collection');
+				//alert('Data added to the collection');
 				$.mobile.changePage("../home.html");
 
 
 			})
 
 			.fail(function (errorObject) {
-				alert(errorObject.msg);
+				//alert(errorObject.msg);
 			});
 
 			} catch (e) {
-			alert('PERSISTENT_STORE_NOT_OPEN');
+			//alert('PERSISTENT_STORE_NOT_OPEN');
 		}
 		
 
@@ -128,13 +128,13 @@ function JSONfind () {
 			})
 
 			.fail(function (errorObject) {
-				alert(errorObject.msg);
+				//alert(errorObject.msg);
 
 			});
 
 
 		} catch (e) {
-			alert('PERSISTENT_STORE_NOT_OPEN');
+			//alert('PERSISTENT_STORE_NOT_OPEN');
 		}
 
 	}
@@ -161,15 +161,15 @@ function JSONfind () {
 			WL.JSONStore.get(collectionName).replace(doc)
 
 			.then(function () {
-				alert('Documents replaced');
+				//alert('Documents replaced');
 			})
 
 			.fail(function (errorObject) {
-				alert(errorObject.msg);
+				//alert(errorObject.msg);
 			});
 
 		} catch (e) {
-			alert('PERSISTENT_STORE_NOT_OPEN');
+			//alert('PERSISTENT_STORE_NOT_OPEN');
 		}
 	}
 
@@ -182,15 +182,15 @@ function JSONfind () {
 	WL.JSONStore.get(collectionName).removeCollection()
 
 			.then(function () {
-				alert('Removed all data in the collection');
+				//alert('Removed all data in the collection');
 			})
 
 			.fail(function (errorObject) {
-				alert(errorObject.msg);
+				//alert(errorObject.msg);
 			});
 
 		} catch (e) {
-			alert('PERSISTENT_STORE_NOT_OPEN');
+			//alert('PERSISTENT_STORE_NOT_OPEN');
 		}
 	}
 //////////////////////////////////////////////// JSONdestroy ////////////////////////////////////////////////////
@@ -200,10 +200,10 @@ function JSONdestroy () {
 		WL.JSONStore.destroy()
 
 		.then(function () {
-			alert('Destroy finished succesfully');
+			//alert('Destroy finished succesfully');
 		})
 
 		.fail(function (errorObject) {
-			alert(errorObject.msg);
+			//alert(errorObject.msg);
 		});
 	}

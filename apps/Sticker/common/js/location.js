@@ -44,7 +44,8 @@ function locationName(latitude, longitude)
           else
             {
          //document.getElementById("location").innerHTML="Geocoder failed due to: " + status;
-            alert("Geocoder failed due to: " + status);
+            //alert("Geocoder failed due to: " + status);
+            $('#stickLocation').text('Location: Unknown');
                 }
             });
 
@@ -65,7 +66,8 @@ function locationName(latitude, longitude)
 // onError Callback receives a PositionError object
 //
 function onError(error) {
-    alert('code: '    + error.code    + '\n' +
-            'message: ' + error.message + '\n');
+    $('#stickLocation').text('Location: Unknown');
+    //alert('code: '    + error.code    + '\n' +
+            //'message: ' + error.message + '\n');
 }
 

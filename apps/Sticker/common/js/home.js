@@ -23,8 +23,8 @@ function getUserSticksSuccess(result){
 		var resultLength=result.invocationResult.resultSet.length;	
 		if(resultLength==0)
 		{
-		alert("No sticks found, create a new stick");
-		//WL.Toast.show("No sticks found, create a new stick");
+		//alert("No sticks found, create a new stick");
+		WL.Toast.show("No sticks found, create a new stick");
 		}
 		else 
 			displaySticks(result.invocationResult.resultSet);	
@@ -33,9 +33,9 @@ function getUserSticksSuccess(result){
 	}
 
 function getUserSticksFailure(result){
-		alert("Error loading sticks");
+		//alert("Error loading sticks");
 		busyInd.hide();
-		//WL.Toast.show("Error loading sticks");	
+		WL.Toast.show("Error loading sticks");	
 	}	
 
 //////////////////////////////////////////////////////// displaySticks /////////////////////////////////////////////////////////////
@@ -102,8 +102,8 @@ function getUserAlbumsSuccess(result){
 		var resultLength=result.invocationResult.resultSet.length;	
 		if(resultLength==0)
 		{
-		alert("No albums found, create a new album");
-		//WL.Toast.show("No albums found, create a new album");
+		//alert("No albums found, create a new album");
+		WL.Toast.show("No albums found, create a new album");
 		}
 		else 
 			displayAlbums(result.invocationResult.resultSet);	
@@ -111,9 +111,9 @@ function getUserAlbumsSuccess(result){
 	}
 
 function getUserAlbumsFailure(result){
-		alert("Error loading albums");
+		//alert("Error loading albums");
 		busyInd.hide();
-		//WL.Toast.show("Error loading albums");	
+		WL.Toast.show("Error loading albums");	
 	}	
 
 //////////////////////////////////////////////////////// displayAlbums /////////////////////////////////////////////////////////////
@@ -181,13 +181,13 @@ function deleteStick(stickId){
 
 
 function deleteStickSuccess(){
-		alert("Stick successfully deleted");
-		//WL.Toast.show("Stick successfully deleted");
+		//alert("Stick successfully deleted");
+		WL.Toast.show("Stick successfully deleted");
 		JSONfind();
 		}
 
 function deleteStickFailure(response){
-		alert("Error deleting stick");
+		//alert("Error deleting stick");
 		//WL.Toast.show("Error deleting stick");	
 	}	
 
@@ -207,13 +207,13 @@ function deleteAlbum(albumId){
 
 
 function deleteAlbumSuccess(){
-		alert("Album successfully deleted");
-		//WL.Toast.show("Album successfully deleted");
+		//alert("Album successfully deleted");
+		WL.Toast.show("Album successfully deleted");
 		JSONfind();
 		}
 
 function deleteAlbumFailure(response){
-		alert("Error deleting album");
+		//alert("Error deleting album");
 		//WL.Toast.show("Error deleting album");	
 	}	
 
@@ -239,13 +239,13 @@ function getusaStickSuccess(result){
 		}
 		else
 		{
-		alert("Stick can't be deleted, It exists in one or more albums");
-		//WL.Toast.show("Stick can't be deleted, It exists in one or more albums");		
+		//alert("Stick can't be deleted, It exists in one or more albums");
+		WL.Toast.show("Stick can't be deleted, It exists in one or more albums");		
 		}
 		}
 
 function getusaStickFailure(response){
-		alert("Error getting stickId");
+		//alert("Error getting stickId");
 		//WL.Toast.show("Error getting stickId");	
 	}	
 /////////////////////////////////////////////////////////////// multiple delete ////////////////////////////////////////////////////////
@@ -262,8 +262,8 @@ function getusaStickFailure(response){
 		}
 		if(x==0)
 		{
-			alert("No selected sticks");
-			//WL.Toast.show("No selected sticks");
+			//alert("No selected sticks");
+			WL.Toast.show("No selected sticks");
 		}
 
 	}
@@ -280,8 +280,8 @@ function getusaStickFailure(response){
 			}
 		}
 				if(x==0){
-					alert("No selected albums");
-					//WL.Toast.show.("No selected albums");
+					//alert("No selected albums");
+					WL.Toast.show.("No selected albums");
 				}
 
 
@@ -302,14 +302,14 @@ function getUserAlbumSticks(userId,albumId){
 		});
 	}
 	function getUserAlbumSticksSuccess(result){
-		alert("getUserAlbumSticks: Success!")
+		//alert("getUserAlbumSticks: Success!")
 		displayDialog(result.invocationResult.resultSet);	
 
 		
 	}
 
 	function getUserAlbumSticksFailure(result){
-		alert("getUserAlbumSticks: Failure!")		
+		//alert("getUserAlbumSticks: Failure!")		
 	}	
 
 function displayDialog(sticks){

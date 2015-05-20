@@ -54,7 +54,7 @@ function getPhoto(source) {
 // Called if something bad happens.
 // 
 function onFail(message) {
-	alert('Failed because: ' + message);
+	//alert('Failed because: ' + message);
 	//WL.Toast.show('Failed because: ' + message);
 }
 
@@ -85,11 +85,11 @@ function resolveOnSuccess(entry) {
 //Callback function when the file has been moved successfully - inserting the complete path
 function successMove(entry) {
 	//I do my insert with "entry.fullPath" as for the path
-	alert("picture saved successfully");
+	//alert("picture saved successfully");
 }
 
 function resOnError(error) {
-	alert(error.code);
+	//alert(error.code);
 	//WL.Toast.show(error.code);
 
 }
@@ -110,7 +110,7 @@ window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSys) {
 }
 
 function getPicError(error) {
-	alert(error.code);
+	//alert(error.code);
 	//WL.Toast.show(error.code);
 
 }

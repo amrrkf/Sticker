@@ -66,8 +66,8 @@ $("#confirmSignup").click(function() {
 	}
 
 	function signupFailure(result){
-		alert('existing mail');
-		//WL.Toast.show('existing mail');
+		//alert('existing mail');
+		WL.Toast.show('Existing mail');
 		href="signup.html";
 		$("#confirmSignup").click();
 	}
@@ -83,26 +83,26 @@ $("#confirmSignup").click(function() {
 		
 		if(email==''|| password=='' || confirmPassword=='')	// check for empty values
 			{
-				alert('please fill the form');
-				//WL.Toast.show('please fill the form');
+				//alert('please fill the form');
+				WL.Toast.show('please fill the form');
 				return false;
 			}
 		else if(!validateEmail(email))						// check validation format for mail
 			{
-				alert('invalid mail');
-				//WL.Toast.show('invalid mail');
+				//alert('invalid mail');
+				WL.Toast.show('invalid mail');
 				return false;
 			}
 		else if (password.length<7)							// check minimum length of password
 			{
-				alert('password minimum length length is 7');
-				//WL.Toast.show('password minimum length length is 7');
+				//alert('password minimum length length is 7');
+				WL.Toast.show('password minimum length length is 7');
 				return false;
 			}
 		else if (password!==confirmPassword)				// check password=confirm password
 			{
-				alert('password & confirmPassword don\'t match');
-				//WL.Toast.show('password & confirmPassword don\'t match');
+				//alert('password & confirmPassword don\'t match');
+				WL.Toast.show('password & confirmPassword don\'t match');
 				return false;
 			}
 		else

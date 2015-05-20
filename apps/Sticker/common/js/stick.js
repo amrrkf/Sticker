@@ -51,14 +51,14 @@ $(function(){
 		if(tempSrc!==''){
 			savePic(tempSrc);
 		}
-		alert("success add stick");
-		//WL.Toast.show("success add stick");
+		//alert("success add stick");
+		WL.Toast.show("Stick successfully added");
 	}
 
 	function addStickFailure(response){
 		href="stick.html";
 		$("#stickDone").click();
-		alert("error add stick");
+		//alert("error add stick");
 		//WL.Toast.show("error add stick");
 	}	
 
@@ -98,8 +98,8 @@ $(function(){
 
 		if(sName==''|| sStatus=='')	// check for empty values
 			{
-				alert('please fill the form');
-				//WL.Toast.show("please fill the form");
+				//alert('please fill the form');
+				WL.Toast.show("please fill the form");
 				return false;
 			}
 		else{

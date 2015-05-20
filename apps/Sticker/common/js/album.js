@@ -21,8 +21,8 @@ function getUserSticksSuccess(result){
 		var resultLength=result.invocationResult.resultSet.length;	
 		if(resultLength==0)
 		{
-		alert("No sticks found, album can't be created");
-		//WL.Toast.show("No sticks found, album can't be created");
+		//alert("No sticks found, album can't be created");
+		WL.Toast.show("No sticks found, album can't be created");
 		href="home.html";
 		$(".albumSubmit").click();	
 		}
@@ -31,8 +31,8 @@ function getUserSticksSuccess(result){
 	}
 
 function getUserSticksFailure(result){
-		alert("Error loading sticks");
-		//WL.Toast.show("Error loading sticks");
+		//alert("Error loading sticks");
+		WL.Toast.show("Error loading sticks");
 		href="home.html";
 		$(".albumSubmit").click();
 	
@@ -72,8 +72,8 @@ function addAlbumSuccess(result){
 	}
 
 function addAlbumFailure(result){
-		alert("Failed to add album");
-		//WL.Toast.show("Failed to add album");
+		//alert("Failed to add album");
+		WL.Toast.show("Failed to add album");
 	}	
 	
 ////////////////////////////////////////////////////////////// addStickstoAlbum ///////////////////////////////////////////////////////
@@ -123,14 +123,14 @@ function getUserAlbumSticks(userId,albumId){
 		});
 	}
 	function getUserAlbumSticksSuccess(result){
-		alert("getUserAlbumSticks: Success!")
+		//alert("getUserAlbumSticks: Success!")
 		checking(result.invocationResult.resultSet);	
-		//	writeCache(userId);
+
 		
 	}
 
 	function getUserAlbumSticksFailure(result){
-		alert("getUserAlbumSticks: Failure!")		
+		//alert("getUserAlbumSticks: Failure!")		
 	}	
 function checking(checkedSticks){
 	for(var j=0;j<checkedSticks.length;j++){
@@ -153,14 +153,15 @@ function updateAlbum(albumTitle, albumInfo) {
 		});
 	}
 	function updateAlbumSuccess(result){
-		alert("updateAlbum: Success!")
+		//alert("updateAlbum: Success!")
+		WL.Toast.show("Album updated successfully");
 		deleteSticksFromAlbum(userId,albumId);
 		addSticksToAlbum(albumId);
 		
 	}
 
 	function updateAlbumFailure(result){
-		alert("updateAlbum: Failure!")	
+		//alert("updateAlbum: Failure!")	
 		href="editAlbum.html?albumId="+String(albumId);
 		$(".albumSubmit").click();
 			
@@ -181,11 +182,11 @@ function deleteSticksFromAlbum(userId,albumId){
 }
 
 	function deleteUSASuccess(result){
-		alert("deleteUSA: Success!")
+		//alert("deleteUSA: Success!")
 			}
 
 	function deleteUSAFailure(result){
-		alert("deleteUSA: Failure!")	
+		//alert("deleteUSA: Failure!")	
 				
 	}	
 
@@ -203,14 +204,14 @@ var invocationData = {
 		});
 	}
 	function getAlbumSuccess(result){
-		alert("getUserAlbum: Success!")
+		//alert("getUserAlbum: Success!")
 		$("#editAlbumName").val(result.invocationResult.resultSet[0].albumTitle);
 		$("#editAlbumNotes").val(result.invocationResult.resultSet[0].albumInfo);
 		getUserAlbumSticks(userId,albumId);
 	}
 
 	function getAlbumFailure(result){
-		alert("getUserAlbum: Failure!")	
+		//alert("getUserAlbum: Failure!")	
 		href="editAlbum.html?albumId="+String(albumId);
 		$(".albumSubmit").click();
 			
@@ -231,12 +232,13 @@ var invocationData = {
 	}
 	function getLastAlbumIdSuccess(result){
 		albumId=result.invocationResult.resultSet[0].albumId;
-		alert("getLastAlbumId: Success!");
+		//alert("getLastAlbumId: Success!");
+		WL.Toast.show("Album added successfully");
 		addSticksToAlbum(albumId);
 	}
 
 	function getLastAlbumIdFailure(result){
-		alert("getLastAlbumId: Failure!")	
+		//alert("getLastAlbumId: Failure!")	
 				
 	}	
 

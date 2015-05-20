@@ -54,8 +54,8 @@ $("#homeLogin").click(function(){
 		  }
 		 }).done(function(response) {
 		   //alert(JSON.stringify(response)); // if you're into that sorta thing
-		   alert("your password will be sent within 5 minutes to "+email);
-		   //WL.Toast.show(""your password will be sent within 5 minutes to "+email);
+		   //alert("your password will be sent within 5 minutes to "+email);
+		   WL.Toast.show("your password will be sent within 5 minutes to "+email);
 		 });
     
 	}
@@ -78,8 +78,8 @@ $("#homeLogin").click(function(){
 	function forgotPasswordSuccess(result){
 		var resultLength=result.invocationResult.resultSet.length;
 		if(resultLength===0){
-			alert('invalid email');
-			//WL.Toast.show('invalid email');
+			//alert('invalid email');
+			WL.Toast.show('invalid email');
 		}
 		else{
 			email=result.invocationResult.resultSet[0].email;
@@ -90,8 +90,8 @@ $("#homeLogin").click(function(){
 	}
 
 	function forgotPasswordFailure(result){
-		alert('invalid email');
-		//WL.Toast.show('invalid email');
+		//alert('invalid email');
+		WL.Toast.show('invalid email');
 	}
 
 //////////////////////////////////////////////////////////// login function ////////////////////////////////////////////////////////////
@@ -111,8 +111,8 @@ $("#homeLogin").click(function(){
 	function loginSuccess(result){
 		var resultLength=result.invocationResult.resultSet.length;
 		if(resultLength===0){
-			alert('invalid email or password');
-			//WL.Toast.show('invalid email or password');
+			//alert('invalid email or password');
+			WL.Toast.show('invalid email or password');
 			href="login.html";
 			$("#homeLogin").click();
 		}
@@ -127,8 +127,8 @@ $("#homeLogin").click(function(){
 	}
 
 	function loginFailure(result){
-		alert('invalid email or password');
-		//WL.Toast.show('invalid email or password');
+		//alert('invalid email or password');
+		WL.Toast.show('invalid email or password');
 		href="login.html";
 		$("#homeLogin").click();
 	}
@@ -141,15 +141,15 @@ $("#homeLogin").click(function(){
 		var password=$('#passwordLogin').val();
 		if(email==''|| password=='')	// check for empty values
 			{
-				alert('please fill the form');
-				//WL.Toast.show('please fill the form');
+				//alert('please fill the form');
+				WL.Toast.show('please fill the form');
 				return false;
 
 			}
 		else if(!validateEmail(email))						// check validation format for mail
 			{
-				alert('invalid mail');
-				//WL.Toast.show('invalid mail');
+				//alert('invalid mail');
+				WL.Toast.show('invalid mail');
 				return false;
 			}
 		else 
@@ -161,14 +161,14 @@ $("#homeLogin").click(function(){
 		var email=$('#retriveEmailLogin').val();
 		if(email=='')	// check for empty values
 			{
-				alert('please enter your mail');
-				//WL.Toast.show('please enter your mail');
+				//alert('please enter your mail');
+				WL.Toast.show('please enter your mail');
 				return false;
 			}
 		else if(!validateEmail(email))						// check validation format for mail
 			{
-				alert('invalid mail');
-				//WL.Toast.show('invalid mail');
+				//alert('invalid mail');
+				WL.Toast.show('invalid mail');
 				return false;
 			}
 		else {
