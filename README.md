@@ -13,17 +13,17 @@ Collect different sticks in an album.
 * Retrieve sticks from Database.
 
 ## Appliction screenshots
-* Register
+###Register
 ![register] (https://github.com/amrragab/Sticker/blob/master/screenshots/register.png)
-* uploading image
+###uploading image
 ![upload] (https://github.com/amrragab/Sticker/blob/master/screenshots/uploadpicture.png)
-* Stick edit
+###Stick edit
 ![edit] (https://github.com/amrragab/Sticker/blob/master/screenshots/editStick.png)
-* Delete stick
+###Delete stick
 ![delee] (https://github.com/amrragab/Sticker/blob/master/screenshots/deleteStick.png)
-* Albums view
+###Albums view
 ![album] (https://github.com/amrragab/Sticker/blob/master/screenshots/stickview%20(2).png)
-* Sticks home
+###Sticks home
 ![stick] (https://github.com/amrragab/Sticker/blob/master/screenshots/Stickview.png)
-* Change theme
+###Change theme
 ![theme] (https://github.com/amrragab/Sticker/blob/master/screenshots/changeTheme.png)
